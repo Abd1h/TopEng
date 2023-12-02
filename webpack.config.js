@@ -26,7 +26,7 @@ module.exports = {
       directory: path.resolve(__dirname, 'dist'),
     },
     //to reload on html files
-    watchFiles: ['src/*.html'],
+    watchFiles: ['src/pages/*.html'],
     hot: true,
     port: 3000,
     open: true, //open the browser
@@ -62,7 +62,22 @@ module.exports = {
       filename: 'index.html',
       // template html file outside dist folder
       //without this fill our html will be cleared everytime we build
-      template: 'index.html',
+      template: 'src/pages/home.html',
+    }),
+      new HtmlWebpackPlugin({
+      title: 'TopEng/portfolio',
+      filename: 'portfolio.html',
+      template: 'src/pages/portfolio.html',
+    }),
+      new HtmlWebpackPlugin({
+      title: 'TopEng/search',
+      filename: 'search.html',
+      template: 'src/pages/search.html',
+    }),
+      new HtmlWebpackPlugin({
+      title: 'TopEng/sign',
+      filename: 'sign.html',
+      template: 'src/pages/sign.html',
     }),
   ],
 };
