@@ -1,0 +1,11 @@
+
+@import url("../base/global.css") ;
+.header__logo {
+    font-weight: 900;
+    font-style: italic;
+}
+.icon__list {
+fill:var(--c-main);
+height:32px;
+width:32px;
+        }
