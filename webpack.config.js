@@ -59,7 +59,8 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: "html-loader",
-      }
+      },
+      
       ,]
   },
   plugins: [
@@ -84,7 +85,7 @@ module.exports = {
     }),
       new HtmlWebpackPlugin({
       title: 'TopEng/sign',
-      filename: 'sign.html',
+      filename: 'Create Portfolio.html',
       template: 'frontend/src/pages/Create Portfolio.html',
     }),
   ],
