@@ -48,11 +48,19 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+      
+       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/[name][ext]",
+        },
       },
-    ],
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      }
+      ,]
   },
   plugins: [
     // html plugin so its create its own dist folder
@@ -77,7 +85,7 @@ module.exports = {
       new HtmlWebpackPlugin({
       title: 'TopEng/sign',
       filename: 'sign.html',
-      template: 'frontend/src/pages/sign.html',
+      template: 'frontend/src/pages/Create Portfolio.html',
     }),
   ],
 };
