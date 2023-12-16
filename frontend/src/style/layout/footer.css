@@ -1,0 +1,11 @@
+@import url("../base/global.css") ;
+footer {
+    background-color: var(--clr-base-dk); 
+    color: var(--clr-base-lt);
+}
+footer h2{
+    font-weight: var(--fw-semibold);
+}
+.footer__item{
+   
+}

@@ -1,0 +1,9 @@
+.sign__btn{
+ font-weight: 700;
+}
+.sign__btn--up{
+    color:var(--clr-base-lt);
+   background-color:var(--clr-primary);
+   padding:var(--spacing-s) var(--spacing-l) ;
+   border-radius: var(--border-r);
+}

@@ -48,18 +48,26 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource', 
-        generator:{
-        filename:"assets/[name][ext]",
-      }
+
+      
+       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/[name][ext]",
+        },
       },
-     {
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.html$/i,
         loader: "html-loader",
-      }
-    ],
+      },
+      
+      ,]
+
   },
   plugins: [
     // html plugin so its create its own dist folder
