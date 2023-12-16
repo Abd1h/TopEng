@@ -48,20 +48,6 @@ module.exports = {
           },
         },
       },
-<<<<<<< HEAD
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource', 
-        generator:{
-        filename:"assets/[name][ext]",
-      }
-      },
-     {
-        test: /\.html$/i,
-        loader: "html-loader",
-      }
-    ],
-=======
       
        {
         test: /\.(png|jpe?g|gif|svg)$/i,
@@ -80,7 +66,6 @@ module.exports = {
       },
       
       ,]
->>>>>>> f63fbcb13b3845ae122435c97dfbf093c0947d7d
   },
   plugins: [
     // html plugin so its create its own dist folder

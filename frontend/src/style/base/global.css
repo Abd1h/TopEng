@@ -1,34 +1,33 @@
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
 
 /* ============================================ 
-                  -global css
+                  global vars
 ============================================  */
 :root {
   /* base colors */
-  --clr-base: #4F596C;
-  --clr-base-dk: #232B37;
-  --clr-base-lt: #F4F9FC;
-  
+  --clr-base: #4f596c;
+  --clr-base-dk: #232b37;
+  --clr-base-lt: #f4f9fc;
+
   /* primary colors */
-  --clr-primary: #0980FA;
-  --clr-primary-lt: #DCECF4;
-  
+  --clr-primary: #0980fa;
+  --clr-primary-lt: #dcecf4;
+
   /* colors */
-  --clr-secondary: #FF9F3D;
-  --clr-third:#FFDD0C;
+  --clr-secondary: #ff9f3d;
+  --clr-third: #ffdd0c;
 
   /* font family */
-  --ff-base:'Inter', sans-serif;
+  --ff-base: 'Inter', sans-serif;
 
   /*  font sizes */
   --fs-300: 1rem;
   --fs-400: 1.3rem;
-  /* --fs-500: 1.8rem; */ 
+  /* --fs-500: 1.8rem; */
   --fs-600: 2.4rem;
   /* --fs-650: 2.8rem; */
   --fs-700: 3.1rem;
- 
+
   /* desktop screen */
   --fs-base: var(--fs-400);
   --fs-hero-heading: var(--fs-700);
@@ -41,7 +40,7 @@
   --fs-heading-mob: var(--fs-400);
   --fs-sub-title-mob: var(--fs-300);
   --fs-btn-mob: var(--fs-300);
- 
+
   /* font weight */
   --fw-normal: 400;
   --fw-semibold: 500;
@@ -49,20 +48,31 @@
   --fw-extraBold: 900;
 
   --screen-Max-Width: 1220px;
-                                     
-  --sections-padding: 1.2rem;
 
+  --sections-padding: 1.2rem;
 
   /* border raduse */
   --border-r: 0.3125rem;
- 
+
   --text-max-width: min(80%, 30em);
 
   /* --shadow */
-  --shadow:  0px 4px 9.9px 0px rgba(120, 129, 144, 0.15);
+  --shadow: 0px 4px 9.9px 0px rgba(120, 129, 144, 0.15);
   --shadow-lt: 0px 0px 13px -6px rgba(0, 0, 0, 0.51);
 
   /* transitions */
   --base-transition: all 280ms ease;
-
+}
+/* ============================================ 
+                  global classes
+============================================  */
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-normal);
+}
+.flex {
+  display: flex;
+}
+.hidden {
+  display: none;
 }
