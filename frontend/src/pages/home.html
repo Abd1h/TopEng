@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>text home page</h1>
     <a href="portfolio.html">portfolio</a>
     <a href="search.html">search.html</a>
@@ -13,40 +13,278 @@
 
     <!-- header > nav,logo,account -->
     <header id="home" class="header">
-        <!-- logo -->
-        <div class="header__logo"><a href="home">TopEng</a></div>
-        <!-- nav links -->
-        <nav class="header__nav">
-            <ul>
-                <li class="nav__item"><button class="nav__link">Explore</button>
-                    <!-- nav sub list -->
-                <ul class="nav__sublist nav__sublist--hidden">
-                    <li class="sublist__item"><a href="#" class="sublist__link">Computer Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Civil Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Software Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Environmental Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Chemical Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Mechanical Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Materials Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Electrical Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Structural Engineering</a></li>
-                </ul></li>
-                <li class="nav__item"><a href="portfolio.html" class="nav__link">Create Portfolio</a></li>
-                <li class="nav__item"><a href="search.html" class="nav__link">Hire Engineers</a></li>
+      <!-- logo -->
+      <div class="header__logo"><a href="home">TopEng</a></div>
+      <!-- nav links -->
+      <nav class="header__nav">
+        <ul>
+          <li class="nav__item">
+            <button class="nav__link">Explore</button>
+            <!-- nav sub list -->
+            <ul class="nav__sublist nav__sublist--hidden hidden">
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Computer Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Civil Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Software Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Environmental Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Chemical Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Mechanical Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Materials Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Electrical Engineering</a>
+              </li>
+              <li class="sublist__item">
+                <a href="#" class="sublist__link">Structural Engineering</a>
+              </li>
             </ul>
-        </nav>
+          </li>
+          <li class="nav__item">
+            <a href="portfolio.html" class="nav__link">Create Portfolio</a>
+          </li>
+          <li class="nav__item">
+            <a href="search.html" class="nav__link">Hire Engineers</a>
+          </li>
+        </ul>
+      </nav>
 
-        <div class="header__separator">|</div>
-        <div class="header__sign">
-            <button class="sign__btn sign__btn--in">Log in</button>
-            <button class=" sign__btn sign__btn--up">Sign up</button>
-        </div>
-        <!-- if loged in -->
-        <div class="header__account">O</div>
-    </header>
+      <div class="header__separator">|</div>
+      <div class="header__sign">
+        <button class="sign__btn sign__btn--in">Log in</button>
+        <button class="sign__btn sign__btn--up">Sign up</button>
+      </div>
+      <!-- if loged in -->
 
-<svg class="icon__list">
+      <div class="header__account">
+        <svg class="account__icon">
+          <use href="../assets/icons.svg#icon-file-person"></use>
+        </svg>
+      </div>
+
+      <main>
+        <!-- hero sectoin -->
+        <section class="hero">
+          <div class="hero__text">
+            <h1 class="hero__title">
+              We Help <br />
+              You Find the <br />
+              Perfect Engineer <br />for the Job
+            </h1>
+            <p class="hero__sub-title">
+              Our AI-driven system effortlessly matches you with the ideal engineer across diverse categories and
+              talents
+            </p>
+            <button class="hero_btn btn">Start Hiring</button>
+          </div>
+
+          <div class="hero__img">
+            <img src="../assets/hero-img.jpg" alt="image of team meeting" />
+          </div>
+        </section>
+
+        <!-- create portfolio section -->
+        <section class="for-engineers">
+          <div class="for-engineers__text">
+            <label class="for-engineers__label">FOR ENGINEERS</label>
+            <h2 class="for-engineers__title">Become a Standout in your Field!</h2>
+            <p class="for-engineers__sub-title">
+              Create your portfolio, tap into endless <br />
+              opportunities, and collaborate with a <br />
+              community of skilled engineers.
+            </p>
+          </div>
+
+          <div class="for-engineers__img-container">
+            <img src="../assets/for-engineers__img.jpg" alt="image of engineer at work" class="for-engineers__img" />
+          </div>
+        </section>
+
+        <!-- categories section -->
+        <section class="categories">
+          <h2 class="categories__title">Browse by Category</h2>
+          <div class="categories__container">
+            <!-- category item -->
+            <a href="#" class="category category--computer">
+              <h4 class="category__title">Computer Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">82</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--civil">
+              <h4 class="category__title">Civil Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">20</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--software">
+              <h4 class="category__title">Software Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">82</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--enviro">
+              <h4 class="category__title">Enviro Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">22</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--chemical">
+              <h4 class="category__title">Chemical Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">12</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--mechanical">
+              <h4 class="category__title">Mechanical Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">43</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--materials">
+              <h4 class="category__title">Materials Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">04</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--electrical">
+              <h4 class="category__title">Electrical Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">34</span>
+              </div>
+            </a>
+            <!-- category item -->
+            <a href="#" class="category category--structural">
+              <h4 class="category__title">Structural Engineering</h4>
+              <div class="category__count">
+                <svg class="category__icon">
+                  <use href="../assets/icons.svg#icon-people-fill"></use>
+                </svg>
+                <span class="count__number">72</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- why TopEng section -->
+        <section class="why-topeng">
+          <h2 class="why-topeng__title">Why use <span class="logo">TopEng</span></h2>
+
+          <div class="why-topeng__feature">
+            <svg class="feature__icon">
+              <use href="../assets/icons.svg#icon-currency-dollar"></use>
+            </svg>
+            <h3 class="feature__title">Free access for Everyone</h3>
+            <p class="feature__sub-title">
+              Explore opportunities, showcase your skills, and <br />connect without any subscription fees
+            </p>
+          </div>
+          <div class="why-topeng__feature">
+            <svg class="feature__icon">
+              <use href="../assets/icons.svg#icon-person-box"></use>
+            </svg>
+            <h3 class="feature__title">Portfolio Focused</h3>
+            <p class="feature__sub-title">
+              Unlike social media, we prioritize your work and <br />
+              professional achievements.
+            </p>
+          </div>
+          <div class="why-topeng__feature">
+            <svg class="feature__icon">
+              <use href="../assets/icons.svg#icon-search"></use>
+            </svg>
+            <h3 class="feature__title">Efficient Search</h3>
+            <p class="feature__sub-title">
+              Explore and connect with talented engineers through <br />our powerful search features
+            </p>
+          </div>
+        </section>
+      </main>
+      <!-- footer -->
+      <footer class="footer">
+        <!-- left side -->
+        <div class="footer__media">
+          <p class="media__email">
+            topengineers@gmail.com
+            <svg class="email__icon">
               <use href="../assets/icons.svg#icon-copy"></use>
             </svg>
-</body>
+          </p>
+
+          <div class="media__links">
+            <a href="#" class="media__link"
+              ><svg class="media__icon">
+                <use href="../assets/icons.svg#icon-twitterX"></use>
+              </svg>
+            </a>
+            <a href="#" class="media__link"
+              ><svg class="media__icon">
+                <use href="../assets/icons.svg#icon-facebook"></use>
+              </svg>
+            </a>
+            <a href="#" class="media__link"
+              ><svg class="media__icon">
+                <use href="../assets/icons.svg#icon-gitHub"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- right side -->
+        <div class="footer__resources">
+          <h3 class="resources__title">Resources</h3>
+          <ul class="resources__links">
+            <li><a href="#" class="resources__link">Home</a></li>
+            <li><a href="#" class="resources__link">Account</a></li>
+            <li><a href="#" class="resources__link">Create Portfolio</a></li>
+            <li><a href="#" class="resources__link">Hire Engineers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__line"></div>
+        <p class="footer__rights">Copyright <span>&copy;</span> 2024 by <a href="#">TopEng</a> All Rights Reserve</p>
+      </footer>
+    </header>
+  </body>
 </html>
