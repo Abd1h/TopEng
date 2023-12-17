@@ -1,0 +1,17 @@
+@import url('../base/global.css');
+
+/* hero section */
+.hero {
+  height: 100%;
+  margin-bottom: var(--sections-spacing);
+}
+.hero__title {
+  font-size: var(--fs-hero-heading);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-base-dk);
+  line-height: 1.1;
+  margin-bottom: var(--sections-padding);
+}
+.hero__img > img {
+  border-radius: var(--border-r);
+}

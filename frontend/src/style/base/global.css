@@ -45,7 +45,7 @@
   --screen-Max-Width: 1220px;
 
   --sections-padding: 1.2rem;
-
+  --sections-spacing: 4rem;
   /* border raduse */
   --border-r: 0.3125rem;
 
@@ -73,16 +73,17 @@
 /* ============================================ 
                   global css
 ============================================  */
-html {
+/* html {
   /* to make every 1rem = 10px */
-  /* 10px / 16px = 0.625 = 62.5% */
-  font-size: 62.5%;
-}
-@media (min-width: var(--phone-breakpoint)) {
+/* 10px / 16px = 0.625 = 62.5% */
+/* font-size: 62.5%;
+} */
+
+/* @media (min-width: var(--phone-breakpoint)) {
   html {
     font-size: 70%;
   }
-}
+} */
 
 body {
   /* typography */
@@ -110,7 +111,7 @@ svg {
 ============================================  */
 .container {
   width: Min(1220px, 100%);
-  padding-inline: 2rem;
+  padding-inline: 1rem;
   margin-inline: auto;
 }
 
@@ -133,6 +134,23 @@ svg {
   display: none;
 }
 
+.btn {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-btn);
+  color: var(--clr-base-lt);
+  background-color: var(--clr-primary);
+  border-radius: var(--border-r);
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.56em 0.9em;
+  margin: 1rem 0;
+  border: none;
+
+  transition: var(--base-transition);
+}
+.btn:hover {
+  transform: translateY(-1.5px);
+}
 /* ------------------------------------------- 
     ||JS|| classes that are manipulated by js
 -------------------------------------------  */
