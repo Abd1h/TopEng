@@ -45,7 +45,21 @@
   --screen-Max-Width: 1220px;
 
   --sections-padding: 1.2rem;
-  --sections-spacing: 4rem;
+
+/* 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/ 
+--spacing-s:8px;
+--spacing-m:12px;
+--spacing-l:16px;
+--spacing-l1:24px;
+--spacing-l2:32px;
+--spacing-l3:48px;
+--spacing-l4:64px;
+--spacing-l5:96px;
+--spacing-l6:128px;
+
+
+
   /* border raduse */
   --border-r: 0.3125rem;
 
@@ -61,6 +75,59 @@
   --phone-breakpoint: 50em;
   --tap-breakpoint: 70em;
 }
+
+
+/* global classes */
+.container{
+  padding: var(--sections-padding) ;
+  width:min(var(--screen-Max-Width),100%);
+  margin:0 auto;
+}
+
+@media (min-width: var(--phone-breakpoint)) {
+  :root {
+    --fs-base: var(--fs-400);
+    --fs-hero-heading: var(--fs-700);
+    --fs-heading: var(--fs-600);
+    --fs-sub-title: var(--fs-400);
+    --fs-btn: var(--fs-400);
+  }
+
+}
+/* ============================================ 
+                  global css
+============================================  */
+/* html {
+  to make every 1rem = 10px 
+   10px / 16px = 0.625 = 62.5% 
+  font-size: 62.5%;
+} */
+/* @media (min-width: var(--phone-breakpoint)) {
+  html {
+    font-size: 70%;
+
+} */
+
+
+/* global css */
+body{
+font-family:  'Inter', sans-serif;
+color:var(--clr-base-dk);
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  align-items:  baseline;
+}
+.clr-base{
+  background-color: var(--clr-base);
+
 @media (min-width: var(--phone-breakpoint)) {
   :root {
     --fs-base: var(--fs-400);
@@ -83,7 +150,7 @@
   html {
     font-size: 70%;
   }
-} */
+}
 
 body {
   /* typography */
@@ -182,3 +249,71 @@ svg {
   filter: blur(5px);
   opacity: 0;
 }
+}
+
+svg {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--clr-base);
+}
+
+/* ============================================ 
+                  global classes
+============================================  */
+.container {
+  width: Min(1220px, 100%);
+  padding-inline: 2rem;
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: 2rem;
+}
+.even-columns > * {
+  justify-self: center;
+}
+
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/* ------------------------------------------- 
+    ||JS|| classes that are manipulated by js
+-------------------------------------------  */
+
+/* button lines */
+.line-1 {
+  transform: translateY(100%) rotate(-45deg);
+}
+.line-3 {
+  transform: translateY(-100%) rotate(45deg);
+}
+.line-2 {
+  display: none;
+}
+
+.overlay-blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  backdrop-filter: blur(5px);
+}
+
+/* for sections with smooth reveal */
+.hid-section {
+  transform: translateY(50%);
+  filter: blur(5px);
+  opacity: 0;
+}
+

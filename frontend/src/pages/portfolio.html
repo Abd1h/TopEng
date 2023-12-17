@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../style/Index.css">
 </head>
 <body>
-  <header class="header section">  
+  <header class="header container">  
     <div class="flex-row">
       <div >
         <h1 class="header__logo">TopEng</h1>
@@ -22,20 +22,21 @@
                   <div class="flex-row"> <button class="nav__link">Explore</button>
                   <svg class="icon__chevron-down icon">
                     <use href="../assets/icons.svg#icon-chevron-down"><use>
-                  </svg>   </div>
-                 
+                  </svg> </div>
+                  <div class="nav__hover__item">
                     <!-- nav sub list -->
-                <ul class="nav__sublist  flex-col">
-                    <li class="sublist__item"><a href="#" class="sublist__link">Computer Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Civil Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Software Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Environmental Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Chemical Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Mechanical Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Materials Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Electrical Engineering</a></li>
-                    <li class="sublist__item"><a href="#" class="sublist__link">Structural Engineering</a></li>
-                </ul>
+                    <ul class="nav__sublist  flex-col">
+                        <li class="sublist__item"><a href="#" class="sublist__link">Computer Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Civil Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Software Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Environmental Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Chemical Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Mechanical Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Materials Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Electrical Engineering</a></li>
+                        <li class="sublist__item"><a href="#" class="sublist__link">Structural Engineering</a></li>
+                    </ul>
+                  </div>
               </li>
                 <li class="nav__item"><a href="portfolio.html" class="nav__link">Create Portfolio</a></li>
                 <li class="nav__item"><a href="search.html" class="nav__link">Hire Engineers</a></li>
@@ -115,27 +116,51 @@
      
   </section>
 </main>
-<footer class="clr-base">
-  <section class="section">
-    <div></div>
+<footer class="" >
+  <div class=" footer__layout container">
+    <div>
+      <h3>topengineers@gmail.com</h3>
+      <div class="footer__socials ">
+        <a class="footer__social" href=""> 
+          <svg class="footer__icon ">
+            <use href="../assets/icons.svg#icon-x"><use>
+              </svg>
+          </a>
+        <a class="footer__social" href=""> 
+          <svg class="footer__icon ">
+            <use href="../assets/icons.svg#icon-linkedin"><use>
+              </svg>
+          </a>
+        <a class="footer__social" href=""> 
+          <svg class="footer__icon ">
+            <use href="../assets/icons.svg#icon-github"><use>
+              </svg>
+          </a>
+      </div>
+    </div>
     <div class="flex-col">
-      <h2>Resources</h2>
+      <h4 class="footer__heading">Resources</h4>
       <ul class="footer__list   flex-col ">
         <li class="footer__item">
-          <a href="portfolio.html" class="footer__link">Home</a>
+          <a target="_blank" href="portfolio.html" class="footer__link">Home</a>
         </li>
         <li class="footer__item">
           <a href="portfolio.html" class="footer__link">FAQ</a>
         </li>
         <li class="footer__item">
-          <a href="portfolio.html" class="footer__link">Create Portfolio</a>
+          <a target="_blank" href="portfolio.html" class="footer__link">Create Portfolio</a>
         </li>
         <li class="footer__item">
-          <a href="search.html" class="footer__link">Hire Engineers</a>
+          <a target="_blank" href="search.html" class="footer__link">Hire Engineers</a>
         </li>      
       </ul>
     </div>
-  </section>
+   
+  </div>
+  <div class="footer__copyright container">
+    <div class="footer__line"></div>
+      <p>Copyright  © 2024 by TopEng All Rights Reserved </p>
+    </div>
 </footer>
 </body>
 </html>

@@ -73,7 +73,7 @@
   margin: var(--spacing-l2) 0;
   border-radius: var(--border-r);
   overflow: hidden;
-  /* position: absolute; */
+  position: absolute;
   width: 17rem;
   top: 10px;
   left: -15px;
