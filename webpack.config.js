@@ -49,12 +49,11 @@ module.exports = {
         },
       },
 
-      
-       {
+      {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/[name][ext]",
+          filename: 'assets/[name][ext]',
         },
       },
       {
@@ -63,11 +62,11 @@ module.exports = {
       },
       {
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader',
       },
-      
-      ,]
 
+      ,
+    ],
   },
   plugins: [
     // html plugin so its create its own dist folder
@@ -79,17 +78,17 @@ module.exports = {
       //without this fill our html will be cleared everytime we build
       template: 'frontend/src/pages/home.html',
     }),
-      new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: 'TopEng/portfolio',
       filename: 'portfolio.html',
       template: 'frontend/src/pages/portfolio.html',
     }),
-      new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: 'TopEng/search',
       filename: 'search.html',
       template: 'frontend/src/pages/search.html',
     }),
-      new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: 'TopEng/sign',
       filename: 'Create Portfolio.html',
       template: 'frontend/src/pages/Create Portfolio.html',
