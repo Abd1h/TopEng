@@ -25,21 +25,15 @@
   --fs-400: 1.3rem;
   /* --fs-500: 1.8rem; */
   --fs-600: 2.4rem;
-  /* --fs-650: 2.8rem; */
+  --fs-650: 2.8rem;
   --fs-700: 3.1rem;
 
-  /* desktop screen */
-  --fs-base: var(--fs-400);
-  --fs-hero-heading: var(--fs-700);
-  --fs-heading: var(--fs-600);
-  --fs-sub-title: var(--fs-400);
-  --fs-btn: var(--fs-400);
   /* mobile screen */
-  --fs-base-mob: var(--fs-300);
-  --fs-hero-heading-mob: var(--fs-600);
-  --fs-heading-mob: var(--fs-400);
-  --fs-sub-title-mob: var(--fs-300);
-  --fs-btn-mob: var(--fs-300);
+  --fs-base: var(--fs-300);
+  --fs-hero-heading: var(--fs-600);
+  --fs-heading: var(--fs-400);
+  --fs-sub-title: var(--fs-300);
+  --fs-btn: var(--fs-300);
 
   /* font weight */
   --fw-normal: 400;
@@ -63,17 +57,110 @@
 
   /* transitions */
   --base-transition: all 280ms ease;
+
+  --phone-breakpoint: 50em;
+  --tap-breakpoint: 70em;
 }
+@media (min-width: var(--phone-breakpoint)) {
+  :root {
+    --fs-base: var(--fs-400);
+    --fs-hero-heading: var(--fs-700);
+    --fs-heading: var(--fs-600);
+    --fs-sub-title: var(--fs-400);
+    --fs-btn: var(--fs-400);
+  }
+}
+/* ============================================ 
+                  global css
+============================================  */
+html {
+  /* to make every 1rem = 10px */
+  /* 10px / 16px = 0.625 = 62.5% */
+  font-size: 62.5%;
+}
+@media (min-width: var(--phone-breakpoint)) {
+  html {
+    font-size: 70%;
+  }
+}
+
+body {
+  /* typography */
+  color: var(--clr-base);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  text-rendering: optimizeSpeed;
+
+  /* body style */
+  background-color: var(--clr-base-lt);
+  min-height: 100vh;
+}
+
+svg {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--clr-base);
+}
+
 /* ============================================ 
                   global classes
 ============================================  */
-body {
-  font-family: var(--ff-base);
-  font-weight: var(--fw-normal);
+.container {
+  width: Min(1220px, 100%);
+  padding-inline: 2rem;
+  margin-inline: auto;
 }
-.flex {
-  display: flex;
+
+.even-columns {
+  display: grid;
+  gap: 2rem;
 }
+.even-columns > * {
+  justify-self: center;
+}
+
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
 .hidden {
   display: none;
+}
+
+/* ------------------------------------------- 
+    ||JS|| classes that are manipulated by js
+-------------------------------------------  */
+
+/* button lines */
+.line-1 {
+  transform: translateY(100%) rotate(-45deg);
+}
+.line-3 {
+  transform: translateY(-100%) rotate(45deg);
+}
+.line-2 {
+  display: none;
+}
+
+.overlay-blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  backdrop-filter: blur(5px);
+}
+
+/* for sections with smooth reveal */
+.hid-section {
+  transform: translateY(50%);
+  filter: blur(5px);
+  opacity: 0;
 }
