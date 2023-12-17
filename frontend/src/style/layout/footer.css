@@ -1,11 +1,50 @@
 @import url("../base/global.css") ;
 footer {
+    padding: var(--spacing-l4) 0;
     background-color: var(--clr-base-dk); 
-    color: var(--clr-base-lt);
+    color: var(--clr-primary-lt);
 }
-footer h2{
+.footer__layout{
+    padding-top:var(--spacing-l4) ;
+    display: flex;
+    flex-direction: column;
+    gap:var(--spacing-l4);
+    
+}
+footer h3{
+    font-weight: var(--fw-bold);
+    margin-bottom: var(--spacing-l)
+}
+.footer__social{
+    margin-right:var(--spacing-m) ;
+}
+.footer__icon{
+    fill:var(--clr-primary-lt);
+    width: 24px;
+    height: 24px;
+}
+.footer__heading{
     font-weight: var(--fw-semibold);
+    font-size:var(--fs-400);
+    margin-bottom: var(--spacing-m);
 }
 .footer__item{
-   
+margin-bottom:var(--spacing-s)
+}
+.footer__copyright{
+    margin-top: var(--spacing-l4);
+    font-weight: var(--fw-semibold);
+    color:var(--clr-base);
+    text-align:center;
+}
+.footer__line{
+border-top: 1px solid var(--clr-base-lt);
+padding-bottom: var(--spacing-s)
+}
+/* Media queries  */
+@media all and (min-width: 580px)  {
+.footer__layout{
+    flex-direction: row;
+justify-content: center;
+}
 }

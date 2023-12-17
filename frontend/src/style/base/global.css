@@ -61,6 +61,7 @@
 --spacing-l2:32px;
 --spacing-l3:48px;
 --spacing-l4:64px;
+--spacing-l5:96px;
 --spacing-l6:128px;
   /* border raduse */
   --border-r: 0.3125rem;
@@ -76,8 +77,11 @@
 
 }
 /* global classes */
-.section{
-  padding: var(--sections-padding);
+.container{
+  padding: var(--sections-padding) ;
+  width:min(var(--screen-Max-Width),100%);
+  margin:0 auto;
+
 }
 .hidden{
   display: none;
@@ -86,7 +90,6 @@
 body{
 font-family:  'Inter', sans-serif;
 color:var(--clr-base-dk);
-;
 }
 .flex-row{
   display: flex;
