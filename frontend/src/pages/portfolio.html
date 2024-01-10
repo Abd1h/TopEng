@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+  <link rel="stylesheet" href="../style/Index.css">
+  </head>
+  <body>
 
-<link rel="stylesheet" href="../style/Index.css">
-</head>
-<body>
   <header class="header container">  
     <div class="flex-row">
       <div >
@@ -16,42 +16,42 @@
         <svg  class="icon__list btn__menu icon">
           <use href="../assets/icons.svg#icon-list"><use>
         </svg>   
-      <nav class="header__nav ">
+        <nav class="header__nav ">
             <ul class="nav__list   flex-row ">
                 <li class="nav__item btn__accordion ">
-                  <div class="flex-row"> <button class="nav__link">Explore</button>
+                  <div class="flex-row  "> <button class="nav__link">Explore</button>
                   <svg class="icon__chevron-down icon">
                     <use href="../assets/icons.svg#icon-chevron-down"><use>
                   </svg> </div>
                   <div class="nav__hover__item">
                     <!-- nav sub list -->
                     <ul class="nav__sublist  flex-col">
-                        <li class="sublist__item"><a href="#" class="sublist__link">Computer Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Civil Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Software Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Environmental Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Chemical Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Mechanical Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Materials Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Electrical Engineering</a></li>
-                        <li class="sublist__item"><a href="#" class="sublist__link">Structural Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Computer Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Civil Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Software Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Environmental Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Chemical Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Mechanical Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Materials Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Electrical Engineering</a></li>
+                        <li class="sublist__item link-hover"><a href="#" class="sublist__link">Structural Engineering</a></li>
                     </ul>
                   </div>
               </li>
-                <li class="nav__item"><a href="portfolio.html" class="nav__link">Create Portfolio</a></li>
-                <li class="nav__item"><a href="search.html" class="nav__link">Hire Engineers</a></li>
+                <li class="nav__item link-hover"><a href="portfolio.html" class="nav__link">Create Portfolio</a></li>
+                <li class="nav__item link-hover"><a href="search.html" class="nav__link">Hire Engineers</a></li>
                 <li class="nav__item" >
                  <div class=" flex-row header__sign "> 
                   <span class="header__separator">|</span>
-            <button class="sign__btn sign__btn--in">Log In</button>
-            <button class=" sign__btn sign__btn--up">Sign Up</button>
+            <button class="sign__btn sign__btn--in link-hover"><a href="#" class="sublist__link">Log In</a></button>
+            <button class=" sign__btn sign__btn--up"><a href="#" class="sublist__link">Sign Up</a></button>
         </div></li>
             </ul>
         </nav>
     </div>
-   <nav class="clr-base nav__mobile">
+   <nav class=" nav__mobile">
+   
     <div>
-      
          <button class="flex-row nav__close nav__btn__close">
         <svg class="nav__icon__close icon">
            <use href="../assets/icons.svg#icon-x-lg"><use>
@@ -89,10 +89,8 @@
         <span class="nav__link__mobile">Contacts</span>
         </a>
       </li>
-      
       <li class="flex-row">
-    
-        <div class=" flex-row header__sign ">
+      <div class=" flex-row header__sign ">
           <a href="">
             <button class="sign__btn sign__btn--in">Log In</button></a>
             <span class="header__separator">|</span> 
@@ -109,11 +107,13 @@
       </div> -->
       </li>
       </ul> 
-   </nav>      
+     
+   </nav>   
+    <div class="overlay-nav"></div>   
     </header>
 <main>
   <section class="profile__picture">
-     
+ 
   </section>
 </main>
 <footer class="" >
@@ -162,5 +162,6 @@
       <p>Copyright  © 2024 by TopEng All Rights Reserved </p>
     </div>
 </footer>
+
 </body>
 </html>

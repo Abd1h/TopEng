@@ -1,9 +1,17 @@
 .sign__btn{
  font-weight: 700;
 }
+
 .sign__btn--up{
     color:var(--clr-base-lt);
    background-color:var(--clr-primary);
    padding:var(--spacing-s) var(--spacing-l) ;
    border-radius: var(--border-r);
 }
+    .sign__btn--up:hover{
+    cursor: pointer;
+   background-color:var(--clr-secondary);  
+   transition: background-color ease-in-out 200ms;
+}
+
+
