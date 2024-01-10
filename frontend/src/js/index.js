@@ -1,20 +1,17 @@
 import "../style/Index.css"
-
+const navMobile = document.querySelector('.nav__mobile');
+const overlayNav=document.querySelector('.overlay-nav')
 const navBtnClose=document.querySelector('.nav__btn__close')
 // sliding  mobile nav
 const btnMenu = document.querySelector('.btn__menu');
-// const subList=document.querySelector('.nav__sublist');
-// const btnAccordion=document.querySelector('.btn__accordion');
-	const navMobile = document.querySelector('.nav__mobile');
-  
-	btnMenu.addEventListener('click', function () {
+function navMobileClose(){
+	navMobile.classList.remove('nav__mobile--active');
+	overlayNav.classList.remove('overlay-blur')
+}
+overlayNav.addEventListener('click',navMobileClose)
+navBtnClose.addEventListener('click',navMobileClose)
+btnMenu.addEventListener('click', function () {
 		navMobile.classList.toggle('nav__mobile--active');
+		overlayNav.classList.toggle('overlay-blur')
 	});
-navBtnClose.addEventListener('click',function(){
-    navMobile.classList.remove('nav__mobile--active');
-})
-// accordion element in explore in nav
 
-// btnAccordion.addEventListener("click", function (e) {
-//   subList.classList.add('nav__sublist--hidden')
-// });

@@ -41,6 +41,13 @@ margin-bottom:var(--spacing-s)
 border-top: 1px solid var(--clr-base-lt);
 padding-bottom: var(--spacing-s)
 }
+/* hover */
+    .footer__icon:hover,.footer__item:hover{
+    cursor: pointer;
+    color:var(--clr-base);
+    fill:var(--clr-base);
+   transition: all ease-in-out 200ms;
+}
 /* Media queries  */
 @media all and (min-width: 580px)  {
 .footer__layout{
