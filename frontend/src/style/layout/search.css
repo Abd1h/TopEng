@@ -1,0 +1,104 @@
+@import url('../base/global.css');
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+/* hero search page */
+.search-page_hero {
+  margin-bottom: var(--sections-spacing);
+}
+
+.search__title {
+  font-size: var(--fs-hero-heading);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-base-dk);
+  line-height: 1.1;
+  margin-bottom: var(--sections-padding);
+}
+.search__sub-title {
+}
+
+/* search qouestion */
+@media (min-width: 50em) {
+  .search-qouestions__container {
+    max-width: 70%;
+    margin-inline: auto;
+  }
+}
+.search-qouestion {
+  margin-bottom: var(--spacing-l4);
+
+  margin-inline: auto;
+}
+.qouestion_title {
+  margin-bottom: var(--spacing-l);
+  font-size: var(--fs-sub-heading);
+  font-weight: var(--fw-bold);
+  color: var(--clr-base-dk);
+}
+.optinal {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  color: var(--clr-base);
+}
+
+/* grid shit */
+.qouestion__tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* justify-content: space-around;
+  align-content: space-around; */
+  grid-gap: 10px;
+  row-gap: 0.75rem;
+  column-gap: 0.88rem;
+}
+
+/* tags style */
+
+.qouestion__tag {
+  border-radius: 1.875rem;
+  background: var(--clr-primary-lt);
+  padding: 0.1rem var(--spacing-l);
+  white-space: nowrap;
+  overflow: hidden;
+  /* justify-self: center;
+  align-self: center; */
+}
+.qouestion__tag--active {
+  background: var(--clr-secondary);
+  color: var(--clr-base-dk);
+}
+
+.search_btn {
+  display: block;
+  padding-block: 0.1rem;
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-sub-heading);
+  gap: 0.5rem;
+}
+.search_btn > .feature__icon {
+  background-color: transparent;
+  width: 1.6rem;
+}
+
+/* Apply a basic style to the select element */
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 1.875rem;
+  appearance: none;
+}
+
+/* Style the options within the select dropdown */
+select option {
+  padding: 10px;
+}
+
+/* Style the selected option in the dropdown */
+select option:checked {
+  background-color: #3498db; /* Set your desired background color */
+  color: #ffffff; /* Set your desired text color */
+}
