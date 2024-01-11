@@ -60,6 +60,8 @@
 }
 .categories__container {
   display: grid;
+  justify-content: start;
+
   grid-template-columns: 1fr;
   row-gap: 1rem;
 }

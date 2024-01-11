@@ -1,5 +1,4 @@
-
-@import url("../base/global.css") ;
+@import url('../base/global.css');
 
 .header__logo {
   font-size: var(--fs-500);
@@ -17,11 +16,13 @@
   color: var(--clr-base-lt);
   gap: var(--spacing-l3);
 }
+.nav-mobile-container {
+  background-color: var(--clr-base);
 
-padding-bottom: var(--spacing-l);
+  padding-bottom: var(--spacing-l);
 }
-.nav__link__mobile{
-    padding-left: var(--spacing-m);
+.nav__link__mobile {
+  padding-left: var(--spacing-m);
 }
 
 .nav__icon {
@@ -61,38 +62,38 @@ padding-bottom: var(--spacing-l);
   display: none;
   font-weight: var(--fw-semibold);
 }
-.nav__list{
-gap:var(--spacing-l2);
-
+.nav__list {
+  gap: var(--spacing-l2);
 }
 .btn__accordion {
   position: relative;
 }
 .btn__accordion:hover .nav__hover__item {
-        display: block;
-        opacity: 1;
-    }
-    .nav__sublist:hover .nav__hover__item {
-        display: block;
-        opacity: 1;
-    }
-.nav__hover__item{
-    display: none;
-    position: absolute;
-    width: 17rem;
-    top: 10px;
-    left:-15px;
-    max-height: 50rem;
-    transition:all 0.4s ease-in-out;
-    opacity: 0;
+  display: block;
+  opacity: 1;
 }
-.nav__sublist{
-    padding: var(--spacing-l)  ;
-    background-color: var(--clr-primary-lt);
-    margin:var(--spacing-l2) 0;
-    border-radius: var(--border-r);
-    box-shadow: var(--shadow);
+.nav__sublist:hover .nav__hover__item {
+  display: block;
+  opacity: 1;
 }
+.nav__hover__item {
+  display: none;
+  position: absolute;
+  width: 17rem;
+  top: 10px;
+  left: -15px;
+  max-height: 50rem;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+.nav__sublist {
+  padding: var(--spacing-l);
+  background-color: var(--clr-primary-lt);
+  margin: var(--spacing-l2) 0;
+  border-radius: var(--border-r);
+  box-shadow: var(--shadow);
+}
+
 .sublist__item {
   margin: var(--spacing-l) 0;
 }
