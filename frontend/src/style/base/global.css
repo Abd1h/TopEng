@@ -84,7 +84,7 @@
   margin: 0 auto;
 }
 
-@media (min-width: var(--phone-breakpoint)) {
+@media (min-width: 50em) {
   :root {
     --fs-base: var(--fs-400);
     --fs-hero-heading: var(--fs-700);
@@ -132,7 +132,9 @@ svg {
 /* ============================================ 
                   global classes
 ============================================  */
-
+.bk-clr-primarylt {
+  background-color: var(--clr-primary-lt);
+}
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -146,15 +148,6 @@ svg {
 }
 .clr-base {
   background-color: var(--clr-base);
-}
-@media (min-width: var(--phone-breakpoint)) {
-  :root {
-    --fs-base: var(--fs-400);
-    --fs-hero-heading: var(--fs-700);
-    --fs-heading: var(--fs-600);
-    --fs-sub-title: var(--fs-400);
-    --fs-btn: var(--fs-400);
-  }
 }
 
 .even-columns {
@@ -210,7 +203,7 @@ svg {
   width: 24px;
   height: 24px;
 }
-.overlay-blur {
+.overlay-nav {
   position: absolute;
   top: 0;
   right: 0;

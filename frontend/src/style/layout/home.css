@@ -68,7 +68,13 @@
   align-items: start;
   grid-template-columns: 1fr;
   row-gap: 1rem;
+  column-gap: 1rem;
 }
+/* @media (min-width: 50em) {
+  .categories__container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+} */
 .categories__title {
   margin-bottom: var(--spacing-l2);
   font-size: var(--fs-heading);
@@ -101,7 +107,9 @@
   align-self: center;
   font-weight: var(--fw-semibold);
 }
-
+.category--hidden {
+  display: none;
+}
 /* why using topeng section */
 .why-topeng {
   background-color: var(--clr-primary-lt);
@@ -127,7 +135,7 @@
 }
 @media (min-width: 50em) {
   .why-topeng__feature {
-    max-width: 40%;
+    max-width: 60%;
   }
 }
 .feature__title {
