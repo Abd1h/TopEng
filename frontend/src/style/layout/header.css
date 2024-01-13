@@ -1,12 +1,12 @@
 
 @import url("../base/global.css") ;
-
 .header__logo {
     font-size: var( --fs-500);
     color:var(--clr-primary);
     font-weight: var(--fw-extraBold);
     font-style: italic;
 }
+
 /* mobile nav */
 .icon__list {
 fill:var(--clr-primary);
@@ -54,14 +54,17 @@ padding-bottom: var(--spacing-l);
     fill:var(--clr-primary); 
 }
 .nav__close{
+    display: flex;
     width: 100%;
     justify-content: flex-end;
 }
+
 /* desktop nav */
 
 .header__nav{
     display: none;
-    font-weight: var(--fw-semibold);
+    color:var(--clr-base-dk)
+    
 }
 .nav__list{
 gap:var(--spacing-l2);
@@ -111,7 +114,7 @@ gap:var(--spacing-l2);
 
 
 /* Media queries  */
-@media all and (min-width: 775px)  {
+@media all and (min-width: 900px)  {
 .header__nav{
     display: block;
 }
@@ -119,6 +122,9 @@ gap:var(--spacing-l2);
         display: none;
     }
 .nav__list__mobile{
+    display: none;
+}
+.overlay-nav{
     display: none;
 }
 }
