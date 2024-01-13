@@ -13,17 +13,27 @@ footer {
 }
 footer h3{
     font-weight: var(--fw-bold);
-    margin-bottom: var(--spacing-l)
+    
 }
-/* .btn__copy{
 
-} */
+.footer__email-container{
+    font-size: var(--fs-320);
+    display: flex;
+   align-items: center;
+    gap:var(--spacing-l);
+    margin-bottom: var(--spacing-l2);
+}
 .btn__copy-icon{
     width: 24px;
     height: 24px;
     fill: var(--clr-primary);
 }
+.footer__socials{
+     display: flex;
+    align-items: center;
+}
 .footer__social{
+   
     margin-right:var(--spacing-m) ;
 }
 .footer__icon{

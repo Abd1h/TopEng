@@ -92,6 +92,8 @@ height: 100%;
     color:var(--clr-base)
 }
 .section__header__container  {
+    display: flex;
+    align-items: center;
     justify-content: flex-start;
     gap:var(--spacing-s);
     margin-bottom: var(--spacing-l);
@@ -183,10 +185,10 @@ gap:var(--spacing-l2);
 }
 
 .experience__years{
+    display: flex;
     justify-content: flex-start;
-    /* align-items: center; */
     height: fit-content;
-    gap:var(--spacing-m);
+    gap:var(--spacing-s);
     color:var(--clr-base-dk);
 }
 .experience__years-icon{
@@ -225,5 +227,4 @@ gap:var(--spacing-l2);
 .engineer__info{
     font-size: var(--fs-320);
 }
-
 }
