@@ -91,7 +91,7 @@ height: 100%;
 .engineer__info-description{
     color:var(--clr-base)
 }
-.section__header__container {
+.section__header__container  {
     justify-content: flex-start;
     gap:var(--spacing-s);
     margin-bottom: var(--spacing-l);
