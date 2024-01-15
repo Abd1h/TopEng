@@ -67,6 +67,7 @@
 }
 .nav__list {
   gap: var(--spacing-l2);
+  font-size: var(--fs-320);
 }
 .btn__accordion {
   position: relative;
@@ -109,7 +110,7 @@
 }
 
 /* Media queries  */
-@media all and (min-width: 900px)  {
+@media all and (min-width: 800px)  {
 .header__nav{
     display: block;
   }

@@ -3,6 +3,7 @@
 }
 
 .sign__btn--up{
+    width: fit-content;
     color:var(--clr-base-lt);
    background-color:var(--clr-primary);
    padding:var(--spacing-s) var(--spacing-l) ;
