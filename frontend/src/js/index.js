@@ -48,11 +48,6 @@ function AddEducationOrWork(type='work') {
                 </div>
                     <div class="remove-experience-container">
                         <h4>Remove ${type==='work'?'Work Experience':'Education'}</h4>
-                        <button type="button" class="remove-experience">
-                            <svg class="experience-container-icon icon-24px ">
-                                <use href="../assets/icons.svg#icon-x-lg"></use>
-                            </svg>
-                        </button>
                     </div>
                 </div>`;
 }
