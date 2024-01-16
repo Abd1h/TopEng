@@ -22,7 +22,7 @@
 
   /*  font sizes */
   --fs-300: 0.9rem;
-  --fs-320:1rem;
+  --fs-320: 1rem;
   --fs-350: 1.2rem;
   --fs-400: 1.3rem;
   --fs-450: 1.5rem;
@@ -195,6 +195,7 @@ svg {
   color: var(--clr-primary);
   transition: color ease-in-out 200ms;
 }
+
 .icon {
   width: 32px;
   height: 32px;
@@ -203,7 +204,7 @@ svg {
   width: 24px;
   height: 24px;
 }
-.overlay-nav {
+.overlay-blur {
   position: absolute;
   top: 0;
   right: 0;
