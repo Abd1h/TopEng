@@ -1,0 +1,108 @@
+.form-picture-layout{
+    display: grid;
+    grid-template-columns: 1fr ;
+}
+.form{
+    width: fit-content;
+}
+.edit-portfolio{
+    display: flex;
+    align-items: flex-start;
+    
+    flex-wrap: wrap;
+}
+@media (min-width: 600px){
+.edit-portfolio > .form > .form__group{
+  max-width: 300px;
+  min-width: 200px;
+}
+.edit-portfolio{
+    gap: var(--spacing-l3);
+}
+}
+
+.experience-container >.form__group{
+  min-width: 300px;
+}
+.edit-portfolio > .form__group{
+  max-width: 300px;
+}
+.form__photo-upload{
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: var(--spacing-m);
+    flex-wrap: wrap;
+}
+.form__upload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.form__upload + label {
+    font-size: var(--fs-320);
+    color: var(--clr-secondary);
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid var(--clr-secondary);
+    padding: 3px;
+    cursor: pointer;
+}
+.form__input::placeholder{
+    font-size: var(--fs-300);
+}
+.form__input:focus::placeholder {
+  color: transparent;
+}
+.subform__header-container{
+    display: flex;
+    gap: var(--spacing-l);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: var(--spacing-l);
+}
+.subform__header-container h3{
+    color:var(--clr-base-dk);
+    font-size: var(--fs-400);
+}
+.subform__header-icon{
+    background-color: var(--clr-base);
+    border-radius: var(--border-r);
+    fill:  var(--clr-third);
+    
+}
+.margin-left{
+    margin-left: var(--spacing-s);
+}
+.experience-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--spacing-l);
+    
+}
+.remove-experience-container{
+    margin: var(--spacing-m) 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 12px;
+    text-decoration: underline;
+    width: fit-content;
+    padding:4px ;
+    border-radius: var(--border-r);
+    gap:var(--spacing-m);
+}
+.remove-experience-container:hover{
+    cursor: pointer
+}
+.remove-experience-container svg{
+   width: 16px;
+   height: 16px;
+}
+.form__label{
+    text-transform: capitalize;
+}

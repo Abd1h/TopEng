@@ -89,9 +89,24 @@ module.exports = {
       template: 'frontend/src/pages/search.html',
     }),
     new HtmlWebpackPlugin({
-      title: 'TopEng/sign',
-      filename: 'Create Portfolio.html',
-      template: 'frontend/src/pages/Create Portfolio.html',
+      title: 'TopEng/Edit Portfolio',
+      filename: 'Edit Portfolio.html',
+      template: 'frontend/src/pages/Edit Portfolio.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'TopEng/sign up',
+      filename: 'sign up.html',
+      template: 'frontend/src/pages/sign up.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'TopEng/Log In',
+      filename: 'Log In.html',
+      template: 'frontend/src/pages/Log In.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'TopEng/Forgot Password',
+      filename: 'Forgot Password.html',
+      template: 'frontend/src/pages/Forgot Password.html',
     }),
   ],
 };
