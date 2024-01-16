@@ -70,9 +70,9 @@
     font-size: var(--fs-400);
 }
 .subform__header-icon{
-    background-color: var(--clr-secondary);
+    background-color: var(--clr-base);
     border-radius: var(--border-r);
-    fill: var(--clr-base-dk);
+    fill:  var(--clr-third);
     
 }
 .margin-left{

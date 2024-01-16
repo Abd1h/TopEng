@@ -99,9 +99,14 @@ module.exports = {
       template: 'frontend/src/pages/sign up.html',
     }),
     new HtmlWebpackPlugin({
-      title: 'TopEng/login',
-      filename: 'login.html',
-      template: 'frontend/src/pages/login.html',
+      title: 'TopEng/Log In',
+      filename: 'Log In.html',
+      template: 'frontend/src/pages/Log In.html',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'TopEng/Forgot Password',
+      filename: 'Forgot Password.html',
+      template: 'frontend/src/pages/Forgot Password.html',
     }),
   ],
 };

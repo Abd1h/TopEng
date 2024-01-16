@@ -111,7 +111,7 @@
     </header>
     <main class="main">
         <section class="section__about bk-clr-primarylt bottom-margin">
-            <div class=" bottom-margin">
+            <div >
                 <div class="container ">
                     <div class="section__header__container ">
                     <svg class="section__header-icon icon-24px ">
@@ -121,7 +121,7 @@
                         Profile Picture
                     </h2>     
                     </div>
-                    <form class="form form-picture-layout form-user-data">
+                    <form class="form form-picture-layout form-user-photo">
                         <div class="form__group form__photo-upload">
                             <div class="profile__img-container">
                                 <img class="form__user-photo" src="../assets/profile-img.png" alt="User photo">
@@ -129,8 +129,40 @@
                             <input class="form__upload" type="file" accept="image/*" id="photo" name="photo">
                             <label for="photo">Upload New Image</label>
                         </div>
+             
                         <div class="form__group ">
                             <button class="sign__btn--up">Save settings</button>
+                        </div>
+                    </form>
+                </div> 
+            </div>
+        </section>
+        <section class="section__about bk-clr-primarylt bottom-margin">
+            <div >
+                <div class="container ">
+                    <div class="section__header__container ">
+                    <svg class="section__header-icon icon-24px ">
+                        <use href="../assets/icons.svg#icon-person-fill-lock"></use>
+                    </svg>
+                    <h2 class="section__header">
+                        Change your password
+                    </h2>     
+                    </div>
+                      <form class="form form-user-password ">
+                        <div class="form__group">
+                          <label class="form__label" for="currentpassword">Current Password</label>
+                          <input class="form__input" id="currentpassword" type="password" minlength="8" placeholder="••••••••" required>
+                        </div>
+                        <div class="form__group">
+                              <label class="form__label" for="newpassword">New Password</label>
+                              <input class="form__input" id="newpassword" type="password" minlength="8" placeholder="••••••••" required>
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label" for="confirmnewpassword"> Confirm  New Password</label>
+                            <input class="form__input" id="confirmnewpassword" type="password" placeholder="••••••••" required minlength="8">
+                        </div>
+                         <div class="form__group ">
+                            <button class="sign__btn--up">Save password</button>
                         </div>
                     </form>
                 </div> 
@@ -207,7 +239,7 @@
             <button type="submit" class="sign__btn--up">Save Settings</button>
             </div>
             </form>
-                <form class="form education" action="">
+                <form class="form form-user-education education" action="">
                         <div class="subform__header-container">
                         <h3>Education</h3>
                         <button type="button" class="add-experience education"><svg class="subform__header-icon icon-24px ">
@@ -237,7 +269,7 @@
                     <button type="submit" class="sign__btn--up">Save Settings</button>
                     </div>
                 </form>
-                <form class="form work" action="">
+                <form class="form form-user-work work" action="">
                         <div class="subform__header-container">
                         <h3>Work Experience</h3>
                         <button type="button" class="add-experience work"><svg class="subform__header-icon icon-24px ">
