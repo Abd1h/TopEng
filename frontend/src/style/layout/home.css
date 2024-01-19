@@ -22,11 +22,12 @@
   border-radius: var(--border-r);
   overflow: hidden;
   margin-bottom: var(--sections-spacing);
+  /* height: fit-content; */
 }
 @media (min-width: 50em) {
   .for-engineers {
     grid-template-columns: 2fr 1.1fr;
-    max-height: 20.5625rem;
+    /* max-height: 20.5625rem; */
   }
 }
 .for-engineers__text {
