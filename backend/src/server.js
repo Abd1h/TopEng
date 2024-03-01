@@ -7,9 +7,8 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './backend/src/config.env' });
 const app = require('./app');
-
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose
@@ -27,7 +26,9 @@ const server = app.listen(port, () => {
 
 process.on('unhandledRejection', (err) => {
   console.log('UNHANDLED REJECTION! 💥 Shutting down...');
-  console.log(err.name, err.message);
+  console.log(err.name, err.message, err.location);
+  console.log('Error Stack:', err.stack);
+  console.log('reason', err.reason);
   server.close(() => {
     process.exit(1);
   });
