@@ -9,6 +9,7 @@ process.on('uncaughtException', (err) => {
 
 dotenv.config({ path: './backend/src/config.env' });
 const app = require('./app');
+
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose
@@ -21,6 +22,8 @@ mongoose
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
+  const host = server.address();
+  console.log(host);
   console.log(`App running on port ${port}...`);
 });
 

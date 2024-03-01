@@ -1,0 +1,87 @@
+header.header.container
+  .flex-row
+    div
+      h1.header__logo TopEng
+    svg.icon__list.btn__menu.icon
+      use(href='../assets/icons.svg#icon-list')
+    nav.header__nav
+      ul.nav__list.flex-row
+        li.nav__item.btn__accordion
+          .flex-row
+            button.nav__link Explore
+            svg.icon__chevron-down
+              use(href='../assets/icons.svg#icon-chevron-down')
+          .nav__hover__item
+            // nav sub list
+            ul.nav__sublist.flex-col
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Computer Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Civil Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Software Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Environmental Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Chemical Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Mechanical Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Materials Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Electrical Engineering
+              li.sublist__item.link-hover
+                a.sublist__link(href='#') Structural Engineering
+        li.nav__item.link-hover
+          a.nav__link(href='Edit Portfolio.html') Create Portfolio
+        li.nav__item.link-hover
+          a.nav__link(href='search.html') Hire Engineers
+        li.nav__item
+          .flex-row.header__sign
+            span.header__separator |
+            button.sign__btn.sign__btn--in.link-hover
+              a.sublist__link(href='Log In.html') Log In
+            button.sign__btn.sign__btn--up
+              a.sublist__link(href='sign up.html') Sign Up
+  nav.nav__mobile
+    div
+      button.nav__close.nav__btn__close
+        svg.nav__icon__close.icon
+          use(href='../assets/icons.svg#icon-x-lg')
+    ul.flex-column.nav__mobile__list
+      li.flex-row
+        a.flex-row(href='/')
+          svg.nav__icon
+            use(href='../assets/icons.svg#icon-house')
+          span.nav__link__mobile Main Page
+      li
+        a.flex-row(href='')
+          svg.nav__icon
+            use(href='../assets/icons.svg#icon-person-raising-hand')
+          span.nav__link__mobile FAQ
+      li
+        a.flex-row(href='')
+          svg.nav__icon
+            use(href='../assets/icons.svg#icon-person-badge')
+          span.nav__link__mobile Hire Engineers
+      li
+        a.flex-row(href='')
+          svg.nav__icon
+            use(href='../assets/icons.svg#icon-headset')
+          span.nav__link__mobile Contacts
+      li.flex-row
+        .flex-row.header__sign
+          a(href='Log In.html')
+            button.sign__btn.sign__btn--in Log In
+          span.header__separator |
+          a(href='sign up.html')
+            button.sign__btn.sign__btn--up Sign Up
+        // if loged in
+        //
+          <div class="header__account">
+          <svg class="nav__icon">
+          <use href="../assets/icons.svg#icon-person-fill"></use>
+          </svg>
+          <a class="nav__link__mobile" href="#about">Account</a>
+          </div>
+  .overlay-nav.overlay

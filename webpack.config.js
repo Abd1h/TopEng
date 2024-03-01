@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     //name = entry{bundle:}
     //[contenthash] for caching so sit load faster - btw this create the issue of multiple js files in the dist
-    filename: '[name][contenthash].js',
+    filename: '[name].js',
     // so solve multiple files issue
     clean: true,
     // so svg and imgs have the same file names after imorting

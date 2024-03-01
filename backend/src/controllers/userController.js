@@ -14,22 +14,22 @@ const factory = require('./handlerFactory');
 //     cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
 //   }
 // });
-const multerStorage = multer.memoryStorage();
+// const multerStorage = multer.memoryStorage();
 
-const multerFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image')) {
-    cb(null, true);
-  } else {
-    cb(new AppError('Not an image! Please upload only images.', 400), false);
-  }
-};
+// const multerFilter = (req, file, cb) => {
+//   if (file.mimetype.startsWith('image')) {
+//     cb(null, true);
+//   } else {
+//     cb(new AppError('Not an image! Please upload only images.', 400), false);
+//   }
+// };
 
-const upload = multer({
-  storage: multerStorage,
-  fileFilter: multerFilter,
-});
+// const upload = multer({
+//   storage: multerStorage,
+//   fileFilter: multerFilter,
+// });
 
-exports.uploadUserPhoto = upload.single('photo');
+// exports.uploadUserPhoto = upload.single('photo');
 
 // exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
 //   if (!req.file) return next();
