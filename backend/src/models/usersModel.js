@@ -108,9 +108,9 @@ const userSchema = new mongoose.Schema({
   },
   workEmail: {
     type: String,
-    unique: true,
+    // unique: true,
     lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email'],
+    // validate: [validator.isEmail, 'Please provide a valid email'],
   },
   githubAccount: {
     type: String,
@@ -120,7 +120,6 @@ const userSchema = new mongoose.Schema({
   },
   yearsOfExperienceInput: {
     type: Number,
-    required: [true, 'Please enter years in Number '],
   },
   yearsOfExperienceOutput: {
     type: String,
