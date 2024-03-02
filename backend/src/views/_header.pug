@@ -33,16 +33,21 @@ header.header.container
               li.sublist__item.link-hover
                 a.sublist__link(href='#') Structural Engineering
         li.nav__item.link-hover
-          a.nav__link(href='Edit Portfolio.html') Create Portfolio
+          a.nav__link(href='/editportfolio') Create Portfolio
         li.nav__item.link-hover
           a.nav__link(href='search.html') Hire Engineers
         li.nav__item
           .flex-row.header__sign
             span.header__separator |
             button.sign__btn.sign__btn--in.link-hover
-              a.sublist__link(href='Log In.html') Log In
-            button.sign__btn.sign__btn--up
-              a.sublist__link(href='sign up.html') Sign Up
+            if user
+              button.sign__btn.sign__btn--up
+                a.nav__el(href='/me') Portfolio
+              a.nav__el.nav__el--cta.logout__btn(href='#') Log out
+            else
+              a.sublist__link(href='/login') Log In
+              button.sign__btn.sign__btn--up
+                a.sublist__link(href='/signup') Sign Up
   nav.nav__mobile
     div
       button.nav__close.nav__btn__close

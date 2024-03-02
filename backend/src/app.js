@@ -23,7 +23,8 @@ const app = express();
 app.enable('trust proxy');
 
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, '../../frontend/src/views'));
+// app.set('views', path.join(__dirname, 'frontend/src/views'));
+app.set('views', path.join(__dirname, 'views'));
 
 // 1) GLOBAL MIDDLEWARES
 // Implement CORS
@@ -80,6 +81,9 @@ app.use((req, res, next) => {
   next(); // Call next() to move to the next middleware or route handler
 });
 // 3) ROUTES
+app.get('/favico.ico', (req, res) => {
+  res.sendStatus(404);
+});
 app.use('/', viewRouter);
 app.use('/api/v1/users', userRouter);
 app.all('*', (req, res, next) => {
