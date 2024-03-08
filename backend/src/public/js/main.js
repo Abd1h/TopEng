@@ -1,3 +1,4 @@
+import '../../../../frontend/src/style/Index.css';
 const navMobile = document.querySelector('.nav__mobile');
 const overlayNav = document.querySelector('.overlay');
 const navBtnClose = document.querySelector('.nav__btn__close');
@@ -27,8 +28,15 @@ function workOrEducation(type) {
   else return 'eror';
 }
 function AddEducationOrWork(type = 'work') {
+  // console.log(type);
   return `<div class="margin-left experience-container ">
                 
+                <div class="form__group "> 
+                    <label class="form__label"for="${type}title">${workOrEducation(type)} Title</label>
+                    <input class="form__input"id="${type}title" type="${workOrEducation(type)}title" placeholder="${
+                      type === 'work' ? 'Senior Developer' : 'High school diploma'
+                    }" >
+                </div>
                 <div class="form__group "> 
                     <label class="form__label " for="${type}place">${workOrEducation(type)} Place</label>
                     <input class="form__input" id="${type}place" type="${workOrEducation(type)}place" placeholder="${
@@ -53,8 +61,8 @@ function AddEducationOrWork(type = 'work') {
 if (btnAddExperience) {
   btnAddExperience.forEach((button) => {
     button.addEventListener('click', function (e) {
-      const type = button.closest('.form').classList[1];
-      // console.log(button.closest('.form').querySelector('.btn-container'));
+      const type = button.closest('.form').classList[2];
+
       button
         .closest('.form')
         .querySelector('.btn-container')

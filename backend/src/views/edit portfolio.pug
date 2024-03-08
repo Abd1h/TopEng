@@ -49,23 +49,20 @@ block content
             .edit-portfolio
                 form.form.form-user-data
                     .form__group
-                        label.form__label(for='firstname') First Name
-                        input#firstname.form__input(type='firstname')
-                    .form__group
-                        label.form__label(for='lastname') Last Name
-                        input#lastname.form__input(type='lastname')
+                        label.form__label(for='name')  Name
+                        input#name.form__input(type='name',value=user.name?value=user.name:'')
                     .form__group
                         label.form__label(for='engineeringbranch') Engineering Branch
-                        input#engineeringbranch.form__input(type='engineeringbranch')
+                        input#engineeringbranch.form__input(type='engineeringbranch',value=user.EngineeringBranch?user.EngineeringBranch:'')
                     .form__group
                         label.form__label(for='university') University
                         input#university.form__input(type='university')
                     .form__group
                         label.form__label(for='About') About
                         textarea#about.form__input(maxlength='2600' type='about' cols='30' rows='10')
-                    .form__group
-                        label.form__label(for='workemail') Work Email
-                        input#workemail.form__input(type='workemail' placeholder='example@any.com')
+                    //- .form__group
+                    //-     label.form__label(for='workemail') Work Email
+                    //-     input#workemail.form__input(type='workemail' placeholder='example@any.com')
                     .form__group
                         label.form__label(for='github') Github Account
                         input#github.form__input(type='github' placeholder='https://github.com')
@@ -74,7 +71,7 @@ block content
                         input#xaccount.form__input(type='xaccount' placeholder='https://twitter.com')
                     .form__group
                         label.form__label(for='location') Location
-                        input#Location.form__input(type='Location' placeholder='Baghdad,Iraq')
+                        input#location.form__input(type='location' placeholder='Baghdad,Iraq')
                     .form__group
                         label.form__label(for='yearsofexperience') Years of Experience
                         input#yearsofexperience.form__input(type='yearsofexperience' placeholder='3 years ')
@@ -95,20 +92,23 @@ block content
                     .subform__header-container
                         h3 Education
                         button.add-experience.education(type='button')
-                        svg.subform__header-icon.icon-24px
-                            use(href='../assets/icons.svg#icon-plus-lg')
+                            svg.subform__header-icon.icon-24px
+                                use(href='../assets/icons.svg#icon-plus-lg')
                     .margin-left.experience-container
                         .form__group
-                        label.form__label(for='educationplace') Education Place
-                        input#educationplace.form__input(type='educationplace' placeholder='e.g Baghdad College')
+                            label.form__label(for='educationtitle') Education Title
+                            input#educationtitle.form__input(type='educationtitle' placeholder='High School Graduate')
                         .form__group
-                        label.form__label(for='educationdescription') Education Description
-                        input#educationdescription.form__input(type='educationdescription')
+                            label.form__label(for='educationplace') Education Place
+                            input#educationplace.form__input(type='educationplace' placeholder='e.g Baghdad College')
                         .form__group
-                        label.form__label(for='educationyears') Education Years
-                        input#educationyears.form__input(type='educationyears' placeholder='e.g 2016 - 2020')
+                            label.form__label(for='educationdescription') Education Description
+                            input#educationdescription.form__input(type='educationdescription')
+                        .form__group
+                            label.form__label(for='educationyears') Education Years
+                            input#educationyears.form__input(type='educationyears' placeholder='e.g 2016 - 2020')
                         .remove-experience-container
-                        h4 Remove Education
+                            h4 Remove Education
                     .btn-container
                         button.btn-cancel(type='button')
                         a(href='portfolio.html') Cancel
@@ -117,20 +117,23 @@ block content
                     .subform__header-container
                         h3 Work Experience
                         button.add-experience.work(type='button')
-                        svg.subform__header-icon.icon-24px
-                            use(href='../assets/icons.svg#icon-plus-lg')
+                            svg.subform__header-icon.icon-24px
+                                use(href='../assets/icons.svg#icon-plus-lg')
                     .margin-left.experience-container.workexperience
                         .form__group
-                        label.form__label(for='workplace') Work Place
-                        input#workplace.form__input(type='workplace' placeholder='e.g Asiacell Telecoms')
+                            label.form__label(for='worktitle') work Title
+                            input#worktitle.form__input(type='worktitle' placeholder='Senior Developer')
                         .form__group
-                        label.form__label(for='workdescription') Work Description
-                        input#workdescription.form__input(type='workdescription')
+                            label.form__label(for='workplace') Work Place
+                            input#workplace.form__input(type='workplace' placeholder='e.g Asiacell Telecoms')
                         .form__group
-                        label.form__label(for='workyears') Work Years
-                        input#workyears.form__input(type='workyears' placeholder='e.g 2020 - present')
+                            label.form__label(for='workdescription') Work Description
+                            input#workdescription.form__input(type='workdescription')
+                        .form__group
+                            label.form__label(for='workyears') Work Years
+                            input#workyears.form__input(type='workyears' placeholder='e.g 2020 - present')
                         .remove-experience-container
-                        h4 Remove Work Experience
+                            h4 Remove Work Experience
                     .btn-container
                         button.btn-cancel(type='button')
                         a(href='portfolio.html') Cancel

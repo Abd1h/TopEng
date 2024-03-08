@@ -26,16 +26,7 @@ const workExperienceSchema = new mongoose.Schema({
     type: String,
   },
 });
-// const skillSchema = new mongoose.Schema({
-//   skill: {
-//     type: String,
-//   },
-// });
-// const languageSchema = new mongoose.Schema({
-//   language: {
-//     type: String,
-//   },
-// });
+
 const educationSchema = new mongoose.Schema({
   educationTitle: {
     type: String,
@@ -187,6 +178,7 @@ userSchema.pre('save', function (next) {
 
   next();
 });
+
 userSchema.pre('save', function (next) {
   if (this.skills) this.skills = firstLetterCaptilized(this.skills);
   if (this.languages) this.languages = firstLetterCaptilized(this.languages);
