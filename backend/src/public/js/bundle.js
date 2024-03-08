@@ -9284,53 +9284,54 @@ if (signUpForm) {
   });
 }
 if (logOutBtn) logOutBtn.addEventListener('click', _login.logout);
-if (userDataForm) ;
-userDataForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  //   const form = new FormData();
-  //   form.append('name', document.getElementById('name').value);
-  //   form.append('EngineeringBranch', document.getElementById('engineeringbranch').value);
-  //   form.append('university', document.getElementById('university').value);
-  //   form.append('about', document.getElementById('about').value);
-  //   form.append('github', document.getElementById('github').value);
-  //   form.append('xaccount', document.getElementById('xaccount').value);
-  //   form.append('location', document.getElementById('location').value);
-  //   form.append('yearsofexperienceInput', document.getElementById('yearsofexperience').value);
-  //   form.append('availability', document.getElementById('availability').value);
-  var skillsa = document.getElementById('skills').value.split(',');
-  //   form.append('skills', skills);
-  var languagesa = document.getElementById('languages').value.split(',');
-  //   form.append('languages', languages);
-  // form.append('photo', document.getElementById('photo').files[0]);
+if (userDataForm) {
+  userDataForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    //   const form = new FormData();
+    //   form.append('name', document.getElementById('name').value);
+    //   form.append('EngineeringBranch', document.getElementById('engineeringbranch').value);
+    //   form.append('university', document.getElementById('university').value);
+    //   form.append('about', document.getElementById('about').value);
+    //   form.append('github', document.getElementById('github').value);
+    //   form.append('xaccount', document.getElementById('xaccount').value);
+    //   form.append('location', document.getElementById('location').value);
+    //   form.append('yearsofexperienceInput', document.getElementById('yearsofexperience').value);
+    //   form.append('availability', document.getElementById('availability').value);
+    var skillsa = document.getElementById('skills').value.split(',');
+    //   form.append('skills', skills);
+    var languagesa = document.getElementById('languages').value.split(',');
+    //   form.append('languages', languages);
+    // form.append('photo', document.getElementById('photo').files[0]);
 
-  //   for (var pair of form.entries()) {
-  //     console.log(pair[0] + ', ' + pair[1]);
-  //   }
-  var firstLetterCaptilized = function firstLetterCaptilized(sentence) {
-    var words;
-    // if the recieved data is a sentence or array
-    if (!Array.isArray(sentence)) {
-      words = sentence.split(' ');
-    } else words = sentence.join(' ').split(' ');
-    // console.log(words);
-    for (var i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-    return words.join(' ');
-  };
-  var form = {
-    name: document.getElementById('name').value,
-    EngineeringBranch: firstLetterCaptilized(document.getElementById('engineeringbranch').value),
-    university: firstLetterCaptilized(document.getElementById('university').value),
-    about: document.getElementById('about').value,
-    github: document.getElementById('github').value,
-    xaccount: document.getElementById('xaccount').value,
-    location: firstLetterCaptilized(document.getElementById('location').value),
-    yearsofexperienceInput: document.getElementById('yearsofexperience').value,
-    availability: firstLetterCaptilized(document.getElementById('availability').value),
-    skills: firstLetterCaptilized(skillsa),
-    languages: firstLetterCaptilized(languagesa)
-  };
-  (0, _updateSettings.updateSettings)(form, 'data');
-});
+    //   for (var pair of form.entries()) {
+    //     console.log(pair[0] + ', ' + pair[1]);
+    //   }
+    var firstLetterCaptilized = function firstLetterCaptilized(sentence) {
+      var words;
+      // if the recieved data is a sentence or array
+      if (!Array.isArray(sentence)) {
+        words = sentence.split(' ');
+      } else words = sentence.join(' ').split(' ');
+      // console.log(words);
+      for (var i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+      return words.join(' ');
+    };
+    var form = {
+      name: document.getElementById('name').value,
+      EngineeringBranch: firstLetterCaptilized(document.getElementById('engineeringbranch').value),
+      university: firstLetterCaptilized(document.getElementById('university').value),
+      about: document.getElementById('about').value,
+      github: document.getElementById('github').value,
+      xaccount: document.getElementById('xaccount').value,
+      location: firstLetterCaptilized(document.getElementById('location').value),
+      yearsofexperienceInput: document.getElementById('yearsofexperience').value,
+      availability: firstLetterCaptilized(document.getElementById('availability').value),
+      skills: firstLetterCaptilized(skillsa),
+      languages: firstLetterCaptilized(languagesa)
+    };
+    (0, _updateSettings.updateSettings)(form, 'data');
+  });
+}
 var workOrEducation = function workOrEducation() {
   var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'work';
   var container = type === 'work' ? userWorkForm : userEducationForm;
@@ -9442,7 +9443,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56331" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61098" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -33,54 +33,54 @@ if (signUpForm) {
 }
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
 
-if (userDataForm);
-userDataForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  //   const form = new FormData();
-  //   form.append('name', document.getElementById('name').value);
-  //   form.append('EngineeringBranch', document.getElementById('engineeringbranch').value);
-  //   form.append('university', document.getElementById('university').value);
-  //   form.append('about', document.getElementById('about').value);
-  //   form.append('github', document.getElementById('github').value);
-  //   form.append('xaccount', document.getElementById('xaccount').value);
-  //   form.append('location', document.getElementById('location').value);
-  //   form.append('yearsofexperienceInput', document.getElementById('yearsofexperience').value);
-  //   form.append('availability', document.getElementById('availability').value);
-  const skillsa = document.getElementById('skills').value.split(',');
-  //   form.append('skills', skills);
-  const languagesa = document.getElementById('languages').value.split(',');
-  //   form.append('languages', languages);
-  // form.append('photo', document.getElementById('photo').files[0]);
+if (userDataForm) {
+  userDataForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    //   const form = new FormData();
+    //   form.append('name', document.getElementById('name').value);
+    //   form.append('EngineeringBranch', document.getElementById('engineeringbranch').value);
+    //   form.append('university', document.getElementById('university').value);
+    //   form.append('about', document.getElementById('about').value);
+    //   form.append('github', document.getElementById('github').value);
+    //   form.append('xaccount', document.getElementById('xaccount').value);
+    //   form.append('location', document.getElementById('location').value);
+    //   form.append('yearsofexperienceInput', document.getElementById('yearsofexperience').value);
+    //   form.append('availability', document.getElementById('availability').value);
+    const skillsa = document.getElementById('skills').value.split(',');
+    //   form.append('skills', skills);
+    const languagesa = document.getElementById('languages').value.split(',');
+    //   form.append('languages', languages);
+    // form.append('photo', document.getElementById('photo').files[0]);
 
-  //   for (var pair of form.entries()) {
-  //     console.log(pair[0] + ', ' + pair[1]);
-  //   }
-  const firstLetterCaptilized = (sentence) => {
-    let words;
-    // if the recieved data is a sentence or array
-    if (!Array.isArray(sentence)) {
-      words = sentence.split(' ');
-    } else words = sentence.join(' ').split(' ');
-    // console.log(words);
-    for (let i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-    return words.join(' ');
-  };
-  const form = {
-    name: document.getElementById('name').value,
-    EngineeringBranch: firstLetterCaptilized(document.getElementById('engineeringbranch').value),
-    university: firstLetterCaptilized(document.getElementById('university').value),
-    about: document.getElementById('about').value,
-    github: document.getElementById('github').value,
-    xaccount: document.getElementById('xaccount').value,
-    location: firstLetterCaptilized(document.getElementById('location').value),
-    yearsofexperienceInput: document.getElementById('yearsofexperience').value,
-    availability: firstLetterCaptilized(document.getElementById('availability').value),
-    skills: firstLetterCaptilized(skillsa),
-    languages: firstLetterCaptilized(languagesa),
-  };
-  updateSettings(form, 'data');
-});
-
+    //   for (var pair of form.entries()) {
+    //     console.log(pair[0] + ', ' + pair[1]);
+    //   }
+    const firstLetterCaptilized = (sentence) => {
+      let words;
+      // if the recieved data is a sentence or array
+      if (!Array.isArray(sentence)) {
+        words = sentence.split(' ');
+      } else words = sentence.join(' ').split(' ');
+      // console.log(words);
+      for (let i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+      return words.join(' ');
+    };
+    const form = {
+      name: document.getElementById('name').value,
+      EngineeringBranch: firstLetterCaptilized(document.getElementById('engineeringbranch').value),
+      university: firstLetterCaptilized(document.getElementById('university').value),
+      about: document.getElementById('about').value,
+      github: document.getElementById('github').value,
+      xaccount: document.getElementById('xaccount').value,
+      location: firstLetterCaptilized(document.getElementById('location').value),
+      yearsofexperienceInput: document.getElementById('yearsofexperience').value,
+      availability: firstLetterCaptilized(document.getElementById('availability').value),
+      skills: firstLetterCaptilized(skillsa),
+      languages: firstLetterCaptilized(languagesa),
+    };
+    updateSettings(form, 'data');
+  });
+}
 const workOrEducation = function (type = 'work') {
   const container = type === 'work' ? userWorkForm : userEducationForm;
   const experienceContainer = container.querySelectorAll('.experience-container');

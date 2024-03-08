@@ -1,7 +1,7 @@
 extends base
 
 block content
-    main
+  main
       section.section__picture.bk-clr-primarylt.bottom-margin
         .container.picture__layout
           div
@@ -59,7 +59,7 @@ block content
                 div
                   p.section__about-description=`${user.about}`
 
-      if user.skills.length > 1
+      if user.skills
         section.section__skills.bk-clr-primarylt.bottom-margin
           .container
             .section__header__container
@@ -72,7 +72,7 @@ block content
                 .skill=skill
         
           
-      if user.languages.length > 1
+      if user.languages
         section.section__languages.bk-clr-primarylt.bottom-margin
           .container
             .section__header__container
@@ -85,7 +85,7 @@ block content
                 .language=language
         
         
-      if user.workExperience.length > 1
+      if user.workExperience
         section.section__work.bk-clr-primarylt.bottom-margin
           .container
             .section__header__container
@@ -106,7 +106,7 @@ block content
                     svg.experience__years-icon
                       use(href='../assets/icons.svg#icon-calender')
                     span=`${work.startYear} - ${work.endYear}`
-      if user.education.length > 1    
+      if user.education  
         section.section__education.bk-clr-primarylt.bottom-margin
           .container
             .section__header__container
