@@ -6,8 +6,8 @@
     "build": "webpack",
     "start": "webpack serve",
     "dev": "nodemon --watch app --watch libs backend/src/server.js",
-    "watch:js": "parcel watch ./backend/src/public/js/index.js --out-dir ./backend/src/public/js --out-file bundle.js  ",
-    "build:js": "parcel build ./backend/src/public/js/index.js --out-dir ./backend/src/public/js --out-file bundle.js  "
+    "watch:js": "parcel watch ./backend/src/public/js/index.js --out-dir ./backend/src/public/js --out-file bundle.js --no-source-maps ",
+    "build:js": "parcel build ./backend/src/public/js/index.js --out-dir ./backend/src/public/js --out-file bundle.js --no-source-maps "
   },
   "author": "",
   "license": "ISC",
