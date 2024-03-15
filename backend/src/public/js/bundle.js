@@ -6697,11 +6697,11 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/layout/footer.css":[function(require,module,exports) {
+},{"_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/layout/header.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"../base/global.css":"../../../../frontend/src/style/base/global.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/layout/header.css":[function(require,module,exports) {
+},{"../base/global.css":"../../../../frontend/src/style/base/global.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/layout/footer.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
@@ -6733,7 +6733,7 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"../style/base/reset.css":"../../../../frontend/src/style/base/reset.css","../style/base/global.css":"../../../../frontend/src/style/base/global.css","../style/layout/footer.css":"../../../../frontend/src/style/layout/footer.css","../style/layout/header.css":"../../../../frontend/src/style/layout/header.css","../style/layout/home.css":"../../../../frontend/src/style/layout/home.css","../style/layout/portfolio.css":"../../../../frontend/src/style/layout/portfolio.css","../style/layout/search.css":"../../../../frontend/src/style/layout/search.css","../style/compnenents/button.css":"../../../../frontend/src/style/compnenents/button.css","../style/layout/sign up.css":"../../../../frontend/src/style/layout/sign up.css","../style/layout/Edit portfolio.css":"../../../../frontend/src/style/layout/Edit portfolio.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
+},{"../style/base/reset.css":"../../../../frontend/src/style/base/reset.css","../style/base/global.css":"../../../../frontend/src/style/base/global.css","../style/layout/header.css":"../../../../frontend/src/style/layout/header.css","../style/layout/footer.css":"../../../../frontend/src/style/layout/footer.css","../style/layout/home.css":"../../../../frontend/src/style/layout/home.css","../style/layout/portfolio.css":"../../../../frontend/src/style/layout/portfolio.css","../style/layout/search.css":"../../../../frontend/src/style/layout/search.css","../style/compnenents/button.css":"../../../../frontend/src/style/compnenents/button.css","../style/layout/sign up.css":"../../../../frontend/src/style/layout/sign up.css","../style/layout/Edit portfolio.css":"../../../../frontend/src/style/layout/Edit portfolio.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("../../../../frontend/src/style/Index.css");
