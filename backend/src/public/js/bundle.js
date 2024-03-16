@@ -9045,7 +9045,7 @@ var logout = exports.logout = /*#__PURE__*/function () {
         case 3:
           res = _context3.sent;
           if (res.data.status = 'success') {
-            (0, _alerts.showAlert)('Logging Out');
+            (0, _alerts.showAlert)('success', 'Logging Out');
             window.setTimeout(function () {
               location.assign('/');
             }, 1500);
@@ -9265,6 +9265,17 @@ var userDataForm = document.querySelector('.form-user-data');
 var userPasswordForm = document.querySelector('.form-user-password');
 var userWorkForm = document.querySelector('.form-user-work');
 var userEducationForm = document.querySelector('.form-user-education');
+var userPhotoForm = document.querySelector('.form-user-photo');
+if (userPhotoForm) {
+  userPhotoForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var photo = document.getElementById('photo').files[0];
+    var data = {
+      photo: photo
+    };
+    (0, _updateSettings.updateSettings)(data, 'data');
+  });
+}
 if (loginForm) {
   loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -9307,14 +9318,18 @@ if (userDataForm) {
     //     console.log(pair[0] + ', ' + pair[1]);
     //   }
     var firstLetterCaptilized = function firstLetterCaptilized(sentence) {
-      var words;
-      // if the recieved data is a sentence or array
-      if (!Array.isArray(sentence)) {
-        words = sentence.split(' ');
-      } else words = sentence.join(' ').split(' ');
-      // console.log(words);
-      for (var i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-      return words.join(' ');
+      if (sentence) {
+        var words;
+        if (!Array.isArray(sentence)) {
+          words = sentence.split(' ');
+          for (var i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+          words = words.join(' ');
+        } else {
+          words = sentence.join(' ').split(' ');
+          for (var _i = 0; _i < words.length; _i++) words[_i] = words[_i].charAt(0).toUpperCase() + words[_i].slice(1);
+        }
+        return words;
+      }
     };
     var form = {
       name: document.getElementById('name').value,
@@ -9329,6 +9344,7 @@ if (userDataForm) {
       skills: firstLetterCaptilized(skillsa),
       languages: firstLetterCaptilized(languagesa)
     };
+    console.log(form);
     (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
@@ -9443,7 +9459,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53057" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63174" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
