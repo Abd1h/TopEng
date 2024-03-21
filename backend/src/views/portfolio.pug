@@ -7,7 +7,10 @@ block content
           div
             .flex-row
               .profile__img-container
-                img(src='../assets/profile-img.png' alt='profile pic')
+                if user.photo = 'default'
+                  svg.photo__default-icon
+                        use(href='../assets/icons.svg#icon-person-circle')
+                //- img(src='../assets/profile-img.png' alt='profile pic')
               .socials__container
                   .engineer__socials.flex-row
                     if user.workEmail
@@ -31,7 +34,7 @@ block content
             div
               h1.engineer__name= `${user.name}`
               if user.EngineeringBranch
-                p.engineer__college= `${user.EngineeringBranch} at ${user.university}`
+                p.engineer__college= `${user.EngineeringBranch}  ${user.university?'at ' + user.university:''}` 
           .content-splitter
             div a
           .engineer__info

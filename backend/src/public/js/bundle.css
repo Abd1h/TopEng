@@ -168,7 +168,6 @@ svg {
     scroll-behavior: auto !important;
   }
 }
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
 
 /* ============================================ 
@@ -412,7 +411,6 @@ svg {
   background-color: var(--clr-secondary);
 }
 
-
 .header__logo {
   font-size: var(--fs-500);
   color: var(--clr-primary);
@@ -538,7 +536,6 @@ svg {
     display: none;
 }
 
-
 footer {
     padding: var(--spacing-l4) 0;
     background-color: var(--clr-base-dk); 
@@ -612,8 +609,7 @@ padding-bottom: var(--spacing-s)
     flex-direction: row;
 justify-content: center;
 }
-}
-/* hero section */
+}/* hero section */
 .hero {
   height: 100%;
   margin-bottom: var(--sections-spacing);
@@ -769,7 +765,6 @@ justify-content: center;
   fill: var(--clr-primary-lt);
   background: var(--clr-base);
 }
-
 .profile__img-container{
     width:150px;
     height:150px;
@@ -1001,7 +996,6 @@ gap:var(--spacing-l2);
     font-size: var(--fs-320);
 }
 }
-
 .center {
   text-align: center;
   margin: 0 auto;
@@ -1105,7 +1099,6 @@ select option:checked {
   background-color: #3498db; /* Set your desired background color */
   color: #ffffff; /* Set your desired text color */
 }
-
 .sign__btn{
  font-weight: 700;
 }
@@ -1122,7 +1115,6 @@ select option:checked {
    background-color:var(--clr-secondary);  
    transition: background-color ease-in-out 200ms;
 }
-
 
 
 .sign-container{
@@ -1209,8 +1201,7 @@ color:var(--clr-base-dk);
 }
 .spacing{
     margin-right: var(--spacing-s);
-}
-.form-picture-layout{
+}.form-picture-layout{
     display: grid;
     grid-template-columns: 1fr ;
 }
@@ -1318,7 +1309,3 @@ color:var(--clr-base-dk);
 .form__label{
     text-transform: capitalize;
 }
-
-
-
-/*# sourceMappingURL=/bundle.css.map */
