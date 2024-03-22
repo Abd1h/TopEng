@@ -10,8 +10,8 @@ block content
                 if  user && user.photo==='default'
                   svg.photo__default-icon
                         use(href='../assets/icons.svg#icon-person-circle')
-                else 
-                  img(src=`assets/users/${user.photo}` alt='profile pic')
+                else
+                      img(src=`assets/users/${user.photo}` alt='profile pic')
               .socials__container
                   .engineer__socials.flex-row
                     if user.workEmail
