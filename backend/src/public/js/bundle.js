@@ -6729,11 +6729,15 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/layout/search result.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/Index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"../style/base/reset.css":"../../../../frontend/src/style/base/reset.css","../style/base/global.css":"../../../../frontend/src/style/base/global.css","../style/layout/header.css":"../../../../frontend/src/style/layout/header.css","../style/layout/footer.css":"../../../../frontend/src/style/layout/footer.css","../style/layout/home.css":"../../../../frontend/src/style/layout/home.css","../style/layout/portfolio.css":"../../../../frontend/src/style/layout/portfolio.css","../style/layout/search.css":"../../../../frontend/src/style/layout/search.css","../style/compnenents/button.css":"../../../../frontend/src/style/compnenents/button.css","../style/layout/sign up.css":"../../../../frontend/src/style/layout/sign up.css","../style/layout/Edit portfolio.css":"../../../../frontend/src/style/layout/Edit portfolio.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
+},{"../style/base/reset.css":"../../../../frontend/src/style/base/reset.css","../style/base/global.css":"../../../../frontend/src/style/base/global.css","../style/layout/header.css":"../../../../frontend/src/style/layout/header.css","../style/layout/footer.css":"../../../../frontend/src/style/layout/footer.css","../style/layout/home.css":"../../../../frontend/src/style/layout/home.css","../style/layout/portfolio.css":"../../../../frontend/src/style/layout/portfolio.css","../style/layout/search.css":"../../../../frontend/src/style/layout/search.css","../style/compnenents/button.css":"../../../../frontend/src/style/compnenents/button.css","../style/layout/sign up.css":"../../../../frontend/src/style/layout/sign up.css","../style/layout/Edit portfolio.css":"../../../../frontend/src/style/layout/Edit portfolio.css","../style/layout/search result.css":"../../../../frontend/src/style/layout/search result.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("../../../../frontend/src/style/Index.css");
@@ -9269,11 +9273,12 @@ var userPhotoForm = document.querySelector('.form-user-photo');
 if (userPhotoForm) {
   userPhotoForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    var photo = document.getElementById('photo').files[0];
-    var data = {
-      photo: photo
-    };
-    (0, _updateSettings.updateSettings)(data, 'data');
+    // const photo = document.getElementById('photo').files[0];
+
+    // const data = { photo };
+    var form = new FormData();
+    form.append('photo', document.getElementById('photo').files[0]);
+    (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
 if (loginForm) {
@@ -9459,7 +9464,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63174" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52592" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

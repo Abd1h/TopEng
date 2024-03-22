@@ -4,20 +4,24 @@ block content
     main.main
     section.section__about.bk-clr-primarylt.bottom-margin
         div
-        .container
-            .section__header__container
-                svg.section__header-icon.icon-24px
-                    use(href='assets/icons.svg#icon-person-bounding-box')
-                h2.section__header
-                | Profile Picture
-            form.form.form-picture-layout.form-user-photo
-                .form__group.form__photo-upload
-                    .profile__img-container
-                        img.form__user-photo(src='assets/profile-img.png' alt='User photo')
-                    input.form__upload(type='file' ,accept='image/*', id='photo' ,name='photo')
-                    label(for='photo') Upload New Image
-                .form__group
-                    button.sign__btn--up Save settings
+            .container
+                .section__header__container
+                    svg.section__header-icon.icon-24px
+                        use(href='assets/icons.svg#icon-person-bounding-box')
+                    h2.section__header
+                    | Profile Picture
+                form.form.form-picture-layout.form-user-photo
+                    .form__group.form__photo-upload
+                        .profile__img-container
+                            if user && user.photo === 'default'
+                                svg.photo__default-icon
+                                    use(href='../assets/icons.svg#icon-person-circle')
+                            else        
+                                img.form__user-photo(src=`assets/users/${user.photo}`, alt='User photo')
+                        input.form__upload(type='file' ,accept='image/*', id='photo' ,name='photo')
+                        label(for='photo') Upload New Image
+                    .form__group
+                        button.sign__btn--up Save settings
 
     section.section__about.bk-clr-primarylt.bottom-margin
         div
@@ -56,7 +60,7 @@ block content
                         input#engineeringbranch.form__input(type='engineeringbranch',value=user.EngineeringBranch?user.EngineeringBranch:'')
                     .form__group
                         label.form__label(for='university') University
-                        input#university.form__input(type='university')
+                        input#university.form__input(type='university',value=`${user.University?user.University:''}`)
                     .form__group
                         label.form__label(for='About') About
                         textarea#about.form__input(maxlength='2600' type='about' cols='30' rows='10')
