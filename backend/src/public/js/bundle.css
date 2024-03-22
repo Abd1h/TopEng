@@ -1308,4 +1308,21 @@ color:var(--clr-base-dk);
 }
 .form__label{
     text-transform: capitalize;
+}.preview__link {
+  display: flex;
+  align-items: start;
+  gap: var(--spacing-m);
 }
+.preview__img {
+  width: 64px;
+  height: 64px;
+}
+.preview__img img {
+  border-radius: 50%;
+}
+.preview__data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+

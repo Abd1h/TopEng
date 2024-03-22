@@ -17,9 +17,14 @@ const userPhotoForm = document.querySelector('.form-user-photo');
 if (userPhotoForm) {
   userPhotoForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const photo = document.getElementById('photo').files[0];
-    const data = { photo };
-    updateSettings(data, 'data');
+    // const photo = document.getElementById('photo').files[0];
+
+    // const data = { photo };
+    const form = new FormData();
+
+    form.append('photo', document.getElementById('photo').files[0]);
+
+    updateSettings(form, 'data');
   });
 }
 if (loginForm) {

@@ -43,7 +43,6 @@
     "hpp": "^0.2.2",
     "html-to-text": "^5.1.1",
     "image-webpack-loader": "^8.1.0",
-    "jimp": "^0.22.12",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.2",
     "morgan": "^1.9.1",

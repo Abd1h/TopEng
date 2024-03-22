@@ -108,5 +108,10 @@ module.exports = {
       filename: 'Forgot Password.html',
       template: 'frontend/src/pages/Forgot Password.html',
     }),
+    new HtmlWebpackPlugin({
+      title: 'TopEng/search result',
+      filename: 'search result.html',
+      template: 'frontend/src/pages/search result.html',
+    }),
   ],
 };
