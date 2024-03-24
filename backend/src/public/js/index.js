@@ -12,6 +12,21 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const userWorkForm = document.querySelector('.form-user-work');
 const userEducationForm = document.querySelector('.form-user-education');
+const userPhotoForm = document.querySelector('.form-user-photo');
+
+if (userPhotoForm) {
+  userPhotoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // const photo = document.getElementById('photo').files[0];
+
+    // const data = { photo };
+    const form = new FormData();
+
+    form.append('photo', document.getElementById('photo').files[0]);
+
+    updateSettings(form, 'data');
+  });
+}
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -56,14 +71,20 @@ if (userDataForm) {
     //     console.log(pair[0] + ', ' + pair[1]);
     //   }
     const firstLetterCaptilized = (sentence) => {
-      let words;
-      // if the recieved data is a sentence or array
-      if (!Array.isArray(sentence)) {
-        words = sentence.split(' ');
-      } else words = sentence.join(' ').split(' ');
-      // console.log(words);
-      for (let i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-      return words.join(' ');
+      if (sentence) {
+        let words;
+
+        if (!Array.isArray(sentence)) {
+          words = sentence.split(' ');
+          for (let i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+          words = words.join(' ');
+        } else {
+          words = sentence.join(' ').split(' ');
+          for (let i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+        }
+
+        return words;
+      }
     };
     const form = {
       name: document.getElementById('name').value,
@@ -78,6 +99,7 @@ if (userDataForm) {
       skills: firstLetterCaptilized(skillsa),
       languages: firstLetterCaptilized(languagesa),
     };
+    console.log(form);
     updateSettings(form, 'data');
   });
 }

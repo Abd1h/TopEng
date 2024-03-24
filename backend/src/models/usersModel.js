@@ -63,9 +63,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
   },
-  photo: {
-    type: String,
-  },
+
   role: {
     type: String,
     enum: ['user', 'admin'],
@@ -105,6 +103,10 @@ const userSchema = new mongoose.Schema({
   about: {
     type: String,
     maxlength: 500,
+  },
+  photo: {
+    type: String,
+    default: 'default',
   },
   // workEmail: {
   //   type: String,

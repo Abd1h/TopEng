@@ -6729,11 +6729,15 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/layout/search result.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../frontend/src/style/Index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"../style/base/reset.css":"../../../../frontend/src/style/base/reset.css","../style/base/global.css":"../../../../frontend/src/style/base/global.css","../style/layout/header.css":"../../../../frontend/src/style/layout/header.css","../style/layout/footer.css":"../../../../frontend/src/style/layout/footer.css","../style/layout/home.css":"../../../../frontend/src/style/layout/home.css","../style/layout/portfolio.css":"../../../../frontend/src/style/layout/portfolio.css","../style/layout/search.css":"../../../../frontend/src/style/layout/search.css","../style/compnenents/button.css":"../../../../frontend/src/style/compnenents/button.css","../style/layout/sign up.css":"../../../../frontend/src/style/layout/sign up.css","../style/layout/Edit portfolio.css":"../../../../frontend/src/style/layout/Edit portfolio.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
+},{"../style/base/reset.css":"../../../../frontend/src/style/base/reset.css","../style/base/global.css":"../../../../frontend/src/style/base/global.css","../style/layout/header.css":"../../../../frontend/src/style/layout/header.css","../style/layout/footer.css":"../../../../frontend/src/style/layout/footer.css","../style/layout/home.css":"../../../../frontend/src/style/layout/home.css","../style/layout/portfolio.css":"../../../../frontend/src/style/layout/portfolio.css","../style/layout/search.css":"../../../../frontend/src/style/layout/search.css","../style/compnenents/button.css":"../../../../frontend/src/style/compnenents/button.css","../style/layout/sign up.css":"../../../../frontend/src/style/layout/sign up.css","../style/layout/Edit portfolio.css":"../../../../frontend/src/style/layout/Edit portfolio.css","../style/layout/search result.css":"../../../../frontend/src/style/layout/search result.css","_css_loader":"../../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 require("../../../../frontend/src/style/Index.css");
@@ -9045,7 +9049,7 @@ var logout = exports.logout = /*#__PURE__*/function () {
         case 3:
           res = _context3.sent;
           if (res.data.status = 'success') {
-            (0, _alerts.showAlert)('Logging Out');
+            (0, _alerts.showAlert)('success', 'Logging Out');
             window.setTimeout(function () {
               location.assign('/');
             }, 1500);
@@ -9265,6 +9269,18 @@ var userDataForm = document.querySelector('.form-user-data');
 var userPasswordForm = document.querySelector('.form-user-password');
 var userWorkForm = document.querySelector('.form-user-work');
 var userEducationForm = document.querySelector('.form-user-education');
+var userPhotoForm = document.querySelector('.form-user-photo');
+if (userPhotoForm) {
+  userPhotoForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // const photo = document.getElementById('photo').files[0];
+
+    // const data = { photo };
+    var form = new FormData();
+    form.append('photo', document.getElementById('photo').files[0]);
+    (0, _updateSettings.updateSettings)(form, 'data');
+  });
+}
 if (loginForm) {
   loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -9307,14 +9323,18 @@ if (userDataForm) {
     //     console.log(pair[0] + ', ' + pair[1]);
     //   }
     var firstLetterCaptilized = function firstLetterCaptilized(sentence) {
-      var words;
-      // if the recieved data is a sentence or array
-      if (!Array.isArray(sentence)) {
-        words = sentence.split(' ');
-      } else words = sentence.join(' ').split(' ');
-      // console.log(words);
-      for (var i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-      return words.join(' ');
+      if (sentence) {
+        var words;
+        if (!Array.isArray(sentence)) {
+          words = sentence.split(' ');
+          for (var i = 0; i < words.length; i++) words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+          words = words.join(' ');
+        } else {
+          words = sentence.join(' ').split(' ');
+          for (var _i = 0; _i < words.length; _i++) words[_i] = words[_i].charAt(0).toUpperCase() + words[_i].slice(1);
+        }
+        return words;
+      }
     };
     var form = {
       name: document.getElementById('name').value,
@@ -9329,6 +9349,7 @@ if (userDataForm) {
       skills: firstLetterCaptilized(skillsa),
       languages: firstLetterCaptilized(languagesa)
     };
+    console.log(form);
     (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
@@ -9443,7 +9464,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61098" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52592" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
@@ -9588,4 +9609,3 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/bundle.js.map

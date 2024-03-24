@@ -12,5 +12,7 @@ router.get('/me', authController.protect, viewsController.getAccount);
 router.get('/signup', viewsController.getSignUpForm);
 
 router.get('/editportfolio', authController.protect, viewsController.editPortfolio);
+router.get('/search', authController.protect, viewsController.search);
+router.get('/searchresult', authController.protect, viewsController.searchResult);
 
 module.exports = router;
