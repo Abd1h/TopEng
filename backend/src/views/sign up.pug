@@ -1,0 +1,32 @@
+extends base
+block content
+ main.main
+  .bottom-margin
+    .container.sign-container
+      .bk-clr-primarylt
+        .section__header__container
+          svg.section__header-icon.icon-24px
+            use(href='../assets/icons.svg#icon-person-fill-add')
+          h2.section__header
+            | Create Your Account
+        form.form.form--signup
+          .form__group
+            label.form__label(for='name') Your name
+            input#name.form__input(type='text' placeholder='' required='')
+          .form__group
+            label.form__label(for='email') Email address
+            input#email.form__input(type='email' placeholder='you@example.com' required='')
+          .form__group
+            label.form__label(for='password') Password
+            input#password.form__input(type='password' placeholder='••••••••' required='' minlength='8')
+          .form__group
+            label.form__label(for='confirmpassword') Confirm Password
+            input#confirmpassword.form__input(type='password' placeholder='••••••••' required='' minlength='8')
+          .btn-container
+            button.btn-cancel(type='button')
+              a(href='/') Cancel
+            button.sign__btn--up(type='submit') Sign up
+        .text-container
+          div
+            span Already have an account ? 
+            a(href='/login') Log In

@@ -1,11 +1,10 @@
-@import url("../style/base/reset.css");
-@import url("../style/base/global.css");
-
-@import url("../style/layout/footer.css");
-@import url("../style/layout/header.css");
-@import url("../style/layout/home.css");
-@import url("../style/layout/portfolio.css");
-@import url("../style/layout/search.css");
-@import url("../style/compnenents/button.css");
-@import url("../style/layout/sign up.css");
-@import url("../style/layout/Edit portfolio.css")
+@import url('../style/base/reset.css');
+@import url('../style/base/global.css');
+@import url('../style/layout/header.css');
+@import url('../style/layout/footer.css');
+@import url('../style/layout/home.css');
+@import url('../style/layout/portfolio.css');
+@import url('../style/layout/search.css');
+@import url('../style/compnenents/button.css');
+@import url('../style/layout/sign up.css');
+@import url('../style/layout/Edit portfolio.css');

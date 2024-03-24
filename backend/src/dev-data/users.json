@@ -1,24 +1,29 @@
 [
   {
-    "name": "Adnan Omar",
-    "email": "adnan@gmail.something",
-    "role": "admin",
-    "EngineeringBranch": "computer engineer",
-    "password": "122341431",
-    "passwordConfirm": "122341431",
+    "yearsOfExperienceInput": 10,
+    "skills": ["js", "node ", "js"],
+    "languages": ["english", "french", "spanish"],
+    "name": "Adnan",
+    "email": "adanan21omar@gmail.com",
+    "password": "test1234",
+    "passwordConfirm": "test1234",
     "workExperience": [
-      {
-        "workPlace": "Aciacell",
-        "workYears": "2021-present"
-      }
+      { "workTitle": "At home", "workPlace": "Aciacell", "workYears": "2021-2023" },
+      { "workTitle": "At home", "workPlace": "Aciacell", "workYears": "2021-2023" }
     ],
     "education": [
-      { "educationPlace": "Aciacell", "educationYears": "2021-2023" },
-      { "educationPlace": "Aciacell", "educationYears": "2021-2023" }
+      { "educationTitle": "At home", "educationPlace": "Aciacell", "educationYears": "2021-2023" },
+      { "educationTitle": "At home", "educationPlace": "Aciacell", "educationYears": "2021-2023" },
+      { "educationTitle": "At home", "educationPlace": "Aciacell", "educationYears": "2021-2023" }
     ],
-
-    "yearsOfExperienceInput": 10,
-    "skills": ["js", "node js"],
-    "languages": ["English", "French", "Spanish"]
+    "EngineeringBranch": "Computer Engineer\n",
+    "university": "UOM",
+    "location": "Iraq/Baghdad",
+    "experience": "1 year",
+    "availability": "full time",
+    "about": "testing the about ",
+    "githubAccount": "https://github.com/Abd1h/TopEng",
+    "xAccount": "https://twitter.com/home",
+    "workEmail": "simply@gmas.com"
   }
 ]

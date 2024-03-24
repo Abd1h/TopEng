@@ -5,7 +5,9 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve",
-    "dev": "nodemon --watch app --watch libs backend/src/server.js"
+    "dev": "nodemon --watch app --watch libs backend/src/server.js",
+    "watch:js": "parcel watch ./backend/src/public/js/index.js --out-dir ./backend/src/public/js --out-file bundle.js  ",
+    "build:js": "parcel build ./backend/src/public/js/index.js --out-dir ./backend/src/public/js --out-file bundle.js  "
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
-    "nodemon": "^3.0.3",
+    "parcel-bundler": "^1.12.5",
     "prettier": "3.1.1",
     "style-loader": "^3.3.3",
     "webpack": "^5.89.0",

@@ -1,0 +1,130 @@
+extends base
+
+block content
+  main
+      section.section__picture.bk-clr-primarylt.bottom-margin
+        .container.picture__layout
+          div
+            .flex-row
+              .profile__img-container
+                img(src='../assets/profile-img.png' alt='profile pic')
+              .socials__container
+                  .engineer__socials.flex-row
+                    if user.workEmail
+                        a.engineer__social-link(href=`${user.workEmail||'#'}`,target="_blink")
+                          svg.engineer__social-icon.icon-24px
+                            use(href='../assets/icons.svg#icon-envelope')
+                    if user.githubAccount
+                        a.engineer__social-link(href=`${user.githubAccount||'#'}`,target="_blink")
+                          svg.engineer__social-icon.icon-24px
+                            use(href='../assets/icons.svg#icon-github')
+                    if user.xAccount
+                      a.engineer__social-link(href=`${user.xAccount||'#'}`,target="_blink")
+                        svg.engineer__social-icon.icon-24px
+                          use(href='../assets/icons.svg#icon-x')
+                  a(href='/editportfolio')     
+                    button.flex-row.btn__follow
+                      //- svg.icon__follow.icon-24px
+                      //-   use(href='../assets/icons.svg#icon-person-fill-add')
+                      
+                      span Edit Portfolio
+            div
+              h1.engineer__name= `${user.name}`
+              if user.EngineeringBranch
+                p.engineer__college= `${user.EngineeringBranch} at ${user.university}`
+          .content-splitter
+            div a
+          .engineer__info
+            .engineer__info-row
+            if user.location
+              .engineer__info-row
+                h3.engineer__info-header Location:
+                p.engineer__info-description=`${user.location}`
+            if user.availability
+              .engineer__info-row
+                h3.engineer__info-header Availability:
+                p.engineer__info-description=`${user.availability}`
+            if user.yearsOfExperienceInput
+              .engineer__info-row
+                h3.engineer__info-header Experience:
+                p.engineer__info-description=`${user.yearsOfExperienceOutput}`
+      if user.about    
+        section.section__about.bk-clr-primarylt.bottom-margin
+              .container
+                .section__header__container
+                  svg.section__header-icon.icon-24px
+                    use(href='../assets/icons.svg#icon-person-fill')
+                  h2.section__header
+                    | About
+                div
+                  p.section__about-description=`${user.about}`
+
+      if user.skills
+        section.section__skills.bk-clr-primarylt.bottom-margin
+          .container
+            .section__header__container
+              svg.section__header-icon.icon-24px
+                use(href='../assets/icons.svg#icon-tools')
+              h2.section__header
+                | Skills
+            .skills.auto-container
+              each skill in user.skills
+                .skill=skill
+        
+          
+      if user.languages
+        section.section__languages.bk-clr-primarylt.bottom-margin
+          .container
+            .section__header__container
+              svg.section__header-icon.icon-24px
+                use(href='../assets/icons.svg#icon-translate')
+              h2.section__header
+                | Languages
+            .Languages.auto-container
+              each language in user.languages
+                .language=language
+        
+        
+      if user.workExperience
+        section.section__work.bk-clr-primarylt.bottom-margin
+          .container
+            .section__header__container
+              svg.section__header-icon.icon-24px
+                use(href='../assets/icons.svg#icon-person-workspace')
+              h2.section__header
+                | Work Experince
+            .experiences-container
+              each work in user.workExperience
+                .experience
+                  .experience__header__container
+                    div
+                      h3.experience__header=`${work.workTitle}`
+                      span=`${work.workPlace}`
+                      if work.workDescription
+                        p.experience_description=`${work.workDescription}`
+                  .experience__years
+                    svg.experience__years-icon
+                      use(href='../assets/icons.svg#icon-calender')
+                    span=`${work.startYear} - ${work.endYear}`
+      if user.education  
+        section.section__education.bk-clr-primarylt.bottom-margin
+          .container
+            .section__header__container
+              svg.section__header-icon.icon-24px
+                use(href='../assets/icons.svg#icon-journal-check')
+              h2.section__header
+                | Education
+            .experiences-container
+              each education in user.education
+                .experience
+                  .experience__header__container
+                    div
+                      h3.experience__header=`${education.educationTitle}`
+                      span=`${education.educationPlace}`
+                      if education.educationDescription
+                        p.experience_description=`${education.educationDescription}` 
+                  .experience__years
+                    svg.experience__years-icon
+                      use(href='../assets/icons.svg#icon-calender')
+                    span=`${education.startYear} - ${education.endYear}`
+            

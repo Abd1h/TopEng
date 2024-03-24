@@ -8,6 +8,10 @@ const workExperienceSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Enter Work place name'],
   },
+  workTitle: {
+    type: String,
+    required: ['true', 'provide your work title'],
+  },
   workDescription: {
     type: String,
   },
@@ -22,17 +26,12 @@ const workExperienceSchema = new mongoose.Schema({
     type: String,
   },
 });
-// const skillSchema = new mongoose.Schema({
-//   skill: {
-//     type: String,
-//   },
-// });
-// const languageSchema = new mongoose.Schema({
-//   language: {
-//     type: String,
-//   },
-// });
+
 const educationSchema = new mongoose.Schema({
+  educationTitle: {
+    type: String,
+    required: ['true', 'provide your education title'],
+  },
   educationPlace: {
     type: String,
     required: [true, 'Enter Education place name'],
@@ -78,6 +77,7 @@ const userSchema = new mongoose.Schema({
     minlength: 8,
     select: false,
   },
+
   passwordConfirm: {
     type: String,
     required: [true, 'Please confirm your password'],
@@ -106,12 +106,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     maxlength: 500,
   },
-  workEmail: {
-    type: String,
-    // unique: true,
-    lowercase: true,
-    // validate: [validator.isEmail, 'Please provide a valid email'],
-  },
+  // workEmail: {
+  //   type: String,
+  //   // unique: true,
+  //   lowercase: true,
+  //   validate: [validator.isEmail, 'Please provide a valid email'],
+  // },
   githubAccount: {
     type: String,
   },
@@ -178,6 +178,7 @@ userSchema.pre('save', function (next) {
 
   next();
 });
+
 userSchema.pre('save', function (next) {
   if (this.skills) this.skills = firstLetterCaptilized(this.skills);
   if (this.languages) this.languages = firstLetterCaptilized(this.languages);
@@ -185,9 +186,11 @@ userSchema.pre('save', function (next) {
 });
 
 userSchema.pre('save', function (next) {
-  if (this.yearsOfExperienceInput < 1) this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} year`;
-  else {
-    this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} years`;
+  if (this.yearsOfExperienceInput) {
+    if (this.yearsOfExperienceInput < 1) this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} year`;
+    else {
+      this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} years`;
+    }
   }
   next();
 });

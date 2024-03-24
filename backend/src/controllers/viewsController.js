@@ -29,7 +29,16 @@ exports.getTour = catchAsync(async (req, res, next) => {
     tour,
   });
 });
-
+exports.getSignUpForm = (req, res) => {
+  res.status(200).render('sign up', {
+    title: 'Create new Account',
+  });
+};
+exports.editPortfolio = (req, res) => {
+  res.status(200).render('edit portfolio', {
+    title: 'edit portfolio',
+  });
+};
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {
     title: 'Log into your account',
@@ -37,7 +46,7 @@ exports.getLoginForm = (req, res) => {
 };
 
 exports.getAccount = (req, res) => {
-  res.status(200).render('account', {
+  res.status(200).render('portfolio', {
     title: 'Your account',
   });
 };

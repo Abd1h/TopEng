@@ -1,0 +1,140 @@
+extends base
+
+block content    
+    main.main
+    section.section__about.bk-clr-primarylt.bottom-margin
+        div
+        .container
+            .section__header__container
+                svg.section__header-icon.icon-24px
+                    use(href='assets/icons.svg#icon-person-bounding-box')
+                h2.section__header
+                | Profile Picture
+            form.form.form-picture-layout.form-user-photo
+                .form__group.form__photo-upload
+                    .profile__img-container
+                        img.form__user-photo(src='assets/profile-img.png' alt='User photo')
+                    input#photo.form__upload(type='file' accept='image/*' name='photo')
+                    label(for='photo') Upload New Image
+                .form__group
+                    button.sign__btn--up Save settings
+
+    section.section__about.bk-clr-primarylt.bottom-margin
+        div
+            .container
+                .section__header__container
+                    svg.section__header-icon.icon-24px
+                        use(href='../assets/icons.svg#icon-person-fill-lock')
+                    h2.section__header
+                        | Change your password
+                form.form.form-user-password
+                    .form__group
+                        label.form__label(for='currentpassword') Current Password
+                        input#currentpassword.form__input(type='password' minlength='8' placeholder='••••••••' required='')
+                    .form__group
+                        label.form__label(for='newpassword') New Password
+                        input#newpassword.form__input(type='password' minlength='8' placeholder='••••••••' required='')
+                    .form__group
+                        label.form__label(for='confirmnewpassword')  Confirm  New Password
+                        input#confirmnewpassword.form__input(type='password' placeholder='••••••••' required='' minlength='8')
+                    .form__group
+                        button.sign__btn--up.btn--save-password Save password
+    section.section__about.bk-clr-primarylt.bottom-margin
+        .container.portfolio-container
+            .section__header__container
+                svg.section__header-icon.icon-24px
+                    use(href='../assets/icons.svg#icon-person-fill')
+                h2.section__header
+                | Account information
+            .edit-portfolio
+                form.form.form-user-data
+                    .form__group
+                        label.form__label(for='name')  Name
+                        input#name.form__input(type='name',value=user.name?value=user.name:'')
+                    .form__group
+                        label.form__label(for='engineeringbranch') Engineering Branch
+                        input#engineeringbranch.form__input(type='engineeringbranch',value=user.EngineeringBranch?user.EngineeringBranch:'')
+                    .form__group
+                        label.form__label(for='university') University
+                        input#university.form__input(type='university')
+                    .form__group
+                        label.form__label(for='About') About
+                        textarea#about.form__input(maxlength='2600' type='about' cols='30' rows='10')
+                    //- .form__group
+                    //-     label.form__label(for='workemail') Work Email
+                    //-     input#workemail.form__input(type='workemail' placeholder='example@any.com')
+                    .form__group
+                        label.form__label(for='github') Github Account
+                        input#github.form__input(type='github' placeholder='https://github.com')
+                    .form__group
+                        label.form__label(for='xaccount') X Account
+                        input#xaccount.form__input(type='xaccount' placeholder='https://twitter.com')
+                    .form__group
+                        label.form__label(for='location') Location
+                        input#location.form__input(type='location' placeholder='Baghdad,Iraq')
+                    .form__group
+                        label.form__label(for='yearsofexperience') Years of Experience
+                        input#yearsofexperience.form__input(type='yearsofexperience' placeholder='3 years ')
+                    .form__group
+                        label.form__label(for='availability') Availability
+                        input#availability.form__input(type='availability' placeholder='Full time (50hrs/wk)')
+                    .form__group
+                        label.form__label(for='skills') Skills
+                        input#skills.form__input(type='skills' placeholder='Js,Architecture drawing,assembly language')
+                    .form__group
+                        label.form__label(for='languages') Languages
+                        input#languages.form__input(type='languages' placeholder='English,Spanish,French')
+                    .btn-container
+                        button.btn-cancel(type='button')
+                        a(href='portfolio.html') Cancel
+                        button.sign__btn--up(type='submit') Save Settings
+                form.form.form-user-education.education(action='')
+                    .subform__header-container
+                        h3 Education
+                        button.add-experience.education(type='button')
+                            svg.subform__header-icon.icon-24px
+                                use(href='../assets/icons.svg#icon-plus-lg')
+                    .margin-left.experience-container
+                        .form__group
+                            label.form__label(for='educationtitle') Education Title
+                            input#educationtitle.form__input(type='educationtitle' placeholder='High School Graduate')
+                        .form__group
+                            label.form__label(for='educationplace') Education Place
+                            input#educationplace.form__input(type='educationplace' placeholder='e.g Baghdad College')
+                        .form__group
+                            label.form__label(for='educationdescription') Education Description
+                            input#educationdescription.form__input(type='educationdescription')
+                        .form__group
+                            label.form__label(for='educationyears') Education Years
+                            input#educationyears.form__input(type='educationyears' placeholder='e.g 2016 - 2020')
+                        .remove-experience-container
+                            h4 Remove Education
+                    .btn-container
+                        button.btn-cancel(type='button')
+                        a(href='portfolio.html') Cancel
+                        button.sign__btn--up(type='submit') Save Settings
+                form.form.form-user-work.work(action='')
+                    .subform__header-container
+                        h3 Work Experience
+                        button.add-experience.work(type='button')
+                            svg.subform__header-icon.icon-24px
+                                use(href='../assets/icons.svg#icon-plus-lg')
+                    .margin-left.experience-container.workexperience
+                        .form__group
+                            label.form__label(for='worktitle') work Title
+                            input#worktitle.form__input(type='worktitle' placeholder='Senior Developer')
+                        .form__group
+                            label.form__label(for='workplace') Work Place
+                            input#workplace.form__input(type='workplace' placeholder='e.g Asiacell Telecoms')
+                        .form__group
+                            label.form__label(for='workdescription') Work Description
+                            input#workdescription.form__input(type='workdescription')
+                        .form__group
+                            label.form__label(for='workyears') Work Years
+                            input#workyears.form__input(type='workyears' placeholder='e.g 2020 - present')
+                        .remove-experience-container
+                            h4 Remove Work Experience
+                    .btn-container
+                        button.btn-cancel(type='button')
+                        a(href='portfolio.html') Cancel
+                        button.sign__btn--up(type='submit') Save Settings
