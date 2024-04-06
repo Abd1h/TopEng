@@ -99,7 +99,7 @@ if (userDataForm) {
       skills: firstLetterCaptilized(skillsa),
       languages: firstLetterCaptilized(languagesa),
     };
-    console.log(form);
+    // console.log(form);
     updateSettings(form, 'data');
   });
 }
@@ -142,6 +142,7 @@ if (userWorkForm) {
   userWorkForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = workOrEducation('work');
+    console.log(form);
     updateSettings(form, 'data');
   });
 }

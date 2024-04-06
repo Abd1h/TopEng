@@ -1212,6 +1212,9 @@ select option:checked {
 .form__input::placeholder {
   font-size: var(--fs-300);
 }
+.form__input {
+  color: var(--clr-base-dk);
+}
 .form__input:focus::placeholder {
   color: transparent;
 }
