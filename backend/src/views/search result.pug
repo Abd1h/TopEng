@@ -1,4 +1,46 @@
 extends base
 
 block content
-  
+    main
+        section.bottom-margin
+            .container
+                .search-results
+                    ul.results
+                        //-  each user in users
+                        //- li.preview
+                        //-     a.preview__link(href=user._id)
+                        //-         figure.preview__img
+                        //-             img(src=user.photo alt='How to Grill Pizza')
+                        //-         .preview__data
+                        //-             h4.preview__user__name=user.name
+                        //-             p.preview__user__branch=user.engineeringBranch
+                        //-             p.preview__user__location=user.location
+                        //-             .preview__user-generated.hidden
+                        li.preview
+                            a.preview__link(href='#5ed6604591c37cdc054bcb37')
+                                figure.preview__img
+                                    img(src='../assets/profile-img.png' alt='How to Grill Pizza')
+                                .preview__data
+                                    h4.preview__user__name Adnan Omar
+                                    p.preview__user__branch Computer Engineer
+                                    p.preview__user__location Baghdad,Iraq
+                                    .preview__user-generated.hidden           
+                        li.preview
+                            a.preview__link(href='#5ed6604591c37cdc054bcb37')
+                                figure.preview__img
+                                    img(src='../assets/profile-img.png' alt='How to Grill Pizza')
+                                .preview__data
+                                    h4.preview__user__name Adnan Omar
+                                    p.preview__user__branch Computer Engineer
+                                    p.preview__user__location Baghdad,Iraq
+                                    .preview__user-generated.hidden
+                    .pagination
+                        button.btn--inline.pagination__btn--prev
+                            svg.search__icon.icon-24px
+                                use(href='../assets/icons.svg#icon-bi-chevron-left')
+                        span.page.current-page(data-page='1') 1
+                        span.page(data-page='2') 2
+                        // Add more spans for additional pages
+                        button.btn--inline.pagination__btn--next
+                            svg.search__icon.icon-24px
+                                use(href='../assets/icons.svg#icon-bi-chevron-right')
