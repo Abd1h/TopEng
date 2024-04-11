@@ -1,7 +1,7 @@
 const User = require('./../models/usersModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-
+const factory = require('./handlerFactory');
 exports.home = catchAsync(async (req, res, next) => {
   // 1) Get tour data from collection
   // 2) Build template
@@ -44,11 +44,14 @@ exports.search = (req, res) => {
     title: 'search',
   });
 };
-exports.searchResult = (req, res) => {
+exports.searchResult = catchAsync(async (req, res, next) => {
+  const users1 = factory.getAll(User);
   res.status(200).render('search result', {
     title: 'search result',
+    users: users1,
   });
-};
+});
+
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {
     title: 'Log into your account',
