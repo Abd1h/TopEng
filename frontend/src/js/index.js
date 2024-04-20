@@ -74,7 +74,6 @@ if (portfolioContainer) {
 const showMoreButton = document.querySelector('.category__btn');
 const hiddenItems = document.querySelectorAll('.category--hidden');
 const categoriesContainer = document.querySelector('.categories__container');
-console.log(hiddenItems);
 
 // Showing all hidden categories
 const showCategories = function () {
@@ -85,7 +84,7 @@ const showCategories = function () {
   // Hide the "Show More" button
   showMoreButton.style.display = 'none';
 };
-
+console.log('fdf');
 // Check the screen width
 const screenWidth = window.innerWidth;
 if (showMoreButton) {

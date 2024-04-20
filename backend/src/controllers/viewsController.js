@@ -44,11 +44,11 @@ exports.search = (req, res) => {
     title: 'search',
   });
 };
-exports.searchResult = (req, res) => {
-  res.status(200).render('search result', {
-    title: 'search result',
-  });
-};
+// exports.searchResult = (req, res) => {
+//   res.status(200).render('search result', {
+//     title: 'search result',
+//   });
+// };
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {
     title: 'Log into your account',
@@ -92,4 +92,22 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
     title: 'Your account',
     user: updatedUser,
   });
+});
+
+exports.searchQuerry = catchAsync(async (req, res, next) => {
+  const { selectedTags } = req.body;
+
+  // 1) Check if email and password exist
+  if (!selectedTags) {
+    return next(new AppError('Please Select Options!', 400));
+  }
+  // // 2) Check if user exists && password is correct
+  // const user = await User.findOne({ email }).select('+password');
+
+  // if (!user || !(await user.correctPassword(password, user.password))) {
+  //   return next(new AppError('Incorrect email or password', 401));
+  // }
+
+  // 3) If everything ok, send token to client
+  // createSendToken(user, 200, req, res);
 });
