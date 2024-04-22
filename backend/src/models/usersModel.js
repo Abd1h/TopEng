@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const { link } = require('fs');
+
 const workExperienceSchema = new mongoose.Schema({
   workPlace: {
     type: String,
