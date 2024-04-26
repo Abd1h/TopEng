@@ -24,7 +24,7 @@ if (userPhotoForm) {
 
     form.append('photo', document.getElementById('photo').files[0]);
 
-    updateSettings(form, 'data');
+    updateSettings(form, 'picture');
   });
 }
 if (loginForm) {
