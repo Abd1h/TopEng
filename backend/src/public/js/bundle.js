@@ -9060,9 +9060,15 @@ var updateSettings = exports.updateSettings = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-          url = type === 'password' ? '/api/v1/users/updateMyPassword' :
-          // ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword'
-          '/api/v1/users/updateMe'; // : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+          // const url = type === 'password' ? '/api/v1/users/updateMyPassword' : '/api/v1/users/updateMe';
+
+          if (type === 'password') {
+            url = '/api/v1/users/updateMyPassword';
+          } else if (type === 'picture') {
+            url = '/api/v1/users/updateMyPicture';
+          } else {
+            url = '/api/v1/users/updateMe';
+          }
           _context.next = 4;
           return (0, _axios.default)({
             method: 'PATCH',
@@ -9302,7 +9308,7 @@ if (userPhotoForm) {
     // const data = { photo };
     var form = new FormData();
     form.append('photo', document.getElementById('photo').files[0]);
-    (0, _updateSettings.updateSettings)(form, 'data');
+    (0, _updateSettings.updateSettings)(form, 'picture');
   });
 }
 if (loginForm) {
@@ -9368,12 +9374,11 @@ if (userDataForm) {
       github: document.getElementById('github').value,
       xaccount: document.getElementById('xaccount').value,
       location: firstLetterCaptilized(document.getElementById('location').value),
-      yearsofexperienceInput: document.getElementById('yearsofexperience').value,
+      yearsOfExperienceInput: +document.getElementById('yearsofexperience').value,
       availability: firstLetterCaptilized(document.getElementById('availability').value),
       skills: firstLetterCaptilized(skillsa),
       languages: firstLetterCaptilized(languagesa)
     };
-    console.log(form);
     (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
@@ -9533,7 +9538,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49699" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64628" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

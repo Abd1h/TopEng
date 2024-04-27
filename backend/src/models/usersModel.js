@@ -190,6 +190,7 @@ userSchema.pre('save', function (next) {
 
 userSchema.pre('save', function (next) {
   console.log(this);
+  console.log('✔ ✔ ✔ ✔ ✔ ❌❌❌❌ ✔ ✔ ✔ ✔ ✔');
   if (this.yearsOfExperienceInput) {
     console.log(this.yearsOfExperienceInput);
     if (this.yearsOfExperienceInput < 1) this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} year`;

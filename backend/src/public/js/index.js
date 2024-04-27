@@ -94,7 +94,7 @@ if (userDataForm) {
       github: document.getElementById('github').value,
       xaccount: document.getElementById('xaccount').value,
       location: firstLetterCaptilized(document.getElementById('location').value),
-      yearsofexperienceInput: document.getElementById('yearsofexperience').value,
+      yearsOfExperienceInput: +document.getElementById('yearsofexperience').value,
       availability: firstLetterCaptilized(document.getElementById('availability').value),
       skills: firstLetterCaptilized(skillsa),
       languages: firstLetterCaptilized(languagesa),
@@ -103,6 +103,7 @@ if (userDataForm) {
     updateSettings(form, 'data');
   });
 }
+
 const workOrEducation = function (type = 'work') {
   const container = type === 'work' ? userWorkForm : userEducationForm;
   const experienceContainer = container.querySelectorAll('.experience-container');

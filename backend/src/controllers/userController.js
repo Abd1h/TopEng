@@ -71,7 +71,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'github',
     'xaccount',
     'location',
-    'yearsofexperience',
+    'yearsOfExperienceInput',
     'availability',
     'skills',
     'languages',
@@ -79,6 +79,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'education',
     'photo'
   );
+
   if (req.file) filteredBody.photo = req.file.filename;
 
   // 3) Update user document
@@ -86,6 +87,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     new: true,
     runValidators: true,
   });
+
   res.status(200).json({
     status: 'success',
     data: {
