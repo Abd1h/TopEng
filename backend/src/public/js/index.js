@@ -99,7 +99,7 @@ if (userDataForm) {
       skills: firstLetterCaptilized(skillsa),
       languages: firstLetterCaptilized(languagesa),
     };
-    console.log(form);
+
     updateSettings(form, 'data');
   });
 }
