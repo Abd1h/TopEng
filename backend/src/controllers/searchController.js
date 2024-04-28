@@ -14,48 +14,68 @@ exports.getSearchResult = catchAsync(async (req, res, next) => {
     return next(new AppError('please select options first!', 400));
   }
 
-  console.log(selectedTags);
+  console.log(selectedTags.engineeringCategoryQuestion);
 
   // Construct the aggregation pipeline
-  const pipeline = [
-    // Match documents that match all tags in engineeringCategoryQuestion array
-    {
+  const pipeline = [];
+
+  // Match documents that match all tags in engineeringCategoryQuestion array
+  if (selectedTags.engineeringCategoryQuestion && selectedTags.engineeringCategoryQuestion.length > 0) {
+    pipeline.push({
       $match: {
-        engineeringCategoryQuestion: { $all: selectedTags.engineeringCategoryQuestion },
+        EngineeringBranch: { $in: selectedTags.engineeringCategoryQuestion },
       },
-    },
-    // Match documents that match all tags in skillsQuestion array
-    {
+    });
+  }
+
+  // Match documents that match all tags in skillsQuestion array
+  if (selectedTags.skillsQuestion && selectedTags.skillsQuestion.length > 0) {
+    pipeline.push({
       $match: {
-        skillsQuestion: { $all: selectedTags.skillsQuestion },
+        skills: { $in: selectedTags.skillsQuestion },
       },
-    },
-    // Match documents that match all tags in educationLevelQuestion array
-    {
+    });
+  }
+
+  // Match documents that match all tags in educationLevelQuestion array
+  if (selectedTags.educationLevelQuestion && selectedTags.educationLevelQuestion.length > 0) {
+    pipeline.push({
       $match: {
-        educationLevelQuestion: { $all: selectedTags.educationLevelQuestion },
+        'education.educationTitle': { $in: selectedTags.educationLevelQuestion },
       },
-    },
-    // Match documents that match all tags in experienceQuestion array
-    {
+    });
+  }
+
+  // Match documents that match all tags in experienceQuestion array
+  if (selectedTags.experienceQuestion && selectedTags.experienceQuestion.length > 0) {
+    pipeline.push({
       $match: {
-        experienceQuestion: { $all: selectedTags.experienceQuestion },
+        yearsOfExperienceInput: { $in: selectedTags.experienceQuestion },
       },
-    },
-    // Match documents that match all tags in locationPreferenceQuestion array
-    {
+    });
+  }
+
+  // Match documents that match all tags in locationPreferenceQuestion array
+  if (selectedTags.locationPreferenceQuestion && selectedTags.locationPreferenceQuestion.length > 0) {
+    pipeline.push({
       $match: {
-        locationPreferenceQuestion: { $all: selectedTags.locationPreferenceQuestion },
+        location: { $in: selectedTags.locationPreferenceQuestion },
       },
-    },
-  ];
+    });
+  }
+
+  console.log(pipeline);
+  // Add other arrays as needed...
+
+  // Add other arrays as needed...
 
   // Perform the aggregation
   const searchResults = await User.aggregate(pipeline);
+
   // const searchResults = await User.find();
   if (!searchResults) return next(new AppError('An error occurred while searching.', 404));
-  console.log('✔ ✔ ✔ ✔ ✔ ❌❌❌❌ ✔ ✔ ✔ ✔ ✔');
-  console.log(searchResults);
+
+  console.log('---000---', searchResults);
 
   res.status(200).json({
     status: 'success',
