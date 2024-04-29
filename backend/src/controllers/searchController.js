@@ -14,7 +14,7 @@ exports.getSearchResult = catchAsync(async (req, res, next) => {
     return next(new AppError('please select options first!', 400));
   }
 
-  console.log(selectedTags.engineeringCategoryQuestion);
+  console.log(selectedTags);
 
   // Construct the aggregation pipeline
   const pipeline = [];
@@ -27,7 +27,7 @@ exports.getSearchResult = catchAsync(async (req, res, next) => {
       },
     });
   }
-
+  console.log(1, pipeline);
   // Match documents that match all tags in skillsQuestion array
   if (selectedTags.skillsQuestion && selectedTags.skillsQuestion.length > 0) {
     pipeline.push({
@@ -45,7 +45,7 @@ exports.getSearchResult = catchAsync(async (req, res, next) => {
       },
     });
   }
-
+  console.log(2, pipeline);
   // Match documents that match all tags in experienceQuestion array
   if (selectedTags.experienceQuestion && selectedTags.experienceQuestion.length > 0) {
     pipeline.push({
@@ -63,11 +63,6 @@ exports.getSearchResult = catchAsync(async (req, res, next) => {
       },
     });
   }
-
-  console.log(pipeline);
-  // Add other arrays as needed...
-
-  // Add other arrays as needed...
 
   // Perform the aggregation
   const searchResults = await User.aggregate(pipeline);
