@@ -16,7 +16,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const viewRouter = require('./routes/viewRoutes');
 const userRouter = require('./routes/userRoutes');
-
+const searchRouter = require('./routes/searchRoutes');
 // Start express app
 const app = express();
 
@@ -85,6 +85,7 @@ app.get('/favico.ico', (req, res) => {
   res.sendStatus(404);
 });
 app.use('/', viewRouter);
+app.use('/api/v1/search', searchRouter);
 app.use('/api/v1/users', userRouter);
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

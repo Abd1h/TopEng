@@ -3,7 +3,7 @@ import '@babel/polyfill';
 import { main } from './main';
 import { login, logout, signUp } from './login';
 import { updateSettings } from './updateSettings';
-
+import { search } from './search';
 // DOM ELEMENTS
 const loginForm = document.querySelector('.form--Log-In');
 const signUpForm = document.querySelector('.form--signup');
@@ -24,7 +24,7 @@ if (userPhotoForm) {
 
     form.append('photo', document.getElementById('photo').files[0]);
 
-    updateSettings(form, 'data');
+    updateSettings(form, 'picture');
   });
 }
 if (loginForm) {
@@ -169,3 +169,52 @@ if (userPasswordForm)
     document.getElementById('newpassword').value = '';
     document.getElementById('confirmnewpassword').value = '';
   });
+
+// =======================================
+// // =========== SEARCH FUNCTIONALITY storing selected tags============
+const searchForm = document.querySelector('.search-questions__container');
+
+if (searchForm) {
+  const selectedTagsByQuestion = {};
+  const answerTags = document.querySelectorAll('.question__tag');
+  const searchBtn = document.querySelectorAll('.search_btn');
+
+  // Function to handle click event on answer tags
+  function handleTagClick(tag) {
+    return function (e) {
+      e.preventDefault();
+      const questionContainer = tag.closest('.search-question');
+      const questionId = questionContainer.id;
+
+      selectedTagsByQuestion[questionId] = selectedTagsByQuestion[questionId] || [];
+
+      tag.classList.toggle('question__tag--active');
+
+      const tagValue = tag.innerText.trim();
+      const tagIndex = selectedTagsByQuestion[questionId].indexOf(tagValue);
+      if (tagIndex === -1) {
+        selectedTagsByQuestion[questionId].push(tagValue);
+      } else {
+        selectedTagsByQuestion[questionId].splice(tagIndex, 1);
+      }
+    };
+  }
+
+  // Function to handle click event on search button
+  function handleSearchBtnClick(e) {
+    e.preventDefault();
+    // console.log(selectedTagsByQuestion);
+    // call function that do a post request to API with selected tags
+    search(selectedTagsByQuestion);
+  }
+
+  // Add event listeners to answer tags
+  answerTags.forEach(function (tag) {
+    tag.addEventListener('click', handleTagClick(tag));
+  });
+
+  // Add event listener to search button
+  searchBtn.forEach(function (btn) {
+    btn.addEventListener('click', handleSearchBtnClick);
+  });
+}

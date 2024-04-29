@@ -44,6 +44,7 @@ exports.search = (req, res) => {
     title: 'search',
   });
 };
+
 exports.searchResult = catchAsync(async (req, res, next) => {
   const users1 = factory.getAll(User);
   res.status(200).render('search result', {

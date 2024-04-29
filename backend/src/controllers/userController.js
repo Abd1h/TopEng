@@ -25,7 +25,7 @@ exports.uploadUserPhoto = upload.single('photo');
 exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
   try {
     if (!req.file || !req.file.buffer) {
-      return next(new AppError('No file uploaded', 400));
+      return next(new AppError('No file of picture was uploaded', 400));
     }
 
     req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
