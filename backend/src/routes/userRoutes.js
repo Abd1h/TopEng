@@ -16,15 +16,12 @@ router.use(authController.protect);
 
 router.patch('/updateMyPassword', authController.updatePassword);
 router.get('/me', userController.getMe, userController.getUser);
-<<<<<<< HEAD
-=======
 router.patch(
   '/updateMyPicture',
   userController.uploadUserPhoto,
   userController.resizeUserPhoto,
   userController.updateMe
 );
->>>>>>> 8d98e1d1c111e3c52e99d8d41cd51ec422244713
 router.patch('/updateMe', userController.updateMe);
 router.patch('/updateMe', userController.uploadUserPhoto, userController.resizeUserPhoto, userController.updateMe);
 router.delete('/deleteMe', userController.deleteMe);

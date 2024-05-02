@@ -5,6 +5,6 @@ const searchController = require('./../controllers/searchController');
 
 const router = express.Router();
 
-router.post('/searchResult', searchController.getSearchResult);
+router.post('/getSearchResults', searchController.getSearchResultsAPI);
 // router.get('/searchResult', searchController.getSearchResult);
 module.exports = router;

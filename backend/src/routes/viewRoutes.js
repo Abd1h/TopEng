@@ -14,6 +14,6 @@ router.get('/signup', viewsController.getSignUpForm);
 router.get('/editportfolio', authController.protect, viewsController.editPortfolio);
 router.get('/search', viewsController.search);
 // router.get('/search', authController.protect, viewsController.search);
-// router.get('/searchresult', authController.protect, viewsController.searchResult);
+router.get('/searchresults', viewsController.searchResults);
 
 module.exports = router;

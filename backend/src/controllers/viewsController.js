@@ -2,6 +2,8 @@ const User = require('./../models/usersModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
+const searchController = require('./searchController');
+
 exports.home = catchAsync(async (req, res, next) => {
   // 1) Get tour data from collection
   // 2) Build template
@@ -44,14 +46,31 @@ exports.search = (req, res) => {
     title: 'search',
   });
 };
+// exports.searchResult = catchAsync(async (req, res, next) => {
+//   const users1 = factory.getAll(User);
+//   console.log(User);
+//   console.log(users1);
+//   res.status(200).render('search result', {
+//     title: 'search result',
+//     users: users1,
+//   });
+// });
 
-exports.searchResult = catchAsync(async (req, res, next) => {
-  const users1 = factory.getAll(User);
+//=============================================================================
+let searchResults;
+exports.updateSearchResults = function (NewResults) {
+  searchResults = NewResults;
+};
+exports.searchResults = catchAsync(async (req, res, next) => {
+  console.log(123, searchResults);
+  const user = factory.getAll(User);
+
   res.status(200).render('search result', {
     title: 'search result',
-    users: users1,
   });
+  searchResults = {};
 });
+//=============================================================================
 
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {
