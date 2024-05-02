@@ -1362,3 +1362,35 @@ select option:checked {
   background-color: var(--clr-primary);
   color: var(--clr-base-lt);
 }
+
+/* error message*/
+/* Error message container */
+.error-container {
+  margin: var(--spacing-l1) auto; /* Center horizontally */
+  background-color: var(--clr-base-dk); /* Light red background */
+  color: var(--clr-base-lt); /* Dark red text color */
+  text-align: center;
+  font-size: var(--fs-sub-heading);
+  padding: var(--spacing-l2) var(--spacing-s);
+  border-radius: 8px;
+  margin-inline: var(--spacing-l);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  /* max-width: 400px; */
+  font-weight: var(--fw-bold);
+  font-family: inherit;
+}
+
+/* Error message text */
+.error-message {
+  /* font-size: 18px; */
+
+  color: var(--clr-secondary);
+  margin-bottom: 10px;
+}
+
+/* Error message subtext (if needed) */
+.error-subtext {
+  /* font-size: 14px; */
+  /* color: #721c24; Dark red subtext color */
+  margin-bottom: var(--spacing-l2);
+}

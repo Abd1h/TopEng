@@ -13,7 +13,7 @@ const userPasswordForm = document.querySelector('.form-user-password');
 const userWorkForm = document.querySelector('.form-user-work');
 const userEducationForm = document.querySelector('.form-user-education');
 const userPhotoForm = document.querySelector('.form-user-photo');
-
+const errorWindow = document.querySelector('.error-container');
 if (userPhotoForm) {
   userPhotoForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -217,5 +217,11 @@ if (searchForm) {
   // Add event listener to search button
   searchBtn.forEach(function (btn) {
     btn.addEventListener('click', handleSearchBtnClick);
+  });
+}
+
+if (errorWindow) {
+  document.getElementById('backButton').addEventListener('click', function () {
+    window.history.back();
   });
 }

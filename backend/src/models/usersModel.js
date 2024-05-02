@@ -107,7 +107,7 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: 'default',
+    default: 'avatar.png',
   },
   // workEmail: {
   //   type: String,

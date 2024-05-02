@@ -1,7 +1,7 @@
 const express = require('express');
 const viewsController = require('../controllers/viewsController');
 const authController = require('../controllers/authController');
-
+const userController = require('../controllers/userController');
 const router = express.Router();
 
 router.get('/', viewsController.home);
@@ -15,5 +15,6 @@ router.get('/editportfolio', authController.protect, viewsController.editPortfol
 router.get('/search', viewsController.search);
 // router.get('/search', authController.protect, viewsController.search);
 router.get('/searchresults', viewsController.searchResults);
+router.get('/:id', viewsController.getUserAndDisplay);
 
 module.exports = router;

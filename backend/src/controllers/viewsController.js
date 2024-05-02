@@ -63,12 +63,31 @@ exports.updateSearchResults = function (NewResults) {
 };
 
 exports.searchResults = catchAsync(async (req, res, next) => {
+  // if (searchResults.length == 0) return next(new AppError('Couldnt find any result, please try again', 400));
   // const users1 = factory.getAll(User);
   res.status(200).render('search result', {
     title: 'search result',
     users: searchResults,
   });
   searchResults = {};
+});
+
+exports.getUserAndDisplay = catchAsync(async (req, res, next) => {
+  console.log('this bitch is running');
+  const id = req.params.id;
+  const user = await User.findById(id);
+
+  if (!user) {
+    next(new AppError('There is no tour with that name.', 404));
+    return res.status(404).render('error', {
+      title: 'Something went wrong!',
+      msg: 'Please try again later.',
+    });
+  }
+  res.status(200).render('portfolio', {
+    title: 'protfolio',
+    user,
+  });
 });
 //=============================================================================
 
@@ -78,7 +97,7 @@ exports.getLoginForm = (req, res) => {
   });
 };
 
-exports.getAccount = (req, res) => {
+exports.getAccount = async (req, res) => {
   res.status(200).render('portfolio', {
     title: 'Your account',
   });
