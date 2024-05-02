@@ -61,12 +61,12 @@ let searchResults;
 exports.updateSearchResults = function (NewResults) {
   searchResults = NewResults;
 };
-exports.searchResults = catchAsync(async (req, res, next) => {
-  console.log(123, searchResults);
-  const user = factory.getAll(User);
 
+exports.searchResults = catchAsync(async (req, res, next) => {
+  // const users1 = factory.getAll(User);
   res.status(200).render('search result', {
     title: 'search result',
+    users: searchResults,
   });
   searchResults = {};
 });

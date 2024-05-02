@@ -9155,7 +9155,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var AppError = require('./../../utils/appError');
 var search = exports.search = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(selectedTags) {
-    var res, req;
+    var res;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
@@ -9171,36 +9171,33 @@ var search = exports.search = /*#__PURE__*/function () {
         case 3:
           res = _context.sent;
           console.log(12121, res.data);
-          if (!(res.data.status === 'success')) {
-            _context.next = 11;
-            break;
+
+          // if (res.data.status === 'success') {
+          //   const req = await axios({
+          //     method: 'GET',
+          //     url: 'http://127.0.0.1:3000/searchresults',
+          //     data: {
+          //       selectedTags,
+          //     },
+          //   });
+          if (res.data.status === 'success') {
+            // If the POST request is successful, redirect to the new page
+            window.location.href = 'http://127.0.0.1:3000/searchresults';
+            console.log('sending get request to searchresults page');
+          } else {
+            console.error('Error in search');
           }
-          _context.next = 8;
-          return (0, _axios.default)({
-            method: 'GET',
-            url: 'http://127.0.0.1:3000/searchresults',
-            data: {
-              selectedTags: selectedTags
-            }
-          });
+          _context.next = 11;
+          break;
         case 8:
-          req = _context.sent;
-          _context.next = 12;
-          break;
-        case 11:
-          console.error('error in search');
-        case 12:
-          _context.next = 17;
-          break;
-        case 14:
-          _context.prev = 14;
+          _context.prev = 8;
           _context.t0 = _context["catch"](0);
           (0, _alerts.showAlert)('error', _context.t0.response.data.message);
-        case 17:
+        case 11:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 14]]);
+    }, _callee, null, [[0, 8]]);
   }));
   return function search(_x) {
     return _ref.apply(this, arguments);
