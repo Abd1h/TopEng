@@ -17,7 +17,7 @@ export const login = async (email, password) => {
     if (res.data.status === 'success') {
       showAlert('success', 'Logged in successfully!');
       window.setTimeout(() => {
-        location.assign('/me');
+        window.location.href = 'http://127.0.0.1:3000/me';
       }, 1500);
     }
   } catch (err) {
@@ -41,7 +41,7 @@ export const signUp = async (email, password, passwordConfirm, name) => {
     if (res.data.status === 'success') {
       showAlert('success', 'Signed up successfully!');
       window.setTimeout(() => {
-        location.assign('/me');
+        window.location.href = 'http://127.0.0.1:3000/me';
       }, 1500);
     }
   } catch (err) {
@@ -59,7 +59,7 @@ export const logout = async () => {
     if ((res.data.status = 'success')) {
       showAlert('success', 'Logging Out');
       window.setTimeout(() => {
-        location.assign('/');
+        window.location.href = 'http://127.0.0.1:3000/';
       }, 1500);
       // location.reload(true);
     }

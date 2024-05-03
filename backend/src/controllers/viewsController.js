@@ -41,11 +41,11 @@ exports.editPortfolio = (req, res) => {
     title: 'edit portfolio',
   });
 };
-exports.search = (req, res) => {
+exports.search = catchAsync((req, res) => {
   res.status(200).render('search', {
     title: 'search',
   });
-};
+});
 // exports.searchResult = catchAsync(async (req, res, next) => {
 //   const users1 = factory.getAll(User);
 //   console.log(User);
@@ -73,20 +73,24 @@ exports.searchResults = catchAsync(async (req, res, next) => {
 });
 
 exports.getUserAndDisplay = catchAsync(async (req, res, next) => {
-  console.log('this bitch is running');
+  //get the ID of the user that has been clicked on
   const id = req.params.id;
   const user = await User.findById(id);
 
+  // error handling
   if (!user) {
     next(new AppError('There is no tour with that name.', 404));
     return res.status(404).render('error', {
       title: 'Something went wrong!',
-      msg: 'Please try again later.',
+      msg: ' Something went wrong! Please try again later.',
     });
   }
+  // hid edit portfolio btn cuz its for displaying portfolio
+  const displayUserWithoutEditing = true;
   res.status(200).render('portfolio', {
     title: 'protfolio',
     user,
+    displayUserWithoutEditing,
   });
 });
 //=============================================================================

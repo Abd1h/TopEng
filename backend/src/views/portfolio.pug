@@ -11,7 +11,7 @@ block content
                 //-   svg.photo__default-icon
                 //-         use(href='../assets/icons.svg#icon-person-circle')
                 //- else
-                img(src=`./assets/users/avatar.png` alt='profile pic')
+                img(src=`./assets/users/${user.photo}` alt='profile pic')
               .socials__container
                   .engineer__socials.flex-row
                     if user.workEmail
@@ -26,12 +26,12 @@ block content
                       a.engineer__social-link(href=`${user.xAccount||'#'}`,target="_blink")
                         svg.engineer__social-icon.icon-24px
                           use(href='../assets/icons.svg#icon-x')
-                  a(href='/editportfolio')     
+              unless displayUserWithoutEditing         
+                a(href='/editportfolio')
                     button.flex-row.btn__follow
-                      //- svg.icon__follow.icon-24px
-                      //-   use(href='../assets/icons.svg#icon-person-fill-add')
-                      
                       span Edit Portfolio
+
+
             div
               h1.engineer__name= `${user.name}`
               if user.EngineeringBranch
