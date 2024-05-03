@@ -7,7 +7,7 @@ import { search } from './search';
 // DOM ELEMENTS
 const loginForm = document.querySelector('.form--Log-In');
 const signUpForm = document.querySelector('.form--signup');
-const logOutBtn = document.querySelector('.logout__btn');
+const logOutBtn = document.querySelectorAll('.logout__btn');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const userWorkForm = document.querySelector('.form-user-work');
@@ -46,8 +46,11 @@ if (signUpForm) {
     signUp(email, password, passwordConfirm, name);
   });
 }
-if (logOutBtn) logOutBtn.addEventListener('click', logout);
 
+if (logOutBtn) {
+  //there is two logout buttons (desktop and mobile)
+  logOutBtn.forEach((btn) => btn.addEventListener('click', logout));
+}
 if (userDataForm) {
   userDataForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -225,3 +228,18 @@ if (errorWindow) {
     window.history.back();
   });
 }
+
+// categroy section events handling
+// Select all buttons with the class '.category'
+const categoryButtons = document.querySelectorAll('.category');
+
+// Initialize an empty object to store the category titles
+
+categoryButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Get the category title associated with the button
+    const categoryTitle = button.querySelector('.category__title').textContent;
+    const selectedCategory = { engineeringCategoryQuestion: [categoryTitle] };
+    search(selectedCategory);
+  });
+});
