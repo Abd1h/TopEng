@@ -13,6 +13,7 @@ const userPasswordForm = document.querySelector('.form-user-password');
 const userWorkForm = document.querySelector('.form-user-work');
 const userEducationForm = document.querySelector('.form-user-education');
 const userPhotoForm = document.querySelector('.form-user-photo');
+const userProjectsForm = document.querySelector('.form-user-projects');
 const errorWindow = document.querySelector('.error-container');
 if (userPhotoForm) {
   userPhotoForm.addEventListener('submit', (e) => {
@@ -181,6 +182,32 @@ if (userPasswordForm)
     document.getElementById('confirmnewpassword').value = '';
   });
 
+const addButton = document.querySelector('.add-project');
+const projectContainer = document.querySelector('.project-container');
+if (userProjectsForm && addButton) {
+  console.log('yes');
+  console.log(addButton);
+  addButton.addEventListener('click', function (e) {
+    console.log('click');
+    e.preventDefault();
+    console.log('click');
+    // const projectTemplate = document.createElement('div');
+    // projectTemplate.classList.add('margin-left', 'project-container', 'experience-container');
+
+    // projectTemplate.innerHTML = `
+    //             <div class="form__group">
+    //                 <label class="form__label" for="projectname">Project Name</label>
+    //                 <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
+    //             </div>
+    //             <div class="form__group">
+    //                 <label class="form__label" for="projectlink">Project Link</label>
+    //                 <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
+    //             </div>
+    //         `;
+
+    // projectContainer.appendChild(projectTemplate);
+  });
+}
 // =======================================
 // // =========== SEARCH FUNCTIONALITY storing selected tags============
 const searchForm = document.querySelector('.search-questions__container');

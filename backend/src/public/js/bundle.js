@@ -9348,6 +9348,7 @@ var userPasswordForm = document.querySelector('.form-user-password');
 var userWorkForm = document.querySelector('.form-user-work');
 var userEducationForm = document.querySelector('.form-user-education');
 var userPhotoForm = document.querySelector('.form-user-photo');
+var userProjectsForm = document.querySelector('.form-user-projects');
 var errorWindow = document.querySelector('.error-container');
 if (userPhotoForm) {
   userPhotoForm.addEventListener('submit', function (e) {
@@ -9531,7 +9532,32 @@ if (userPasswordForm) userPasswordForm.addEventListener('submit', /*#__PURE__*/f
     return _ref.apply(this, arguments);
   };
 }());
+var addButton = document.querySelector('.add-project');
+var projectContainer = document.querySelector('.project-container');
+if (userProjectsForm && addButton) {
+  console.log('yes');
+  console.log(addButton);
+  addButton.addEventListener('click', function (e) {
+    console.log('click');
+    e.preventDefault();
+    console.log('click');
+    // const projectTemplate = document.createElement('div');
+    // projectTemplate.classList.add('margin-left', 'project-container', 'experience-container');
 
+    // projectTemplate.innerHTML = `
+    //             <div class="form__group">
+    //                 <label class="form__label" for="projectname">Project Name</label>
+    //                 <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
+    //             </div>
+    //             <div class="form__group">
+    //                 <label class="form__label" for="projectlink">Project Link</label>
+    //                 <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
+    //             </div>
+    //         `;
+
+    // projectContainer.appendChild(projectTemplate);
+  });
+}
 // =======================================
 // // =========== SEARCH FUNCTIONALITY storing selected tags============
 var searchForm = document.querySelector('.search-questions__container');
@@ -9623,7 +9649,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49972" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54745" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

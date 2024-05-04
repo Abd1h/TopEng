@@ -4,6 +4,15 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const { link } = require('fs');
 
+const projectSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  link: {
+    type: String,
+  },
+});
+
 const workExperienceSchema = new mongoose.Schema({
   workPlace: {
     type: String,
@@ -114,6 +123,7 @@ const userSchema = new mongoose.Schema({
   },
   workExperience: { type: [workExperienceSchema], default: [{}] },
   education: { type: [educationSchema], default: [{}] },
+  projects: { type: [projectSchema], default: [{}] },
   about: {
     type: String,
     maxlength: 500,
