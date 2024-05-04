@@ -8926,13 +8926,9 @@ var login = exports.login = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-<<<<<<< HEAD
-            url: 'http://127.0.0.1:3000/api/v1/users/login',
-            // url: '/api/v1/users/login',
-=======
             // url: 'http://127.0.0.1:3000/api/v1/users/login',
             url: '/api/v1/users/login',
->>>>>>> 8d98e1d1c111e3c52e99d8d41cd51ec422244713
+
             data: {
               email: email,
               password: password
@@ -8972,13 +8968,8 @@ var signUp = exports.signUp = /*#__PURE__*/function () {
           _context2.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-<<<<<<< HEAD
-            url: 'http://127.0.0.1:3000/api/v1/users/signup',
-            // url: '/api/v1/users/signup',
-=======
             // url: 'http://127.0.0.1:3000/api/v1/users/signup',
             url: '/api/v1/users/signup',
->>>>>>> 8d98e1d1c111e3c52e99d8d41cd51ec422244713
             data: {
               email: email,
               password: password,
@@ -9020,13 +9011,8 @@ var logout = exports.logout = /*#__PURE__*/function () {
           _context3.next = 3;
           return (0, _axios.default)({
             method: 'GET',
-<<<<<<< HEAD
-            url: 'http://127.0.0.1:3000/api/v1/users/logout'
-            // url: '/api/v1/users/logout',
-=======
             // url: 'http://127.0.0.1:3000/api/v1/users/logout',
             url: '/api/v1/users/logout'
->>>>>>> 8d98e1d1c111e3c52e99d8d41cd51ec422244713
           });
         case 3:
           res = _context3.sent;
@@ -9075,17 +9061,9 @@ var updateSettings = exports.updateSettings = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-<<<<<<< HEAD
-          url = type === 'password' ?
-          // ? '/api/v1/users/updateMyPassword'
-          'http://127.0.0.1:3000/api/v1/users/updateMyPassword' :
-          // '/api/v1/users/updateMe';
-          'http://127.0.0.1:3000/api/v1/users/updateMe';
-=======
           url = type === 'password' ? '/api/v1/users/updateMyPassword' :
           // ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword'
           '/api/v1/users/updateMe'; // : 'http://127.0.0.1:3000/api/v1/users/updateMe';
->>>>>>> 8d98e1d1c111e3c52e99d8d41cd51ec422244713
           _context.next = 4;
           return (0, _axios.default)({
             method: 'PATCH',
@@ -9557,11 +9535,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50927" + '/');
-=======
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "49699" + '/');
->>>>>>> 8d98e1d1c111e3c52e99d8d41cd51ec422244713
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
