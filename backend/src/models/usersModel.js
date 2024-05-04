@@ -7,18 +7,22 @@ const { link } = require('fs');
 const workExperienceSchema = new mongoose.Schema({
   workPlace: {
     type: String,
-    required: [true, 'Enter Work place name'],
   },
   workTitle: {
     type: String,
-    required: ['true', 'provide your work title'],
+    // required: [
+    //   function () {
+    //     console.log(23123123, this.parent().workExperience.length);
+    //     return this.parent().workExperience.length > 1; // Only require if workExperience array is NOT empty
+    //   },
+    //   'Enter Work Title',
+    // ],
   },
   workDescription: {
     type: String,
   },
   workYears: {
     type: String,
-    required: [true, 'Enter Work place time period'],
   },
   startYear: {
     type: String,
@@ -31,18 +35,27 @@ const workExperienceSchema = new mongoose.Schema({
 const educationSchema = new mongoose.Schema({
   educationTitle: {
     type: String,
-    required: ['true', 'provide your education title'],
+    // required: [
+    //   function () {
+    //     return this.parent().workExperience.length > 1; // Only require if workExperience array is NOT empty
+    //   },
+    //   'Enter your education title',
+    // ],
   },
   educationPlace: {
     type: String,
-    required: [true, 'Enter Education place name'],
+    // required: [
+    //   function () {
+    //     return this.parent().workExperience.length > 1; // Only require if workExperience array is NOT empty
+    //   },
+    //   'Enter your education place',
+    // ],
   },
   educationDescription: {
     type: String,
   },
   educationYears: {
     type: String,
-    required: [true, 'Enter Education place time period'],
   },
   startYear: {
     type: String,
@@ -99,8 +112,8 @@ const userSchema = new mongoose.Schema({
   EngineeringBranch: {
     type: String,
   },
-  workExperience: [workExperienceSchema],
-  education: [educationSchema],
+  workExperience: { type: [workExperienceSchema], default: [{}] },
+  education: { type: [educationSchema], default: [{}] },
   about: {
     type: String,
     maxlength: 500,
@@ -122,7 +135,7 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
   yearsOfExperienceInput: {
-    type: Number,
+    type: String,
   },
   yearsOfExperienceOutput: {
     type: String,
@@ -188,28 +201,32 @@ userSchema.pre('save', function (next) {
   next();
 });
 
-userSchema.pre('save', function (next) {
-  console.log(this);
-  console.log('✔ ✔ ✔ ✔ ✔ ❌❌❌❌ ✔ ✔ ✔ ✔ ✔');
-  if (this.yearsOfExperienceInput) {
-    console.log(this.yearsOfExperienceInput);
-    if (this.yearsOfExperienceInput < 1) this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} year`;
-    else {
-      this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} years`;
-    }
+// userSchema.pre('save', function (next) {
+
+//   console.log('✔ ✔ ✔ ✔ ✔ ❌❌❌❌ ✔ ✔ ✔ ✔ ✔');
+//   if (this.yearsOfExperienceInput) {
+//     console.log(this.yearsOfExperienceInput);
+//     if (this.yearsOfExperienceInput < 1) this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} year`;
+//     else {
+//       this.yearsOfExperienceOutput = `${this.yearsOfExperienceInput} years`;
+//     }
+//   }
+//   next();
+// });
+workExperienceSchema.pre('save', function (next) {
+  if (this.workYears) {
+    const years = this.workYears.split('-');
+    this.startYear = years[0];
+    this.endYear = years[1];
   }
   next();
 });
-workExperienceSchema.pre('save', function (next) {
-  const years = this.workYears.split('-');
-  this.startYear = years[0];
-  this.endYear = years[1];
-  next();
-});
 educationSchema.pre('save', function (next) {
-  const years = this.educationYears.split('-');
-  this.startYear = years[0];
-  this.endYear = years[1];
+  if (this.educationYears) {
+    const years = this.educationYears.split('-');
+    this.startYear = years[0];
+    this.endYear = years[1];
+  }
   next();
 });
 userSchema.pre(/^find/, function (next) {

@@ -65,6 +65,12 @@ if (userDataForm) {
     //   form.append('yearsofexperienceInput', document.getElementById('yearsofexperience').value);
     //   form.append('availability', document.getElementById('availability').value);
     const skillsa = document.getElementById('skills').value.split(',');
+    // Get the <select> element
+    const skillsSelect = document.getElementById('skills');
+    const selectedOptions = Array.from(skillsSelect.selectedOptions);
+    // Extract values from selected options
+    const selectedSkills = selectedOptions.map((option) => option.value);
+
     //   form.append('skills', skills);
     const languagesa = document.getElementById('languages').value.split(',');
     //   form.append('languages', languages);
@@ -89,17 +95,18 @@ if (userDataForm) {
         return words;
       }
     };
+
     const form = {
       name: document.getElementById('name').value,
-      EngineeringBranch: firstLetterCaptilized(document.getElementById('engineeringbranch').value),
+      EngineeringBranch: document.getElementById('engineeringbranch').value,
       university: firstLetterCaptilized(document.getElementById('university').value),
       about: document.getElementById('about').value,
       github: document.getElementById('github').value,
       xaccount: document.getElementById('xaccount').value,
       location: firstLetterCaptilized(document.getElementById('location').value),
-      yearsOfExperienceInput: +document.getElementById('yearsofexperience').value,
+      yearsOfExperienceInput: document.getElementById('yearsofexperience').value,
       availability: firstLetterCaptilized(document.getElementById('availability').value),
-      skills: firstLetterCaptilized(skillsa),
+      skills: selectedSkills,
       languages: firstLetterCaptilized(languagesa),
     };
 

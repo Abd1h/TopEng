@@ -59,10 +59,9 @@ block content
                             input#name.form__input(type='name')
                     .form__group
                         label.form__label(for='engineeringbranch') Engineering Branch
-                        if user.EngineeringBranch
-                            input#engineeringbranch.form__input(type='engineeringbranch',value=user.EngineeringBranch)
-                        else
-                            input#engineeringbranch.form__input(type='engineeringbranch',placeholder="e.g Computer Engineer")
+                        select#engineeringbranch.form__input(type='engineeringbranch')
+                            each branch in ['Software Engineering','Computer Engineering', 'Electrical Engineering','Civil Engineering','Mechanical Engineering','Chemical Engineering','Materials Engineering','Environmental Engineering','Petroleum Engineering']
+                                option(value=branch, selected=user.EngineeringBranch === branch)= branch
                     .form__group
                         label.form__label(for='university') University
                         if user.University
@@ -95,10 +94,9 @@ block content
                             input#location.form__input(type='location' placeholder='Baghdad,Iraq')
                     .form__group
                         label.form__label(for='yearsofexperience') Years of Experience
-                        if user.yearsOfExperienceOutput
-                            input#yearsofexperience.form__input(type='yearsofexperience' value=user.yearsOfExperienceOutput)
-                        else
-                            input#yearsofexperience.form__input(type='yearsofexperience' placeholder='3 years ')
+                        select#yearsofexperience.form__input(type='yearsofexperience')
+                            each option in ['Entry-Level', '+2 years', '+5 years', '+10 years']
+                                option(value=option, selected=user.yearsOfExperienceOutput === option)= option
                     .form__group
                         label.form__label(for='availability') Availability
                         if user.availability
@@ -107,10 +105,11 @@ block content
                             input#availability.form__input(type='availability' placeholder='Full time (50hrs/wk)')
                     .form__group
                         label.form__label(for='skills') Skills
-                        if user.skills.length > 1 
-                            input#skills.form__input(type='skills' value=user.skills.join(','))
-                        else
-                            input#skills.form__input(type='skills' placeholder='Js,Architecture drawing,assembly language')
+                            small (Add multiple options by holding Ctrl/Cmd)
+                        .custom-dropdown
+                            select#skills.form__input.overflow-container(type='skills',multiple, size = '4')
+                                each skill in ['Project Management', 'Adaptability', 'Customer Focus', 'Decision-Making', 'Continuous Learning', 'Leadership', 'Creativity', 'Presentation Skills', 'Safety Awareness', 'Other']
+                                    option(value=skill, selected=user.skills.includes(skill))= skill
                     .form__group
                         label.form__label(for='languages') Languages
                         if user.languages.length > 1
@@ -131,10 +130,9 @@ block content
                         .margin-left.experience-container
                             .form__group
                                 label.form__label(for='educationtitle') Education Title
-                                if education.educationTitle
-                                    input#educationtitle.form__input(type='educationtitle' value=education.educationTitle)
-                                else
-                                    input#educationtitle.form__input(type='educationtitle' placeholder='High School Diploma')
+                                select#educationtitle.form__input(type='educationtitle')
+                                    each option in ["Bachelor's Degree", "Master's Degree", "Doctor Degree", "Industry-Specific Training", "Self-taught", "Other"]
+                                        option(value=option, selected=education.educationTitle === option)= option
                             .form__group
                                 label.form__label(for='educationplace') Education Place
                                 if education.educationPlace

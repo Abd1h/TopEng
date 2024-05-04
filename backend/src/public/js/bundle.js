@@ -9398,6 +9398,14 @@ if (userDataForm) {
     //   form.append('yearsofexperienceInput', document.getElementById('yearsofexperience').value);
     //   form.append('availability', document.getElementById('availability').value);
     var skillsa = document.getElementById('skills').value.split(',');
+    // Get the <select> element
+    var skillsSelect = document.getElementById('skills');
+    var selectedOptions = Array.from(skillsSelect.selectedOptions);
+    // Extract values from selected options
+    var selectedSkills = selectedOptions.map(function (option) {
+      return option.value;
+    });
+
     //   form.append('skills', skills);
     var languagesa = document.getElementById('languages').value.split(',');
     //   form.append('languages', languages);
@@ -9422,15 +9430,15 @@ if (userDataForm) {
     };
     var form = {
       name: document.getElementById('name').value,
-      EngineeringBranch: firstLetterCaptilized(document.getElementById('engineeringbranch').value),
+      EngineeringBranch: document.getElementById('engineeringbranch').value,
       university: firstLetterCaptilized(document.getElementById('university').value),
       about: document.getElementById('about').value,
       github: document.getElementById('github').value,
       xaccount: document.getElementById('xaccount').value,
       location: firstLetterCaptilized(document.getElementById('location').value),
-      yearsOfExperienceInput: +document.getElementById('yearsofexperience').value,
+      yearsOfExperienceInput: document.getElementById('yearsofexperience').value,
       availability: firstLetterCaptilized(document.getElementById('availability').value),
-      skills: firstLetterCaptilized(skillsa),
+      skills: selectedSkills,
       languages: firstLetterCaptilized(languagesa)
     };
     (0, _updateSettings.updateSettings)(form, 'data');
@@ -9615,7 +9623,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63515" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49972" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
