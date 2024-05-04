@@ -182,32 +182,42 @@ if (userPasswordForm)
     document.getElementById('confirmnewpassword').value = '';
   });
 
-const addButton = document.querySelector('.add-project');
-const projectContainer = document.querySelector('.project-container');
-if (userProjectsForm && addButton) {
-  console.log('yes');
-  console.log(addButton);
+if (userProjectsForm) {
+  const addButton = document.querySelector('.add-project');
+  const projectContainer = document.querySelector('.project__input-container');
+  const maxProjects = 4;
+  let projectCount = 0;
+
   addButton.addEventListener('click', function (e) {
-    console.log('click');
     e.preventDefault();
-    console.log('click');
-    // const projectTemplate = document.createElement('div');
-    // projectTemplate.classList.add('margin-left', 'project-container', 'experience-container');
+    if (projectCount >= maxProjects) {
+      // Maximum projects reached, disable the add button
+      addButton.disabled = true;
+      return;
+    }
+    // Increment project count
+    projectCount++;
+    if (maxProjects === projectCount) {
+      addButton.classList.add('hidden');
+    }
+    const projectTemplate = document.createElement('div');
 
-    // projectTemplate.innerHTML = `
-    //             <div class="form__group">
-    //                 <label class="form__label" for="projectname">Project Name</label>
-    //                 <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
-    //             </div>
-    //             <div class="form__group">
-    //                 <label class="form__label" for="projectlink">Project Link</label>
-    //                 <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
-    //             </div>
-    //         `;
+    projectTemplate.innerHTML = `
+                <div class="section-separator"></div>
+                <div class="form__group">
+                    <label class="form__label" for="projectname">Project ${projectCount + 1} Name</label>
+                    <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="projectlink">Project ${projectCount + 1} Link</label>
+                    <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
+                </div>
+            `;
 
-    // projectContainer.appendChild(projectTemplate);
+    projectContainer.appendChild(projectTemplate);
   });
 }
+
 // =======================================
 // // =========== SEARCH FUNCTIONALITY storing selected tags============
 const searchForm = document.querySelector('.search-questions__container');

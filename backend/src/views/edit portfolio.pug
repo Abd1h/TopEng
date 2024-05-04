@@ -198,22 +198,25 @@ block content
                 form.form.form-user-projects.projects(action='')
                     .subform__header-container
                         h3 Projects
-                        button.add-project.projects(type='button')
+                        button.add-experience.projects(type='button')
                             svg.subform__header-icon.icon-24px
                                 use(href='../assets/icons.svg#icon-plus-lg')
                     each project in user.projects
                         .margin-left.project-container.experience-container
-                            .form__group
-                                label.form__label(for='projectname') Project Name
-                                input#projectname.form__input(type='text', value=project.name, placeholder='e.g weatherAPI')
-                            .form__group
-                                label.form__label(for='projectlink') Project Link
-                                input#projectlink.form__input(type='text', value=project.link, placeholder='https://wethAPI.com')
-                            button.add-project.projects.btn(type='button') Add More
+                            div.project__input-container
+                                .form__group
+                                    label.form__label(for='projectname') Project Name
+                                    input#projectname.form__input(type='text', value=project.name, placeholder='e.g weatherAPI')
+                                .form__group
+                                    label.form__label(for='projectlink') Project Link
+                                    input#projectlink.form__input(type='text', value=project.link, placeholder='https://wethAPI.com')
+                            div        
+                              button.add-project.projects.btn(type='button') Add More
                             .remove-experience-container
-                                h4 Remove Project
+                                h4 Remove Projects
                     .btn-container
-
                         button.btn-cancel(type='button')
                         a(href='portfolio.html') Cancel
                         button.sign__btn--up(type='submit') Save Settings
+            
+                
