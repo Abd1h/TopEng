@@ -300,8 +300,9 @@ svg {
   fill: var(--clr-base);
 }
 small {
-  font-size: var(--fs-300);
+  font-size: 0.8rem;
   font-weight: 400;
+  text-transform: lowercase;
 }
 /* ============================================ 
                   global classes

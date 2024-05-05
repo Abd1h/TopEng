@@ -105,7 +105,7 @@ block content
                             input#availability.form__input(type='availability' placeholder='Full time (50hrs/wk)')
                     .form__group
                         label.form__label(for='skills') Skills
-                            small (Add multiple options by holding Ctrl/Cmd)
+                            small (add more options by holding Ctrl/Cmd)
                         .custom-dropdown
                             select#skills.form__input.overflow-container(type='skills',multiple, size = '4')
                                 each skill in ['Project Management', 'Adaptability', 'Customer Focus', 'Decision-Making', 'Continuous Learning', 'Leadership', 'Creativity', 'Presentation Skills', 'Safety Awareness', 'Other']
@@ -204,12 +204,13 @@ block content
                     each project in user.projects
                         .margin-left.project-container.experience-container
                             div.project__input-container
-                                .form__group
-                                    label.form__label(for='projectname') Project Name
-                                    input#projectname.form__input(type='text', value=project.name, placeholder='e.g weatherAPI')
-                                .form__group
-                                    label.form__label(for='projectlink') Project Link
-                                    input#projectlink.form__input(type='text', value=project.link, placeholder='https://wethAPI.com')
+                                div.project__input-group
+                                    .form__group
+                                        label.form__label(for='projectname') Project Name
+                                        input#projectname.form__input(type='text', value=project.name, placeholder='e.g weatherAPI')
+                                    .form__group
+                                        label.form__label(for='projectlink') Project Link
+                                        input#projectlink.form__input(type='text', value=project.link, placeholder='https://wethAPI.com')
                             div        
                               button.add-project.projects.btn(type='button') Add More
                             .remove-experience-container

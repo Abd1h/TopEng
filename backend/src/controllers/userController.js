@@ -56,6 +56,7 @@ exports.getMe = (req, res, next) => {
 };
 
 exports.updateMe = catchAsync(async (req, res, next) => {
+  console.log(req.body);
   // 1) Create error if user POSTs password data
   if (req.body.password || req.body.passwordConfirm) {
     return next(new AppError('This route is not for password updates. Please use /updateMyPassword.', 400));
@@ -77,11 +78,18 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'languages',
     'workExperience',
     'education',
+    'projects',
     'photo'
   );
-
+  //  Handle the 'projects' field update BECAUSE it is a nested arrays
+  if (req.body.projects) {
+    filteredBody.projects = req.body.projects.map((project) => ({
+      ProjectName: project.ProjectName,
+      ProjectLink: project.ProjectLink,
+    }));
+  }
   if (req.file) filteredBody.photo = req.file.filename;
-
+  console.log(filteredBody);
   // 3) Update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,

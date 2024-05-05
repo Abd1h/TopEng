@@ -141,12 +141,31 @@ const workOrEducation = function (type = 'work') {
           endYear: el.querySelector(`#${type}years`).value.split('-')[1],
         });
       }
+      if (type === 'project') {
+        // Loop through each project element
+        const name = [];
+        const link = [];
+        document.querySelectorAll('.project__input-group').forEach((project) => {
+          // Extract the project name and link from the current project element
+          name.push(project.querySelector('#projectname').value);
+          link.push(project.querySelector('#projectlink').value);
+          console.log(name, link);
+          // Add the project entry to the formEntries array
+        });
+        formEntries.push({ ProjectName: name, ProjectLink: link });
+
+        // Now you have an array of project entries (formEntries) that you can send to the database
+      }
     });
     if (type === 'work') {
       return { workExperience: [...formEntries] };
     }
     if (type === 'education') {
       return { education: [...formEntries] };
+    }
+    if (type === 'project') {
+      console.log({ projects: [...formEntries] });
+      return { projects: [...formEntries] };
     }
   }
 };
@@ -181,7 +200,15 @@ if (userPasswordForm)
     document.getElementById('newpassword').value = '';
     document.getElementById('confirmnewpassword').value = '';
   });
+if (userProjectsForm) {
+  userProjectsForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
+    const form = workOrEducation('project');
+
+    updateSettings(form, 'data');
+  });
+}
 if (userProjectsForm) {
   const addButton = document.querySelector('.add-project');
   const projectContainer = document.querySelector('.project__input-container');
@@ -200,10 +227,10 @@ if (userProjectsForm) {
     if (maxProjects === projectCount) {
       addButton.classList.add('hidden');
     }
-    const projectTemplate = document.createElement('div');
 
-    projectTemplate.innerHTML = `
+    const markup = `
                 <div class="section-separator"></div>
+                <div class="project__input-group">
                 <div class="form__group">
                     <label class="form__label" for="projectname">Project ${projectCount + 1} Name</label>
                     <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
@@ -212,9 +239,10 @@ if (userProjectsForm) {
                     <label class="form__label" for="projectlink">Project ${projectCount + 1} Link</label>
                     <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
                 </div>
+                </div>
             `;
 
-    projectContainer.appendChild(projectTemplate);
+    projectContainer.insertAdjacentHTML('beforeend', markup);
   });
 }
 

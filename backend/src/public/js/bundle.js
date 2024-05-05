@@ -9472,6 +9472,24 @@ var workOrEducation = function workOrEducation() {
           endYear: el.querySelector("#".concat(type, "years")).value.split('-')[1]
         });
       }
+      if (type === 'project') {
+        // Loop through each project element
+        var name = [];
+        var link = [];
+        document.querySelectorAll('.project__input-group').forEach(function (project) {
+          // Extract the project name and link from the current project element
+          name.push(project.querySelector('#projectname').value);
+          link.push(project.querySelector('#projectlink').value);
+          console.log(name, link);
+          // Add the project entry to the formEntries array
+        });
+        formEntries.push({
+          ProjectName: name,
+          ProjectLink: link
+        });
+
+        // Now you have an array of project entries (formEntries) that you can send to the database
+      }
     });
     if (type === 'work') {
       return {
@@ -9481,6 +9499,14 @@ var workOrEducation = function workOrEducation() {
     if (type === 'education') {
       return {
         education: [].concat(formEntries)
+      };
+    }
+    if (type === 'project') {
+      console.log({
+        projects: [].concat(formEntries)
+      });
+      return {
+        projects: [].concat(formEntries)
       };
     }
   }
@@ -9533,6 +9559,27 @@ if (userPasswordForm) userPasswordForm.addEventListener('submit', /*#__PURE__*/f
   };
 }());
 if (userProjectsForm) {
+  userProjectsForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
+      var form;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            e.preventDefault();
+            form = workOrEducation('project');
+            (0, _updateSettings.updateSettings)(form, 'data');
+          case 3:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2);
+    }));
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+}
+if (userProjectsForm) {
   var addButton = document.querySelector('.add-project');
   var projectContainer = document.querySelector('.project__input-container');
   var maxProjects = 4;
@@ -9549,9 +9596,8 @@ if (userProjectsForm) {
     if (maxProjects === projectCount) {
       addButton.classList.add('hidden');
     }
-    var projectTemplate = document.createElement('div');
-    projectTemplate.innerHTML = "\n                <div class=\"section-separator\"></div>\n                <div class=\"form__group\">\n                    <label class=\"form__label\" for=\"projectname\">Project ".concat(projectCount + 1, " Name</label>\n                    <input class=\"form__input\" type=\"text\" id=\"projectname\" name=\"projectname\" placeholder=\"e.g weatherAPI\">\n                </div>\n                <div class=\"form__group\">\n                    <label class=\"form__label\" for=\"projectlink\">Project ").concat(projectCount + 1, " Link</label>\n                    <input class=\"form__input\" type=\"text\" id=\"projectlink\" name=\"projectlink\" placeholder=\"https://wethAPI.com\">\n                </div>\n            ");
-    projectContainer.appendChild(projectTemplate);
+    var markup = "\n                <div class=\"section-separator\"></div>\n                <div class=\"project__input-group\">\n                <div class=\"form__group\">\n                    <label class=\"form__label\" for=\"projectname\">Project ".concat(projectCount + 1, " Name</label>\n                    <input class=\"form__input\" type=\"text\" id=\"projectname\" name=\"projectname\" placeholder=\"e.g weatherAPI\">\n                </div>\n                <div class=\"form__group\">\n                    <label class=\"form__label\" for=\"projectlink\">Project ").concat(projectCount + 1, " Link</label>\n                    <input class=\"form__input\" type=\"text\" id=\"projectlink\" name=\"projectlink\" placeholder=\"https://wethAPI.com\">\n                </div>\n                </div>\n            ");
+    projectContainer.insertAdjacentHTML('beforeend', markup);
   });
 }
 
@@ -9646,7 +9692,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54745" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59436" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
