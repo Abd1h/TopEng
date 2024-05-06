@@ -1519,3 +1519,41 @@ form *:focus {
   background-color: var(--clr-base);
   opacity: 1;
 }
+
+/* ===================================================== */
+.project-row {
+  display: flex; /* Use flexbox to arrange project info */
+  align-items: center; /* Vertically center project info */
+  gap: 1rem; /* Add spacing between project info */
+  border-bottom: 1px solid #ccc; /* Add a border line between each project */
+  padding: 1rem 0;
+}
+
+.project-info {
+  flex: 1;
+  color: var(--clr-base-dk);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
+.project-info h3 {
+  margin: 0;
+}
+.project-info label {
+  color: var(--clr-base);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-semiBold);
+  margin-bottom: 4px;
+}
+.project-info a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.project-info a:hover {
+  color: #0056b3;
+}
+.project-info label {
+  margin-bottom: 0.5rem;
+}

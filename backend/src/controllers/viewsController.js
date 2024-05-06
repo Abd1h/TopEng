@@ -102,6 +102,7 @@ exports.getLoginForm = (req, res) => {
 };
 
 exports.getAccount = async (req, res) => {
+  console.log(res.user, req.user);
   res.status(200).render('portfolio', {
     title: 'Your account',
   });

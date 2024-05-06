@@ -5,11 +5,11 @@ const bcrypt = require('bcryptjs');
 const { link } = require('fs');
 
 const projectSchema = new mongoose.Schema({
-  ProjectName: {
-    type: [String],
+  projectName: {
+    type: String,
   },
-  ProjectLink: {
-    type: [String],
+  projectLink: {
+    type: String,
   },
 });
 

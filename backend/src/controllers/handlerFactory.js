@@ -18,7 +18,6 @@ exports.deleteOne = (Model) =>
 
 exports.updateOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    console.log(req.body);
     const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
@@ -53,11 +52,11 @@ exports.getOne = (Model, popOptions) =>
     let query = Model.findById(req.params.id);
     if (popOptions) query = query.populate(popOptions);
     const doc = await query;
-
+    console.log(doc);
     if (!doc) {
       return next(new AppError('No document found with that ID', 404));
     }
-
+    console.log(doc);
     res.status(200).json({
       status: 'success',
       data: {

@@ -9473,21 +9473,16 @@ var workOrEducation = function workOrEducation() {
         });
       }
       if (type === 'project') {
-        // Loop through each project element
-        var name = [];
-        var link = [];
+        // const projects = [];
         document.querySelectorAll('.project__input-group').forEach(function (project) {
-          // Extract the project name and link from the current project element
-          name.push(project.querySelector('#projectname').value);
-          link.push(project.querySelector('#projectlink').value);
-          console.log(name, link);
-          // Add the project entry to the formEntries array
+          var nameValue = project.querySelector('#projectname').value;
+          var linkValue = project.querySelector('#projectlink').value;
+          formEntries.push({
+            projectName: nameValue,
+            projectLink: linkValue
+          });
         });
-        formEntries.push({
-          ProjectName: name,
-          ProjectLink: link
-        });
-
+        // formEntries.push({ projects });
         // Now you have an array of project entries (formEntries) that you can send to the database
       }
     });
@@ -9502,7 +9497,7 @@ var workOrEducation = function workOrEducation() {
       };
     }
     if (type === 'project') {
-      console.log({
+      console.log('index', 111, {
         projects: [].concat(formEntries)
       });
       return {
@@ -9515,7 +9510,6 @@ if (userWorkForm) {
   userWorkForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var form = workOrEducation('work');
-    console.log(form);
     (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
@@ -9661,6 +9655,17 @@ categoryButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     // Get the category title associated with the button
     var categoryTitle = button.querySelector('.category__title').textContent;
+    var selectedCategory = {
+      engineeringCategoryQuestion: [categoryTitle]
+    };
+    (0, _search.search)(selectedCategory);
+  });
+});
+var categoryNavBtns = document.querySelectorAll('.sublist__link');
+categoryNavBtns.forEach(function (button) {
+  button.addEventListener('click', function () {
+    // Get the category title associated with the button
+    var categoryTitle = button.textContent;
     var selectedCategory = {
       engineeringCategoryQuestion: [categoryTitle]
     };

@@ -52,6 +52,7 @@ const filterObj = (obj, ...allowedFields) => {
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
+  console.log(req.user.id);
   next();
 };
 
@@ -82,14 +83,15 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'photo'
   );
   //  Handle the 'projects' field update BECAUSE it is a nested arrays
-  if (req.body.projects) {
+  if (req.body.projects && Array.isArray(req.body.projects)) {
     filteredBody.projects = req.body.projects.map((project) => ({
-      ProjectName: project.ProjectName,
-      ProjectLink: project.ProjectLink,
+      projectName: project.projectName,
+      projectLink: project.projectLink,
     }));
   }
+
   if (req.file) filteredBody.photo = req.file.filename;
-  console.log(filteredBody);
+
   // 3) Update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,
