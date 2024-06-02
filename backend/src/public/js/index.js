@@ -102,6 +102,7 @@ if (userDataForm) {
       EngineeringBranch: document.getElementById('engineeringbranch').value,
       university: firstLetterCaptilized(document.getElementById('university').value),
       about: document.getElementById('about').value,
+      contactEmail: document.getElementById('contactEmail').value,
       github: document.getElementById('github').value,
       xaccount: document.getElementById('xaccount').value,
       location: firstLetterCaptilized(document.getElementById('location').value),
@@ -110,7 +111,7 @@ if (userDataForm) {
       skills: selectedSkills,
       languages: firstLetterCaptilized(languagesa),
     };
-
+    console.log(form);
     updateSettings(form, 'data');
   });
 }
@@ -141,6 +142,16 @@ const workOrEducation = function (type = 'work') {
           endYear: el.querySelector(`#${type}years`).value.split('-')[1],
         });
       }
+      if (type === 'project') {
+        // const projects = [];
+        document.querySelectorAll('.project__input-group').forEach((project) => {
+          const nameValue = project.querySelector('#projectname').value;
+          const linkValue = project.querySelector('#projectlink').value;
+          formEntries.push({ projectName: nameValue, projectLink: linkValue });
+        });
+        // formEntries.push({ projects });
+        // Now you have an array of project entries (formEntries) that you can send to the database
+      }
     });
     if (type === 'work') {
       return { workExperience: [...formEntries] };
@@ -148,13 +159,17 @@ const workOrEducation = function (type = 'work') {
     if (type === 'education') {
       return { education: [...formEntries] };
     }
+    if (type === 'project') {
+      console.log('index', 111, { projects: [...formEntries] });
+      return { projects: [...formEntries] };
+    }
   }
 };
 if (userWorkForm) {
   userWorkForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = workOrEducation('work');
-    console.log(form);
+
     updateSettings(form, 'data');
   });
 }
@@ -181,29 +196,49 @@ if (userPasswordForm)
     document.getElementById('newpassword').value = '';
     document.getElementById('confirmnewpassword').value = '';
   });
-
-const addButton = document.querySelector('.add-project');
-const projectContainer = document.querySelector('.project-container');
 if (userProjectsForm) {
-  addButton.addEventListener('click', function (e) {
-    console.log('click');
+  userProjectsForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log('click');
-    // const projectTemplate = document.createElement('div');
-    // projectTemplate.classList.add('margin-left', 'project-container', 'experience-container');
 
-    // projectTemplate.innerHTML = `
-    //             <div class="form__group">
-    //                 <label class="form__label" for="projectname">Project Name</label>
-    //                 <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
-    //             </div>
-    //             <div class="form__group">
-    //                 <label class="form__label" for="projectlink">Project Link</label>
-    //                 <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
-    //             </div>
-    //         `;
+    const form = workOrEducation('project');
 
-    // projectContainer.appendChild(projectTemplate);
+    updateSettings(form, 'data');
+  });
+}
+if (userProjectsForm) {
+  const addButton = document.querySelector('.add-project');
+  const projectContainer = document.querySelector('.project__input-container');
+  const maxProjects = 4;
+  let projectCount = 0;
+
+  addButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (projectCount >= maxProjects) {
+      // Maximum projects reached, disable the add button
+      addButton.disabled = true;
+      return;
+    }
+    // Increment project count
+    projectCount++;
+    if (maxProjects === projectCount) {
+      addButton.classList.add('hidden');
+    }
+
+    const markup = `
+                <div class="section-separator"></div>
+                <div class="project__input-group">
+                <div class="form__group">
+                    <label class="form__label" for="projectname">Project ${projectCount + 1} Name</label>
+                    <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="projectlink">Project ${projectCount + 1} Link</label>
+                    <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
+                </div>
+                </div>
+            `;
+
+    projectContainer.insertAdjacentHTML('beforeend', markup);
   });
 }
 
@@ -272,6 +307,16 @@ categoryButtons.forEach((button) => {
   button.addEventListener('click', () => {
     // Get the category title associated with the button
     const categoryTitle = button.querySelector('.category__title').textContent;
+    const selectedCategory = { engineeringCategoryQuestion: [categoryTitle] };
+    search(selectedCategory);
+  });
+});
+
+const categoryNavBtns = document.querySelectorAll('.sublist__link');
+categoryNavBtns.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Get the category title associated with the button
+    const categoryTitle = button.textContent;
     const selectedCategory = { engineeringCategoryQuestion: [categoryTitle] };
     search(selectedCategory);
   });

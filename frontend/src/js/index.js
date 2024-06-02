@@ -4,6 +4,7 @@ const overlayNav = document.querySelector('.overlay');
 const navBtnClose = document.querySelector('.nav__btn__close');
 const portfolioContainer = document.querySelector('.portfolio-container');
 const btnAddExperience = document.querySelectorAll('.add-experience');
+
 const educationContainer = document.querySelector('.education');
 const workExperienceContainer = document.querySelector('.workexperience');
 // sliding  mobile nav

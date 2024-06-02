@@ -52,10 +52,12 @@ const filterObj = (obj, ...allowedFields) => {
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
+
   next();
 };
 
 exports.updateMe = catchAsync(async (req, res, next) => {
+  console.log(req.body);
   // 1) Create error if user POSTs password data
   if (req.body.password || req.body.passwordConfirm) {
     return next(new AppError('This route is not for password updates. Please use /updateMyPassword.', 400));
@@ -68,6 +70,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'EngineeringBranch',
     'university',
     'about',
+    'contactEmail',
     'github',
     'xaccount',
     'location',
@@ -77,8 +80,16 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'languages',
     'workExperience',
     'education',
+    'projects',
     'photo'
   );
+  //  Handle the 'projects' field update BECAUSE it is a nested arrays
+  if (req.body.projects && Array.isArray(req.body.projects)) {
+    filteredBody.projects = req.body.projects.map((project) => ({
+      projectName: project.projectName,
+      projectLink: project.projectLink,
+    }));
+  }
 
   if (req.file) filteredBody.photo = req.file.filename;
 

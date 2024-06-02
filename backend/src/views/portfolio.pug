@@ -14,16 +14,16 @@ block content
                 img(src=`./assets/users/${user.photo}` alt='profile pic')
               .socials__container
                   .engineer__socials.flex-row
-                    if user.workEmail
-                        a.engineer__social-link(href=`${user.workEmail||'#'}`,target="_blink")
+                    if user.contactEmail
+                        a.engineer__social-link(href=`https://mail.google.com/mail/?view=cm&fs=1&to=${user.contactEmail}`,target="_blink")
                           svg.engineer__social-icon.icon-24px
                             use(href='../assets/icons.svg#icon-envelope')
-                    if user.githubAccount
-                        a.engineer__social-link(href=`${user.githubAccount||'#'}`,target="_blink")
+                    if user.github
+                        a.engineer__social-link(href=`${user.github||'#'}`,target="_blink")
                           svg.engineer__social-icon.icon-24px
                             use(href='../assets/icons.svg#icon-github')
-                    if user.xAccount
-                      a.engineer__social-link(href=`${user.xAccount||'#'}`,target="_blink")
+                    if user.xaccount
+                      a.engineer__social-link(href=`${user.xaccount||'#'}`,target="_blink")
                         svg.engineer__social-icon.icon-24px
                           use(href='../assets/icons.svg#icon-x')
               unless displayUserWithoutEditing         
@@ -51,7 +51,7 @@ block content
             if user.yearsOfExperienceInput
               .engineer__info-row
                 h3.engineer__info-header Experience:
-                p.engineer__info-description=`${user.yearsOfExperienceOutput}`
+                p.engineer__info-description=`${user.yearsOfExperienceInput}`
       if user.about    
         section.section__about.bk-clr-primarylt.bottom-margin
               .container
@@ -89,7 +89,7 @@ block content
                 .language=language
         
         
-      if user.workExperience
+      if user.workExperience && user.workExperience.some(exp => Object.keys(exp.toObject()).length > 1)
         section.section__work.bk-clr-primarylt.bottom-margin
           .container
             .section__header__container
@@ -110,7 +110,7 @@ block content
                     svg.experience__years-icon
                       use(href='../assets/icons.svg#icon-calender')
                     span=`${work.startYear} - ${work.endYear}`
-      if user.education  
+      if user.education && user.education.some(exp => Object.keys(exp.toObject()).length > 1)  
         section.section__education.bk-clr-primarylt.bottom-margin
           .container
             .section__header__container
@@ -131,4 +131,21 @@ block content
                     svg.experience__years-icon
                       use(href='../assets/icons.svg#icon-calender')
                     span=`${education.startYear} - ${education.endYear}`
-            
+      if user.projects && user.projects.some(exp => Object.keys(exp.toObject()).length > 1)
+        section.section__projects.bk-clr-primarylt.bottom-margin
+          .container
+            .section__header__container
+              svg.section__header-icon.icon-24px
+                use(href='../assets/icons.svg#collection')
+              h2.section__header Projects
+            .experiences-container
+              .project-row
+                    .project-info
+                      label(for='projectname') Title
+                    .project-info
+                      label(for='projectlink') Link
+              each project, index in user.projects
+                  .project-row
+                    .project-info= project.projectName
+                    .project-info
+                      a(href=project.projectLink)= project.projectLink

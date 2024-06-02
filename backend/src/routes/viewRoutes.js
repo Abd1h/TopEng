@@ -2,9 +2,10 @@ const express = require('express');
 const viewsController = require('../controllers/viewsController');
 const authController = require('../controllers/authController');
 const userController = require('../controllers/userController');
+const searchController = require('../controllers/searchController');
 const router = express.Router();
 
-router.get('/', authController.isLoggedIn, viewsController.home);
+router.get('/', authController.isLoggedIn, searchController.getCategoryCount, viewsController.home);
 // router.get('/category/:slug', authController.isLoggedIn, viewsController.getCategory);
 router.get('/login', authController.isLoggedIn, viewsController.getLoginForm);
 router.get('/me', authController.protect, viewsController.getAccount);

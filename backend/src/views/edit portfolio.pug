@@ -75,17 +75,23 @@ block content
                         else
                             textarea#about.form__input(maxlength='2600' type='about' cols='30' rows='10')
                     .form__group
-                        label.form__label(for='github') Github Account
-                        if user.githubAccount  
-                            input#github.form__input(type='github' value=user.githubAccount)
+                        label.form__label(for='contactEmail') contactEmail
+                        if user.contactEmail  
+                            input#contactEmail.form__input(type='email' value=user.contactEmail)
                         else
-                            input#github.form__input(type='github' )
+                            input#contactEmail.form__input(type='email' )
+                    .form__group
+                        label.form__label(for='github') Github Account
+                        if user.github
+                            input#github.form__input(type='github' value=user.github)
+                        else
+                            input#github.form__input(type='github' placeholder='https://github.com/' )
                     .form__group
                         label.form__label(for='xaccount') X Account
-                        if user.xAccount
-                            input#xaccount.form__input(type='xaccount' value=user.xAccount)
+                        if user.xaccount
+                            input#xaccount.form__input(type='xaccount' value=user.xaccount)
                         else
-                            input#xaccount.form__input(type='xaccount' placeholder='https://twitter.com')
+                            input#xaccount.form__input(type='xaccount' placeholder='https://x.com')
                     .form__group
                         label.form__label(for='location') Location
                         if user.location
@@ -105,7 +111,7 @@ block content
                             input#availability.form__input(type='availability' placeholder='Full time (50hrs/wk)')
                     .form__group
                         label.form__label(for='skills') Skills
-                            small (Add multiple options by holding Ctrl/Cmd)
+                            small (add more options by holding Ctrl/Cmd)
                         .custom-dropdown
                             select#skills.form__input.overflow-container(type='skills',multiple, size = '4')
                                 each skill in ['Project Management', 'Adaptability', 'Customer Focus', 'Decision-Making', 'Continuous Learning', 'Leadership', 'Creativity', 'Presentation Skills', 'Safety Awareness', 'Other']
@@ -198,23 +204,26 @@ block content
                 form.form.form-user-projects.projects(action='')
                     .subform__header-container
                         h3 Projects
-                        button.add-project.projects(type='button')
+                        button.add-experience.projects(type='button')
                             svg.subform__header-icon.icon-24px
                                 use(href='../assets/icons.svg#icon-plus-lg')
                     each project in user.projects
                         .margin-left.project-container.experience-container
-                            .form__group
-                                label.form__label(for='projectname') Project Name
-                                input#projectname.form__input(type='text', value=project.name, placeholder='e.g weatherAPI')
-                            .form__group
-                                label.form__label(for='projectlink') Project Link
-                                input#projectlink.form__input(type='text', value=project.link, placeholder='https://wethAPI.com')
-                            div
-                                button.add-project.projects.btn(type='button') Add More
+                            div.project__input-container
+                                div.project__input-group
+                                    .form__group
+                                        label.form__label(for='projectname') Project Name
+                                        input#projectname.form__input(type='text', value=project.name, placeholder='e.g weatherAPI')
+                                    .form__group
+                                        label.form__label(for='projectlink') Project Link
+                                        input#projectlink.form__input(type='text', value=project.link, placeholder='https://wethAPI.com')
+                            div        
+                              button.add-project.projects.btn(type='button') Add More
                             .remove-experience-container
-                                h4 Remove Project
+                                h4 Remove Projects
                     .btn-container
-
                         button.btn-cancel(type='button')
                         a(href='portfolio.html') Cancel
                         button.sign__btn--up(type='submit') Save Settings
+            
+                

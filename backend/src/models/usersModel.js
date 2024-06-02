@@ -5,10 +5,10 @@ const bcrypt = require('bcryptjs');
 const { link } = require('fs');
 
 const projectSchema = new mongoose.Schema({
-  name: {
+  projectName: {
     type: String,
   },
-  link: {
+  projectLink: {
     type: String,
   },
 });
@@ -138,10 +138,15 @@ const userSchema = new mongoose.Schema({
   //   lowercase: true,
   //   validate: [validator.isEmail, 'Please provide a valid email'],
   // },
-  githubAccount: {
+  contactEmail: {
+    type: String,
+    lowercase: true,
+    validate: [validator.isEmail, 'Please provide a valid email'],
+  },
+  github: {
     type: String,
   },
-  xAccount: {
+  xaccount: {
     type: String,
   },
   yearsOfExperienceInput: {
