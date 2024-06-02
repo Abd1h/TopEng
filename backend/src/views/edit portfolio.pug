@@ -75,17 +75,23 @@ block content
                         else
                             textarea#about.form__input(maxlength='2600' type='about' cols='30' rows='10')
                     .form__group
-                        label.form__label(for='github') Github Account
-                        if user.githubAccount  
-                            input#github.form__input(type='github' value=user.githubAccount)
+                        label.form__label(for='contactEmail') contactEmail
+                        if user.contactEmail  
+                            input#contactEmail.form__input(type='email' value=user.contactEmail)
                         else
-                            input#github.form__input(type='github' )
+                            input#contactEmail.form__input(type='email' )
+                    .form__group
+                        label.form__label(for='github') Github Account
+                        if user.github
+                            input#github.form__input(type='github' value=user.github)
+                        else
+                            input#github.form__input(type='github' placeholder='https://github.com/' )
                     .form__group
                         label.form__label(for='xaccount') X Account
-                        if user.xAccount
-                            input#xaccount.form__input(type='xaccount' value=user.xAccount)
+                        if user.xaccount
+                            input#xaccount.form__input(type='xaccount' value=user.xaccount)
                         else
-                            input#xaccount.form__input(type='xaccount' placeholder='https://twitter.com')
+                            input#xaccount.form__input(type='xaccount' placeholder='https://x.com')
                     .form__group
                         label.form__label(for='location') Location
                         if user.location

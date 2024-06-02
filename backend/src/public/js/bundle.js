@@ -9434,6 +9434,7 @@ if (userDataForm) {
       EngineeringBranch: document.getElementById('engineeringbranch').value,
       university: firstLetterCaptilized(document.getElementById('university').value),
       about: document.getElementById('about').value,
+      contactEmail: document.getElementById('contactEmail').value,
       github: document.getElementById('github').value,
       xaccount: document.getElementById('xaccount').value,
       location: firstLetterCaptilized(document.getElementById('location').value),
@@ -9442,6 +9443,7 @@ if (userDataForm) {
       skills: selectedSkills,
       languages: firstLetterCaptilized(languagesa)
     };
+    console.log(form);
     (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
@@ -9697,7 +9699,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59436" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50783" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

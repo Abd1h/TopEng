@@ -67,3 +67,35 @@ exports.getSearchResultsAPI = catchAsync(async (req, res, next) => {
 
   viewsController.updateSearchResults(searchResults);
 });
+
+exports.getCategoryCount = catchAsync(async (req, res, next) => {
+  const engineeringBranches = [
+    'Software Engineering',
+    'Computer Engineering',
+    'Electrical Engineering',
+    'Civil Engineering',
+    'Mechanical Engineering',
+    'Chemical Engineering',
+    'Materials Engineering',
+    'Environmental Engineering',
+    'Petroleum Engineering',
+    'Structural Engineering',
+  ];
+
+  // Initialize an object to store counts
+  let branchCounts = {};
+
+  // Loop through each Engineering Branch
+  for (let i = 0; i < engineeringBranches.length; i++) {
+    const branch = engineeringBranches[i];
+
+    // Count documents for current branch
+    const count = await User.find({ EngineeringBranch: branch }).countDocuments();
+
+    // Store the count in branchCounts object
+    branchCounts[branch] = count;
+  }
+  console.log(branchCounts);
+  viewsController.updateCategoryesCount(branchCounts);
+  next();
+});

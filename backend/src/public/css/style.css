@@ -805,6 +805,7 @@ footer h3 {
 
 .engineer__socials {
   justify-content: space-between;
+  gap: var(--spacing-l);
   margin-bottom: var(--spacing-l);
 }
 .engineer__social-icon {

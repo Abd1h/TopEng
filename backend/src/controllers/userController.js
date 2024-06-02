@@ -52,7 +52,7 @@ const filterObj = (obj, ...allowedFields) => {
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
-  console.log(req.user.id);
+
   next();
 };
 
@@ -70,6 +70,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'EngineeringBranch',
     'university',
     'about',
+    'contactEmail',
     'github',
     'xaccount',
     'location',
