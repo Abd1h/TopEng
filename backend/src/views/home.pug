@@ -41,72 +41,73 @@ block content
       h2.categories__title Browse by Category
       .categories__container
         // category item
-        a.category.category--computer(href='#')
+        button.category.category--computer(type="button")
           h4.category__title Computer Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 82
         // category item
-        a.category.category--civil(href='#')
+        button.category.category--civil(type="button")
           h4.category__title Civil Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 20
         // category item
-        a.category.category--software(href='#')
+        button.category.category--software(type="button")
           h4.category__title Software Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 82
         // category item
-        a.category.category--enviro(href='#')
+        button.category.category--enviro(type="button")
           h4.category__title Enviro Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 22
         // category item
-        a.category.category--chemical.category--hidden(href='#')
+        button.category.category--chemical.category--hidden(type="button")
           h4.category__title Chemical Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 12
         // category item
-        a.category.category--mechanical.category--hidden(href='#')
+        button.category.category--mechanical.category--hidden(type="button")
           h4.category__title Mechanical Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 43
         // category item
-        a.category.category--materials.category--hidden(href='#')
+        button.category.category--materials.category--hidden(type="button")
           h4.category__title Materials Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 04
         // category item
-        a.category.category--electrical.category--hidden(href='#')
+        button.category.category--electrical.category--hidden(type="button")
           h4.category__title Electrical Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 34
         // category item
-        a.category.category--structural.category--hidden(href='#')
+        button.category.category--structural.category--hidden(type="button")
           h4.category__title Structural Engineering
           .category__count
             svg.category__icon
               use(href='assets/icons.svg#icon-people-fill')
             span.count__number 72
-        button.category__btn
-          | Show more (
-          span.category__btn__number 5
-          | )
+      button.category__btn
+        | Show more (
+        span.category__btn__number 5
+        | )
+
     // why TopEng section
     section.why-topeng
       h2.why-topeng__title

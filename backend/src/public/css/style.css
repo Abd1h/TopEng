@@ -299,10 +299,14 @@ svg {
   height: 2rem;
   fill: var(--clr-base);
 }
-
+small {
+  font-size: var(--fs-300);
+  font-weight: 400;
+}
 /* ============================================ 
                   global classes
 ============================================  */
+
 .bk-clr-primarylt {
   background-color: var(--clr-primary-lt);
 }
@@ -874,7 +878,7 @@ footer h3 {
   margin-bottom: var(--spacing-l);
   padding: var(--spacing-l) 0;
 }
-.experiences-container {
+.experiences-container .projects-container {
   display: grid;
   grid-column: 1fr;
   gap: var(--spacing-l2);
@@ -1046,24 +1050,65 @@ footer h3 {
 }
 
 /* Apply a basic style to the select element */
-select {
+/* select {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 1.875rem;
   appearance: none;
-}
+
+  overflow: scroll;
+} */
 
 /* Style the options within the select dropdown */
-select option {
+/* select option {
   padding: 10px;
-}
+} */
 
 /* Style the selected option in the dropdown */
-select option:checked {
-  background-color: #3498db; /* Set your desired background color */
-  color: #ffffff; /* Set your desired text color */
+/* select option:checked {
+  background-color: #3498db; /* Set your desired background color 
+  color: #ffffff;  Set your desired text color 
+} */
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--clr-primary-lt);
+  border: 1px solid #cccccc;
+  border-radius: var(--border-r);
+  padding: 8px 12px;
+  color: var(--base-dk);
+  cursor: pointer;
+  outline: none;
 }
+
+/* Apply custom styles to the arrow icon */
+select::after {
+  content: '\25BC'; /* Down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Apply custom styles to the dropdown menu */
+select:hover::after {
+  color: var(--clr-base); /* Change arrow color on hover */
+}
+
+/* Apply custom styles to the options in the dropdown menu */
+select option {
+  background-color: var(--clr-primary-lt);
+  color: var(--base-dk);
+}
+
+/* Apply custom styles to the dropdown when open */
+select:focus {
+  border-color: #007bff;
+}
+
 .sign__btn {
   font-weight: 700;
 }
@@ -1134,12 +1179,26 @@ select option:checked {
 .form__label {
   color: var(--clr-base-dk);
 }
-.form__input {
+/* .form__input {
   border: 1px solid var(--clr-base-dk);
   padding: var(--spacing-m);
   border-radius: 5px;
   font-weight: 400;
+} */
+.form__input {
+  border: 1px solid var(--clr-base);
+  padding: var(--spacing-m);
+  font-weight: 400;
+  background-color: transparent;
+  transition: border-color 0.3s ease;
+  border-radius: var(--border-r);
 }
+
+.form__input:focus {
+  border-color: var(--clr-primary); /* Change bottom border color on focus */
+  outline: none; /* Remove default focus outline */
+}
+
 .text-container {
   margin-top: var(--spacing-l2);
   font-size: var(--fs-300);
@@ -1267,20 +1326,20 @@ select option:checked {
 }
 .alert {
   position: fixed;
-  top: 0;
+  top: 10%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   z-index: 9999;
   color: var(--clr-base-dk);
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: var(--fw-bold);
   text-align: center;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 1rem 5rem;
+  border-radius: 8px;
+  padding: var(--spacing-l2) var(--spacing-s);
   -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-transform: capitalize;
 }
 .alert--success {
   background-color: var(--clr-primary);
@@ -1361,4 +1420,82 @@ select option:checked {
   border-radius: 20%;
   background-color: var(--clr-primary);
   color: var(--clr-base-lt);
+}
+
+/* error message*/
+/* Error message container */
+.error-container {
+  text-transform: capitalize;
+  margin: var(--spacing-l1) auto; /* Center horizontally */
+  background-color: var(--clr-base-dk); /* Light red background */
+  color: var(--clr-base-lt); /* Dark red text color */
+  text-align: center;
+  font-size: var(--fs-sub-heading);
+  padding: var(--spacing-l2) var(--spacing-s);
+  border-radius: 8px;
+  margin-inline: var(--spacing-l);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  /* max-width: 400px; */
+  font-weight: var(--fw-bold);
+  font-family: inherit;
+}
+
+/* Error message text */
+.error-message {
+  /* font-size: 18px; */
+
+  color: var(--clr-secondary);
+  margin-bottom: 10px;
+}
+
+/* Error message subtext (if needed) */
+.error-subtext {
+  /* font-size: 14px; */
+  /* color: #721c24; Dark red subtext color */
+  margin-bottom: var(--spacing-l2);
+}
+
+.overflow-container {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--clr-primary-lt);
+  border: 1px solid #cccccc;
+  border-radius: var(--border-r);
+  padding: 2px 12px;
+
+  color: var(--base-dk);
+  cursor: pointer;
+  outline: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-base) transparent;
+  scroll-behavior: smooth;
+}
+.overflow-container option {
+  padding: 4px 0;
+}
+/* Style the selected option */
+select option:checked {
+  background-color: var(--clr-primary); /* Change background color when option is selected */
+  color: #ffffff; /* Change text color when option is selected */
+}
+select option:hover {
+  background-color: var(--clr-primary); /* Change background color when option is selected */
+  color: #ffffff; /* Change text color when option is selected */
+}
+
+/* Apply smooth edges to the select box */
+select {
+  border-radius: 8px; /* Adjust border-radius for smooth edges */
+}
+
+/* Apply smooth edges to the dropdown arrow */
+select::after {
+  border-radius: 50%; /* Adjust border-radius for smooth edges */
+}
+form *:focus {
+  outline: none;
 }

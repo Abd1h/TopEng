@@ -7,13 +7,14 @@ import { search } from './search';
 // DOM ELEMENTS
 const loginForm = document.querySelector('.form--Log-In');
 const signUpForm = document.querySelector('.form--signup');
-const logOutBtn = document.querySelector('.logout__btn');
+const logOutBtn = document.querySelectorAll('.logout__btn');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const userWorkForm = document.querySelector('.form-user-work');
 const userEducationForm = document.querySelector('.form-user-education');
 const userPhotoForm = document.querySelector('.form-user-photo');
-
+const userProjectsForm = document.querySelector('.form-user-projects');
+const errorWindow = document.querySelector('.error-container');
 if (userPhotoForm) {
   userPhotoForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -46,8 +47,11 @@ if (signUpForm) {
     signUp(email, password, passwordConfirm, name);
   });
 }
-if (logOutBtn) logOutBtn.addEventListener('click', logout);
 
+if (logOutBtn) {
+  //there is two logout buttons (desktop and mobile)
+  logOutBtn.forEach((btn) => btn.addEventListener('click', logout));
+}
 if (userDataForm) {
   userDataForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -62,6 +66,12 @@ if (userDataForm) {
     //   form.append('yearsofexperienceInput', document.getElementById('yearsofexperience').value);
     //   form.append('availability', document.getElementById('availability').value);
     const skillsa = document.getElementById('skills').value.split(',');
+    // Get the <select> element
+    const skillsSelect = document.getElementById('skills');
+    const selectedOptions = Array.from(skillsSelect.selectedOptions);
+    // Extract values from selected options
+    const selectedSkills = selectedOptions.map((option) => option.value);
+
     //   form.append('skills', skills);
     const languagesa = document.getElementById('languages').value.split(',');
     //   form.append('languages', languages);
@@ -86,23 +96,25 @@ if (userDataForm) {
         return words;
       }
     };
+
     const form = {
       name: document.getElementById('name').value,
-      EngineeringBranch: firstLetterCaptilized(document.getElementById('engineeringbranch').value),
+      EngineeringBranch: document.getElementById('engineeringbranch').value,
       university: firstLetterCaptilized(document.getElementById('university').value),
       about: document.getElementById('about').value,
       github: document.getElementById('github').value,
       xaccount: document.getElementById('xaccount').value,
       location: firstLetterCaptilized(document.getElementById('location').value),
-      yearsofexperienceInput: document.getElementById('yearsofexperience').value,
+      yearsOfExperienceInput: document.getElementById('yearsofexperience').value,
       availability: firstLetterCaptilized(document.getElementById('availability').value),
-      skills: firstLetterCaptilized(skillsa),
+      skills: selectedSkills,
       languages: firstLetterCaptilized(languagesa),
     };
-    // console.log(form);
+
     updateSettings(form, 'data');
   });
 }
+
 const workOrEducation = function (type = 'work') {
   const container = type === 'work' ? userWorkForm : userEducationForm;
   const experienceContainer = container.querySelectorAll('.experience-container');
@@ -170,6 +182,31 @@ if (userPasswordForm)
     document.getElementById('confirmnewpassword').value = '';
   });
 
+const addButton = document.querySelector('.add-project');
+const projectContainer = document.querySelector('.project-container');
+if (userProjectsForm) {
+  addButton.addEventListener('click', function (e) {
+    console.log('click');
+    e.preventDefault();
+    console.log('click');
+    // const projectTemplate = document.createElement('div');
+    // projectTemplate.classList.add('margin-left', 'project-container', 'experience-container');
+
+    // projectTemplate.innerHTML = `
+    //             <div class="form__group">
+    //                 <label class="form__label" for="projectname">Project Name</label>
+    //                 <input class="form__input" type="text" id="projectname" name="projectname" placeholder="e.g weatherAPI">
+    //             </div>
+    //             <div class="form__group">
+    //                 <label class="form__label" for="projectlink">Project Link</label>
+    //                 <input class="form__input" type="text" id="projectlink" name="projectlink" placeholder="https://wethAPI.com">
+    //             </div>
+    //         `;
+
+    // projectContainer.appendChild(projectTemplate);
+  });
+}
+
 // =======================================
 // // =========== SEARCH FUNCTIONALITY storing selected tags============
 const searchForm = document.querySelector('.search-questions__container');
@@ -218,3 +255,24 @@ if (searchForm) {
     btn.addEventListener('click', handleSearchBtnClick);
   });
 }
+
+if (errorWindow) {
+  document.getElementById('backButton').addEventListener('click', function () {
+    window.history.back();
+  });
+}
+
+// categroy section events handling
+// Select all buttons with the class '.category'
+const categoryButtons = document.querySelectorAll('.category');
+
+// Initialize an empty object to store the category titles
+
+categoryButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Get the category title associated with the button
+    const categoryTitle = button.querySelector('.category__title').textContent;
+    const selectedCategory = { engineeringCategoryQuestion: [categoryTitle] };
+    search(selectedCategory);
+  });
+});

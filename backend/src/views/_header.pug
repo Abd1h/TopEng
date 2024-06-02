@@ -77,11 +77,14 @@ header.header.container
           span.nav__link__mobile Contacts
       li.flex-row
         .flex-row.header__sign
-          a(href='/login')
-            button.sign__btn.sign__btn--in Log In
-          span.header__separator |
-          a(href='/signup')
-            button.sign__btn.sign__btn--up Sign Up
+            if user
+              button.sign__btn.sign__btn--up
+                a.nav__el(href='/me') Portfolio
+              a.nav__el.nav__el--cta.logout__btn(href='#') Log out
+            else
+              a.sublist__link(href='/login') Log In
+              button.sign__btn.sign__btn--up
+                a.sublist__link(href='/signup') Sign Up
         // if loged in
         //
           <div class="header__account">
