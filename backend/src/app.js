@@ -19,7 +19,6 @@ const userRouter = require('./routes/userRoutes');
 const searchRouter = require('./routes/searchRoutes');
 // Start express app
 const app = express();
-
 app.enable('trust proxy');
 
 app.set('view engine', 'pug');
@@ -93,3 +92,5 @@ app.all('*', (req, res, next) => {
 app.use(globalErrorHandler);
 
 module.exports = app;
+
+console.log(process.env.NODE_ENV);
