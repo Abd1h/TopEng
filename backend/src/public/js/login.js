@@ -59,7 +59,7 @@ export const logout = async () => {
     if ((res.data.status = 'success')) {
       showAlert('success', 'Logging Out');
       window.setTimeout(() => {
-        window.location.href = '/home';
+        window.location.href = '/';
       }, 1500);
       // location.reload(true);
     }
