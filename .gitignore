@@ -4,3 +4,6 @@ dist
 .DS_Store
 config.env
 .cache/
+/frontend
+frontend
+.vcco
