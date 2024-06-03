@@ -47,11 +47,11 @@ exports.editPortfolio = (req, res) => {
     title: 'edit portfolio',
   });
 };
-exports.search = catchAsync((req, res) => {
+exports.search = (req, res) => {
   res.status(200).render('search', {
     title: 'search',
   });
-});
+};
 // exports.searchResult = catchAsync(async (req, res, next) => {
 //   const users1 = factory.getAll(User);
 //   console.log(User);
