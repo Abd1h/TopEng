@@ -7,7 +7,7 @@ export const search = async (selectedTags) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'api/v1/search/getSearchResults',
+      url: '/api/v1/search/getSearchResults',
       data: {
         selectedTags,
       },
